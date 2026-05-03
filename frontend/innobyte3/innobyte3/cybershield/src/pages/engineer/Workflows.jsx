@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowRight, Check, Clock, Circle, Lock, Bot, BookOpen, Download } from 'lucide-react';
 import { useAppStore } from '../../store/useAppStore';
@@ -111,26 +111,36 @@ export const Workflows = () => {
   const [selected, setSelected] = useState(Object.keys(WORKFLOWS)[0]);
   const [steps, setSteps] = useState([]);
 
-  useEffect(() => { fetchIncidents(); }, [fetchIncidents]);
+  const refreshWorkflows = useCallback(async () => {
+    fetchIncidents();
+    const data = await api.getIncidents();
+    if (!data || data.length === 0) return;
 
-  // Merge live AEGIS playbooks from backend
+    const merged = { ...WORKFLOWS };
+    // Take the 5 most recent incidents to show in playbooks
+    for (const inc of data.slice(0, 5)) {
+      try {
+        const pbSteps = await api.getWorkflow(inc.attackType || 'unknown');
+        if (pbSteps?.length > 0) {
+          const label = `🤖 ${inc.attackType || 'Unknown'} [${inc.id}]`;
+          merged[label] = {
+            iso: 'AEGIS Auto',
+            isoClause: 'AI-Generated',
+            legalRef: 'AEGIS Pipeline',
+            steps: pbSteps.map(s => ({ ...s, isAI: true }))
+          };
+        }
+      } catch { }
+    }
+    setAllWorkflows(merged);
+    setTypes(Object.keys(merged));
+  }, [fetchIncidents]);
+
   useEffect(() => {
-    if (!incidents || incidents.length === 0) return;
-    (async () => {
-      const merged = { ...WORKFLOWS };
-      for (const inc of incidents.slice(0, 5)) {
-        try {
-          const pbSteps = await api.getWorkflow(inc.attackType || 'unknown');
-          if (pbSteps?.length > 0) {
-            const label = `🤖 ${inc.attackType || 'Unknown'} [${inc.id}]`;
-            merged[label] = { iso: 'AEGIS Auto', isoClause: 'AI-Generated', legalRef: 'AEGIS Pipeline', steps: pbSteps.map(s => ({ ...s, isAI: true })) };
-          }
-        } catch {}
-      }
-      setAllWorkflows(merged);
-      setTypes(Object.keys(merged));
-    })();
-  }, [incidents]);
+    refreshWorkflows();
+    const interval = setInterval(refreshWorkflows, 10000);
+    return () => clearInterval(interval);
+  }, [refreshWorkflows]);
 
   useEffect(() => {
     const wf = allWorkflows[selected];
