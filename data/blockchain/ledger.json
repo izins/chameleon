@@ -1830,5 +1830,310 @@
     "previous_hash": "00921a68a0d76bbc2281d6f666e0726d0e9c4ed03226694d7805c184d57d21f2",
     "nonce": 51,
     "hash": "00a93209794dd95e5efec5e6ae34991bbce468fec57dff742f11712f31949f93"
+  },
+  {
+    "index": 87,
+    "timestamp": "2026-05-03T08:11:26.983531+00:00",
+    "transactions": [
+      {
+        "tx_id": "8619479f-e70b-4109-85c4-09852c4c514f",
+        "timestamp": "2026-05-03T08:11:26.983509+00:00",
+        "document_type": "EnrichedAlert",
+        "document_id": "fdc175d4-44ee-488a-aaff-999d6ce61183",
+        "document_hash": "b7d52cb7c33bf51a715d5449ba8a5c36b835b03a7fe9e8e67b3f191876f9f1b9",
+        "metadata": {
+          "attack_type": "data_exfiltration",
+          "severity": "P1"
+        }
+      }
+    ],
+    "previous_hash": "00a93209794dd95e5efec5e6ae34991bbce468fec57dff742f11712f31949f93",
+    "nonce": 223,
+    "hash": "008818582fe00ab92a924c9278f6fdd06983188102f268be1899c0afa52058fa"
+  },
+  {
+    "index": 88,
+    "timestamp": "2026-05-03T08:11:26.990784+00:00",
+    "transactions": [
+      {
+        "tx_id": "73dcafa1-675a-4cf8-b441-13c4d617d784",
+        "timestamp": "2026-05-03T08:11:26.990767+00:00",
+        "document_type": "IsolationActions",
+        "document_id": "fdc175d4-44ee-488a-aaff-999d6ce61183",
+        "document_hash": "c978baaed7184c21cf93278425a06cd1c5cd559911bdbd59e0f83d92a04def05",
+        "metadata": {
+          "actions_count": 1
+        }
+      }
+    ],
+    "previous_hash": "008818582fe00ab92a924c9278f6fdd06983188102f268be1899c0afa52058fa",
+    "nonce": 9,
+    "hash": "0029037ee987d1491d5e659fe82c1c96e60c92b2876678f12aa1364f383bb39c"
+  },
+  {
+    "index": 89,
+    "timestamp": "2026-05-03T08:11:26.998169+00:00",
+    "transactions": [
+      {
+        "tx_id": "e7e6da51-fc4d-4b33-a76f-3ee420c457ec",
+        "timestamp": "2026-05-03T08:11:26.998152+00:00",
+        "document_type": "IncidentReport",
+        "document_id": "a7e4b818-370a-4edb-ac87-95ad11a75fe0",
+        "document_hash": "7ff35183026d9940d5ddf0c2081b45f38051f8f64aa3fd49023a013e35badc90",
+        "metadata": {
+          "entity_id": "185.220.101.29",
+          "severity": "P1",
+          "risk_score": 2.49,
+          "attack_classification": "Unclassified Behavioral Anomaly"
+        }
+      }
+    ],
+    "previous_hash": "0029037ee987d1491d5e659fe82c1c96e60c92b2876678f12aa1364f383bb39c",
+    "nonce": 285,
+    "hash": "003bf27976c81ca210994d5622c01eb219fb5bb7e55681240bc4e781321cb5f3"
+  },
+  {
+    "index": 90,
+    "timestamp": "2026-05-03T08:11:27.315045+00:00",
+    "transactions": [
+      {
+        "tx_id": "8ed619d1-e218-4fe0-b653-8eb73d3c7d52",
+        "timestamp": "2026-05-03T08:11:27.315024+00:00",
+        "document_type": "EnrichedAlert",
+        "document_id": "6a4e41dc-fcbe-4228-b1ca-6c6f1c8f7aa4",
+        "document_hash": "c15e7d42234bb98b6e264becd855fc8e2f2be2c3fac8404e6e50787a21c0d674",
+        "metadata": {
+          "attack_type": "advanced_persistent_threat",
+          "severity": "P1"
+        }
+      }
+    ],
+    "previous_hash": "003bf27976c81ca210994d5622c01eb219fb5bb7e55681240bc4e781321cb5f3",
+    "nonce": 382,
+    "hash": "00e21d135392c2bea84029f0b78d2a022fbbce59670d145d5e815bcc0f14fda8"
+  },
+  {
+    "index": 91,
+    "timestamp": "2026-05-03T08:11:27.322388+00:00",
+    "transactions": [
+      {
+        "tx_id": "653fc44a-1b49-4cf3-b4bc-2f8b10a83890",
+        "timestamp": "2026-05-03T08:11:27.322371+00:00",
+        "document_type": "IsolationActions",
+        "document_id": "6a4e41dc-fcbe-4228-b1ca-6c6f1c8f7aa4",
+        "document_hash": "e80d06e19ee1cc48e21e0611f3a6f1feddb00ddd3f3e4b3eab9f3571c561232f",
+        "metadata": {
+          "actions_count": 1
+        }
+      }
+    ],
+    "previous_hash": "00e21d135392c2bea84029f0b78d2a022fbbce59670d145d5e815bcc0f14fda8",
+    "nonce": 80,
+    "hash": "00e82064c6a359f30d6f0b6554a40a4eeb5a27d8748fe98050f0bcadde8c444a"
+  },
+  {
+    "index": 92,
+    "timestamp": "2026-05-03T08:11:27.330915+00:00",
+    "transactions": [
+      {
+        "tx_id": "272c6ac1-ea8e-4c17-864e-a677c12f120e",
+        "timestamp": "2026-05-03T08:11:27.330900+00:00",
+        "document_type": "IncidentReport",
+        "document_id": "00dffad1-c5ec-4133-b3cc-1b93f979125b",
+        "document_hash": "3c23960a0966202f62bef992893e367e2e27057cbc06af78786b37917a44721a",
+        "metadata": {
+          "entity_id": "185.220.101.27",
+          "severity": "P1",
+          "risk_score": 2.44,
+          "attack_classification": "Unclassified Behavioral Anomaly"
+        }
+      }
+    ],
+    "previous_hash": "00e82064c6a359f30d6f0b6554a40a4eeb5a27d8748fe98050f0bcadde8c444a",
+    "nonce": 714,
+    "hash": "0044adf96bdf9ecef4b69418ae94d1787ea24efb08c4116642e7cdde93597775"
+  },
+  {
+    "index": 93,
+    "timestamp": "2026-05-03T08:11:27.654856+00:00",
+    "transactions": [
+      {
+        "tx_id": "2d1cf65f-e09c-42bc-8cf6-687ab6798af6",
+        "timestamp": "2026-05-03T08:11:27.654836+00:00",
+        "document_type": "EnrichedAlert",
+        "document_id": "5d7084ab-065e-4e56-a320-dfca27de2fcd",
+        "document_hash": "efc981c46af6d15d216a848c5366999ab0867725af867772ba72004af85b8f5b",
+        "metadata": {
+          "attack_type": "ransomware_activity",
+          "severity": "P1"
+        }
+      }
+    ],
+    "previous_hash": "0044adf96bdf9ecef4b69418ae94d1787ea24efb08c4116642e7cdde93597775",
+    "nonce": 450,
+    "hash": "0030dac10ca6a171cde30c3a5ee98f94dc466b1fe44b57fd0d3065bb48f6c021"
+  },
+  {
+    "index": 94,
+    "timestamp": "2026-05-03T08:11:27.663619+00:00",
+    "transactions": [
+      {
+        "tx_id": "ae94b67d-4c0b-46db-941e-60eb28cecfad",
+        "timestamp": "2026-05-03T08:11:27.663603+00:00",
+        "document_type": "IsolationActions",
+        "document_id": "5d7084ab-065e-4e56-a320-dfca27de2fcd",
+        "document_hash": "71c2cb4ce203f2c196087589c7880dcbfd596334dc9648819760095fa40ad8a5",
+        "metadata": {
+          "actions_count": 1
+        }
+      }
+    ],
+    "previous_hash": "0030dac10ca6a171cde30c3a5ee98f94dc466b1fe44b57fd0d3065bb48f6c021",
+    "nonce": 185,
+    "hash": "00a0776cebe9ab04e1541cd778814fbf1efe4942ee90b29fde14912329a0ccf3"
+  },
+  {
+    "index": 95,
+    "timestamp": "2026-05-03T08:11:27.671522+00:00",
+    "transactions": [
+      {
+        "tx_id": "867c785c-7ac6-46a4-ae49-eaee057c2467",
+        "timestamp": "2026-05-03T08:11:27.671510+00:00",
+        "document_type": "IncidentReport",
+        "document_id": "f9093eb7-2144-4ee5-b46f-ce904e70f0b1",
+        "document_hash": "7778491974c4bb89e60db9c690e1799af10dfabe99994115404881ea3defe419",
+        "metadata": {
+          "entity_id": "185.220.101.34",
+          "severity": "P1",
+          "risk_score": 2.45,
+          "attack_classification": "Unclassified Behavioral Anomaly"
+        }
+      }
+    ],
+    "previous_hash": "00a0776cebe9ab04e1541cd778814fbf1efe4942ee90b29fde14912329a0ccf3",
+    "nonce": 38,
+    "hash": "004034f6b3af8909dfcfa0a7433c0d1b382b1243fa828241d04dd21756a98837"
+  },
+  {
+    "index": 96,
+    "timestamp": "2026-05-03T08:11:27.990131+00:00",
+    "transactions": [
+      {
+        "tx_id": "4aadb296-5a02-4187-985d-8137e5a4a675",
+        "timestamp": "2026-05-03T08:11:27.990111+00:00",
+        "document_type": "EnrichedAlert",
+        "document_id": "bb0116e0-7dd7-4e07-8656-23ab647bb4eb",
+        "document_hash": "e6d2291d9a5dcafec3af208dc8cd38d34138588a23ff09606990b0403917f108",
+        "metadata": {
+          "attack_type": "data_exfiltration",
+          "severity": "P1"
+        }
+      }
+    ],
+    "previous_hash": "004034f6b3af8909dfcfa0a7433c0d1b382b1243fa828241d04dd21756a98837",
+    "nonce": 350,
+    "hash": "00b7a4b0def683a48808407fd8bb6525a26dff462f9a40081ddca7b977ae5987"
+  },
+  {
+    "index": 97,
+    "timestamp": "2026-05-03T08:11:27.999398+00:00",
+    "transactions": [
+      {
+        "tx_id": "d873def6-1aca-4a98-bede-7205b6799199",
+        "timestamp": "2026-05-03T08:11:27.999378+00:00",
+        "document_type": "IsolationActions",
+        "document_id": "bb0116e0-7dd7-4e07-8656-23ab647bb4eb",
+        "document_hash": "4e9fb6cbfa4fae01ed8a7cd4ca6326b038920f84d003493d66d33afc3dc6e18b",
+        "metadata": {
+          "actions_count": 1
+        }
+      }
+    ],
+    "previous_hash": "00b7a4b0def683a48808407fd8bb6525a26dff462f9a40081ddca7b977ae5987",
+    "nonce": 68,
+    "hash": "00faaacaf53b2ba0b9e49dfc9e352d30edaf6f2a6b8c1adfc49ef0017094662f"
+  },
+  {
+    "index": 98,
+    "timestamp": "2026-05-03T08:11:28.006724+00:00",
+    "transactions": [
+      {
+        "tx_id": "274c2b07-a7b3-4473-a6a9-b61ee26b480f",
+        "timestamp": "2026-05-03T08:11:28.006710+00:00",
+        "document_type": "IncidentReport",
+        "document_id": "8e00d3bb-1f3a-438a-a595-55a6dfde6016",
+        "document_hash": "c44f5e1d0d644b1e59b57ddae92b3b17f4ab616880b500a210404f34b62d43f0",
+        "metadata": {
+          "entity_id": "185.220.101.45",
+          "severity": "P1",
+          "risk_score": 2.5,
+          "attack_classification": "Unclassified Behavioral Anomaly"
+        }
+      }
+    ],
+    "previous_hash": "00faaacaf53b2ba0b9e49dfc9e352d30edaf6f2a6b8c1adfc49ef0017094662f",
+    "nonce": 18,
+    "hash": "009e76e2d998df473c7eb53f71d022b78b16f7464aa03b12d1c260ce5c381a42"
+  },
+  {
+    "index": 99,
+    "timestamp": "2026-05-03T08:11:28.328296+00:00",
+    "transactions": [
+      {
+        "tx_id": "98026e24-9933-4886-8361-15a7a89658fd",
+        "timestamp": "2026-05-03T08:11:28.328274+00:00",
+        "document_type": "EnrichedAlert",
+        "document_id": "9f36916c-1c70-4f2a-aaef-826238b7ab35",
+        "document_hash": "e8d21cae9b80fdbefabe100caf11f17026defadbfe51da3f973d592e4eafb660",
+        "metadata": {
+          "attack_type": "ransomware_activity",
+          "severity": "P1"
+        }
+      }
+    ],
+    "previous_hash": "009e76e2d998df473c7eb53f71d022b78b16f7464aa03b12d1c260ce5c381a42",
+    "nonce": 482,
+    "hash": "00996c88576ac8415c0c96cb297214df159beb06d4fe38a3ae5f08b64e7cb913"
+  },
+  {
+    "index": 100,
+    "timestamp": "2026-05-03T08:11:28.337467+00:00",
+    "transactions": [
+      {
+        "tx_id": "29219cbe-0f66-49eb-bdd5-5e5207790b2d",
+        "timestamp": "2026-05-03T08:11:28.337450+00:00",
+        "document_type": "IsolationActions",
+        "document_id": "9f36916c-1c70-4f2a-aaef-826238b7ab35",
+        "document_hash": "42b36e595831f39ba3d6b7838b571dbfd5492f2c4aa007948d15703170b4e354",
+        "metadata": {
+          "actions_count": 1
+        }
+      }
+    ],
+    "previous_hash": "00996c88576ac8415c0c96cb297214df159beb06d4fe38a3ae5f08b64e7cb913",
+    "nonce": 53,
+    "hash": "00e1feefe48a27489de366a090565c3d3c9c1e31037c10650704e0e449a91f73"
+  },
+  {
+    "index": 101,
+    "timestamp": "2026-05-03T08:11:28.345989+00:00",
+    "transactions": [
+      {
+        "tx_id": "308cbe31-d11f-47c3-8cf6-0f6cb8a3e3c2",
+        "timestamp": "2026-05-03T08:11:28.345973+00:00",
+        "document_type": "IncidentReport",
+        "document_id": "ed0b753c-d79d-43b1-99d6-4868026a9f1b",
+        "document_hash": "7f0563fb4428b8ad161be0e08ee1c215eead1f911705e62ecc4d282a33360c3c",
+        "metadata": {
+          "entity_id": "185.220.101.64",
+          "severity": "P1",
+          "risk_score": 2.47,
+          "attack_classification": "Unclassified Behavioral Anomaly"
+        }
+      }
+    ],
+    "previous_hash": "00e1feefe48a27489de366a090565c3d3c9c1e31037c10650704e0e449a91f73",
+    "nonce": 440,
+    "hash": "00079dcd17e46de3e7e72b0c25a4b8b2102197b3e6d5971aa00f021be35cccde"
   }
 ]

@@ -1,9 +1,9 @@
 {
-  "scan_id": "5f178ea3",
-  "scanned_at": "2026-05-03T07:09:18.430745+00:00",
+  "scan_id": "5e0ab8b3",
+  "scanned_at": "2026-05-03T08:08:59.210506+00:00",
   "local_ip": "10.5.2.62",
   "gateway_ip": "",
-  "total_devices": 5,
+  "total_devices": 8,
   "devices": [
     {
       "ip": "10.5.2.62",
@@ -22,26 +22,7 @@
       "open_ports": [],
       "subnet": "",
       "connections": [],
-      "last_seen": "2026-05-03T07:09:03.333894+00:00"
-    },
-    {
-      "ip": "10.5.1.205",
-      "mac": "18:47:3d:17:27:fb",
-      "hostname": "DESKTOP-61T2J01",
-      "vendor": "",
-      "device_type": "workstation",
-      "device_role": "",
-      "criticality": 5,
-      "business_impact": "medium",
-      "is_gateway": false,
-      "is_local": false,
-      "is_isolated": false,
-      "isolation_reason": "",
-      "isolated_at": null,
-      "open_ports": [],
-      "subnet": "10.5.1.0/24",
-      "connections": [],
-      "last_seen": "2026-05-03T07:09:03.333921+00:00"
+      "last_seen": "2026-05-03T08:08:24.167119+00:00"
     },
     {
       "ip": "10.5.2.101",
@@ -60,7 +41,7 @@
       "open_ports": [],
       "subnet": "10.5.2.0/24",
       "connections": [],
-      "last_seen": "2026-05-03T07:09:04.869866+00:00"
+      "last_seen": "2026-05-03T08:08:24.167151+00:00"
     },
     {
       "ip": "10.5.2.153",
@@ -79,7 +60,83 @@
       "open_ports": [],
       "subnet": "10.5.2.0/24",
       "connections": [],
-      "last_seen": "2026-05-03T07:09:09.385254+00:00"
+      "last_seen": "2026-05-03T08:08:29.207086+00:00"
+    },
+    {
+      "ip": "10.5.2.172",
+      "mac": "a0:af:bd:9e:43:dc",
+      "hostname": "",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": false,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "10.5.2.0/24",
+      "connections": [],
+      "last_seen": "2026-05-03T08:08:34.273284+00:00"
+    },
+    {
+      "ip": "10.5.2.194",
+      "mac": "28:d0:43:04:ea:db",
+      "hostname": "",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": false,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "10.5.2.0/24",
+      "connections": [],
+      "last_seen": "2026-05-03T08:08:39.244965+00:00"
+    },
+    {
+      "ip": "10.5.2.223",
+      "mac": "60:f2:62:9a:2f:40",
+      "hostname": "",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": false,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "10.5.2.0/24",
+      "connections": [],
+      "last_seen": "2026-05-03T08:08:44.230869+00:00"
+    },
+    {
+      "ip": "10.5.3.117",
+      "mac": "2a:41:66:00:e1:cf",
+      "hostname": "",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": false,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "10.5.3.0/24",
+      "connections": [],
+      "last_seen": "2026-05-03T08:08:49.210275+00:00"
     },
     {
       "ip": "10.5.3.254",
@@ -98,14 +155,10 @@
       "open_ports": [],
       "subnet": "10.5.3.0/24",
       "connections": [],
-      "last_seen": "2026-05-03T07:09:13.915559+00:00"
+      "last_seen": "2026-05-03T08:08:54.193949+00:00"
     }
   ],
   "edges": [
-    {
-      "source": "10.5.2.62",
-      "target": "10.5.1.205"
-    },
     {
       "source": "10.5.2.62",
       "target": "10.5.2.101"
@@ -113,6 +166,22 @@
     {
       "source": "10.5.2.62",
       "target": "10.5.2.153"
+    },
+    {
+      "source": "10.5.2.62",
+      "target": "10.5.2.172"
+    },
+    {
+      "source": "10.5.2.62",
+      "target": "10.5.2.194"
+    },
+    {
+      "source": "10.5.2.62",
+      "target": "10.5.2.223"
+    },
+    {
+      "source": "10.5.2.62",
+      "target": "10.5.3.117"
     },
     {
       "source": "10.5.2.62",
@@ -136,10 +205,38 @@
       "status": "closed"
     },
     {
+      "incident_id": "700cc6fe",
+      "entity_id": "haystack-test",
+      "severity": "P2",
+      "attack_type": "anomaly_unknown",
+      "status": "closed"
+    },
+    {
       "incident_id": "7a071250",
       "entity_id": "haystack-test",
       "severity": "P2",
       "attack_type": "anomaly_unknown",
+      "status": "closed"
+    },
+    {
+      "incident_id": "8e85422d",
+      "entity_id": "203.0.113.66",
+      "severity": "P3",
+      "attack_type": "ssh_bruteforce",
+      "status": "closed"
+    },
+    {
+      "incident_id": "e7050297",
+      "entity_id": "haystack-test",
+      "severity": "P2",
+      "attack_type": "anomaly_unknown",
+      "status": "closed"
+    },
+    {
+      "incident_id": "edb3c2a6",
+      "entity_id": "203.0.113.66",
+      "severity": "P3",
+      "attack_type": "ssh_bruteforce",
       "status": "closed"
     }
   ]
