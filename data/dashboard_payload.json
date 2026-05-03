@@ -2,10 +2,10 @@
   "generated_at": "2026-05-03T07:28:45.628306+00:00",
   "test_name": "Needle in the Haystack — 200 logs, 1 attack",
   "scenarios_tested": 1,
-  "total_events": 300,
-  "total_sessions": 115,
-  "total_ml_alerts": 3,
-  "total_reports": 3,
+  "total_events": 800,
+  "total_sessions": 495,
+  "total_ml_alerts": 8,
+  "total_reports": 8,
   "attack_distribution": {
     "Brute_Force_SSH": 5,
     "DDoS_SynFlood": 6,
@@ -19,9 +19,11 @@
     "Zero_Day_Exploit": 7,
     "advanced_persistent_threat": 5,
     "anomaly_unknown": 117,
+    "credential_stuffing": 6,
     "data_exfil": 26,
-    "lateral_movement": 1,
+    "lateral_movement": 3,
     "privilege_escalation": 9,
+    "ransomware_activity": 2,
     "ssh_bruteforce": 30
   },
   "severity_distribution": {},
@@ -1028,7 +1030,7 @@
     "03:00": 4,
     "04:00": 2,
     "05:00": 3,
-    "07:00": 13,
+    "07:00": 23,
     "09:00": 1,
     "10:00": 1,
     "11:00": 5,
@@ -1046,87 +1048,338 @@
   },
   "recent_attacks": [
     {
-      "alert_id": "3407288c-67e5-4406-ae93-0b490dfd8fe6",
-      "ip": "185.220.101.38",
-      "attack_type": "advanced_persistent_threat",
+      "alert_id": "b7d0e239-b329-4368-8e19-7e938c4a4747",
+      "ip": "185.220.101.88",
+      "attack_type": "credential_stuffing",
       "severity": "P1",
-      "confidence": 0.95,
-      "timestamp": "2026-05-03T07:28:46.440469+00:00"
+      "confidence": 0.9223279246796322,
+      "timestamp": "2026-05-03T07:54:59.922978+00:00"
     },
     {
-      "alert_id": "e1111eb2-deda-40b9-8c36-ff110563916d",
-      "ip": "185.220.101.38",
-      "attack_type": "advanced_persistent_threat",
+      "alert_id": "b309c766-939c-45e4-aff1-3545b1cea16d",
+      "ip": "185.220.101.88",
+      "attack_type": "credential_stuffing",
       "severity": "P1",
-      "confidence": 0.95,
-      "timestamp": "2026-05-03T07:28:46.417327+00:00"
+      "confidence": 0.9223279246796322,
+      "timestamp": "2026-05-03T07:54:59.910531+00:00"
     },
     {
-      "alert_id": "712d6aca-cca5-49ea-91d7-dc487d3c3d23",
-      "ip": "haystack-test",
-      "attack_type": "anomaly_unknown",
-      "severity": "P2",
-      "confidence": 0.6423,
-      "timestamp": "2026-05-03T07:28:45.588286+00:00"
-    },
-    {
-      "alert_id": "a5149cad-26a1-4882-b64c-7720a10f25bc",
-      "ip": "haystack-test",
-      "attack_type": "anomaly_unknown",
-      "severity": "P2",
-      "confidence": 0.6423,
-      "timestamp": "2026-05-03T07:28:45.577162+00:00"
-    },
-    {
-      "alert_id": "977304f9-0265-4b57-bbc6-e6a1413163d3",
-      "ip": "203.0.113.66",
-      "attack_type": "ssh_bruteforce",
-      "severity": "P3",
-      "confidence": 0.4611,
-      "timestamp": "2026-05-03T07:28:45.538078+00:00"
-    },
-    {
-      "alert_id": "4eb61d9c-a716-47e7-b4ac-f79e63c7bafb",
-      "ip": "203.0.113.66",
-      "attack_type": "ssh_bruteforce",
-      "severity": "P3",
-      "confidence": 0.4611,
-      "timestamp": "2026-05-03T07:28:45.526987+00:00"
-    },
-    {
-      "alert_id": "a26a9911-646d-444e-b2d3-dcdfe9b57a56",
-      "ip": "185.220.101.84",
-      "attack_type": "advanced_persistent_threat",
+      "alert_id": "cf2dbaaf-0af1-4dea-a5d3-22cce1d96d69",
+      "ip": "185.220.101.60",
+      "attack_type": "ransomware_activity",
       "severity": "P1",
-      "confidence": 0.95,
-      "timestamp": "2026-05-03T07:22:59.029920+00:00"
+      "confidence": 0.8951490309680223,
+      "timestamp": "2026-05-03T07:54:59.599859+00:00"
     },
     {
-      "alert_id": "037e336f-6c2f-42c1-97fd-78de31d45245",
-      "ip": "185.220.101.84",
-      "attack_type": "advanced_persistent_threat",
+      "alert_id": "73a6e5bd-5a0f-4ad7-a1c5-6a270d9c6143",
+      "ip": "185.220.101.60",
+      "attack_type": "ransomware_activity",
       "severity": "P1",
-      "confidence": 0.95,
-      "timestamp": "2026-05-03T07:22:59.010727+00:00"
+      "confidence": 0.8951490309680223,
+      "timestamp": "2026-05-03T07:54:59.581424+00:00"
     },
     {
-      "alert_id": "e51d2c76-62a2-42f9-883c-867c810d07ef",
-      "ip": "haystack-test",
-      "attack_type": "anomaly_unknown",
-      "severity": "P2",
-      "confidence": 0.6423,
-      "timestamp": "2026-05-03T07:20:37.398942+00:00"
+      "alert_id": "81bc1131-bbc6-4a0f-82e0-548125cb428a",
+      "ip": "185.220.101.50",
+      "attack_type": "lateral_movement",
+      "severity": "P1",
+      "confidence": 0.9103884700209031,
+      "timestamp": "2026-05-03T07:54:59.276040+00:00"
     },
     {
-      "alert_id": "befe5f40-22f6-49b3-9f31-b118fd244b09",
-      "ip": "haystack-test",
-      "attack_type": "anomaly_unknown",
-      "severity": "P2",
-      "confidence": 0.6423,
-      "timestamp": "2026-05-03T07:20:37.386277+00:00"
+      "alert_id": "baea575b-3ef8-4444-8dff-a8a8eec78f83",
+      "ip": "185.220.101.50",
+      "attack_type": "lateral_movement",
+      "severity": "P1",
+      "confidence": 0.9103884700209031,
+      "timestamp": "2026-05-03T07:54:59.259942+00:00"
+    },
+    {
+      "alert_id": "4e1a4d77-1983-470e-a82e-f12cc812ec14",
+      "ip": "185.220.101.93",
+      "attack_type": "credential_stuffing",
+      "severity": "P1",
+      "confidence": 0.8689440750659133,
+      "timestamp": "2026-05-03T07:54:58.952983+00:00"
+    },
+    {
+      "alert_id": "b6e2ece0-0614-421c-8928-bcdda308bb5f",
+      "ip": "185.220.101.93",
+      "attack_type": "credential_stuffing",
+      "severity": "P1",
+      "confidence": 0.8689440750659133,
+      "timestamp": "2026-05-03T07:54:58.938073+00:00"
+    },
+    {
+      "alert_id": "e96d50c2-c1f0-435a-9e79-0a0d439532ba",
+      "ip": "185.220.101.79",
+      "attack_type": "credential_stuffing",
+      "severity": "P1",
+      "confidence": 0.9447215431699426,
+      "timestamp": "2026-05-03T07:54:58.628417+00:00"
+    },
+    {
+      "alert_id": "9c9d5493-f7cc-427d-9abf-ca1f402d662f",
+      "ip": "185.220.101.79",
+      "attack_type": "credential_stuffing",
+      "severity": "P1",
+      "confidence": 0.9447215431699426,
+      "timestamp": "2026-05-03T07:54:58.610447+00:00"
     }
   ],
   "reports": [
+    {
+      "report_id": "9458243c-bebf-44b4-a9a8-66647dc549ef",
+      "entity_id": "185.220.101.88",
+      "severity": "P1",
+      "risk_score": 2.45,
+      "risk_label": "LOW",
+      "generated_at": "2026-05-03T07:54:59.919529+00:00",
+      "attack_classification": "Unclassified Behavioral Anomaly",
+      "kill_chain": "Unknown — requires manual analysis",
+      "root_cause": "Behavioral anomaly on 185.220.101.88. UEBA suspicion score: 14.0. Manual investigation required.",
+      "impact_c": 3,
+      "impact_i": 2,
+      "impact_a": 7,
+      "playbook_steps": 17,
+      "playbook_time_min": 485,
+      "mitre_techniques": [],
+      "cves": [],
+      "max_cvss": 0.0,
+      "cert_dz_deadline": "2026-05-04T07:54:59.919374+00:00",
+      "cert_dz_hours": 24.0,
+      "cert_dz_liability": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale.",
+      "cert_dz_penalties_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+      "anpdp_deadline": "2026-05-06T07:54:59.919428+00:00",
+      "anpdp_hours": 72.0,
+      "anpdp_persons_affected": 150,
+      "anpdp_fines": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+      "anpdp_data_categories": [
+        "Catégories à déterminer après investigation"
+      ],
+      "executive_summary": "On 2026-05-03T07:54:59.908445+00:00, AEGIS detected a Unclassified Behavioral Anomaly incident targeting 185.220.101.88. The attack was classified as P1 with a risk score of 2.45/10 (LOW). 1 containment actions were executed. 4 additional assets were identified as affected. MITRE ATT&CK techniques: . Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+      "technical_summary": "INCIDENT TECHNICAL SUMMARY — 6a483488\nEntity: 185.220.101.88\nClassification: Unclassified Behavioral Anomaly\nKill Chain: Unknown — requires manual analysis\nRisk Score: 2.45 (LOW)\n\n── ASSET CONTEXT ──\nAsset Type: unknown\nAsset Role: unknown\nBusiness Impact: unknown\nData Classification: unknown\n\n── 5D RISK DECOMPOSITION ──\nD1 Vulnerability (CVSS+EPSS+KEV): 0.06\nD2 Asset Criticality:             1.25\nD3 Propagation Risk:              0.00\nD4 Entity History:                0.69\nD5 Data Sensitivity:              0.45\nEPSS Score: 0.05\nCISA KEV: No\nSources: []\n\n── ENRICHMENT ──\nCVSS Max: 0.0\nMITRE: \nCVEs: \nEntity History: score=92.2 attacks=['credential_stuffing']\nUEBA Suspicion: 14.0\nTemplate Sequence: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 3, 4, 3, 4, 3]\nAffected Assets: ['aegis-test', 'webserver', 'appserver', 'dbserver']\n\n── ANALYSIS ──\nRoot Cause: Behavioral anomaly on 185.220.101.88. UEBA suspicion score: 14.0. Manual investigation required.\nImpact: C=3 I=2 A=7\nPlaybook: 17 steps, ~485 minutes",
+      "isolation_actions": [],
+      "regulations": [
+        {
+          "reg_id": "DZ-CERT",
+          "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+          "deadline_hours": 24,
+          "urgency": "IMMEDIATE",
+          "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+        },
+        {
+          "reg_id": "DZ-ANPDP",
+          "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+          "deadline_hours": 72,
+          "urgency": "STANDARD",
+          "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+        }
+      ]
+    },
+    {
+      "report_id": "6f944a43-1b34-41a3-b334-09205f84031b",
+      "entity_id": "185.220.101.60",
+      "severity": "P1",
+      "risk_score": 2.43,
+      "risk_label": "LOW",
+      "generated_at": "2026-05-03T07:54:59.595160+00:00",
+      "attack_classification": "Unclassified Behavioral Anomaly",
+      "kill_chain": "Unknown — requires manual analysis",
+      "root_cause": "Behavioral anomaly on 185.220.101.60. UEBA suspicion score: 14.0. Manual investigation required.",
+      "impact_c": 3,
+      "impact_i": 2,
+      "impact_a": 7,
+      "playbook_steps": 17,
+      "playbook_time_min": 485,
+      "mitre_techniques": [],
+      "cves": [],
+      "max_cvss": 0.0,
+      "cert_dz_deadline": "2026-05-04T07:54:59.594994+00:00",
+      "cert_dz_hours": 24.0,
+      "cert_dz_liability": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale.",
+      "cert_dz_penalties_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+      "anpdp_deadline": "2026-05-06T07:54:59.595056+00:00",
+      "anpdp_hours": 72.0,
+      "anpdp_persons_affected": 150,
+      "anpdp_fines": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+      "anpdp_data_categories": [
+        "Catégories à déterminer après investigation"
+      ],
+      "executive_summary": "On 2026-05-03T07:54:59.579078+00:00, AEGIS detected a Unclassified Behavioral Anomaly incident targeting 185.220.101.60. The attack was classified as P1 with a risk score of 2.43/10 (LOW). 1 containment actions were executed. 4 additional assets were identified as affected. MITRE ATT&CK techniques: . Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+      "technical_summary": "INCIDENT TECHNICAL SUMMARY — de56b5eb\nEntity: 185.220.101.60\nClassification: Unclassified Behavioral Anomaly\nKill Chain: Unknown — requires manual analysis\nRisk Score: 2.43 (LOW)\n\n── ASSET CONTEXT ──\nAsset Type: unknown\nAsset Role: unknown\nBusiness Impact: unknown\nData Classification: unknown\n\n── 5D RISK DECOMPOSITION ──\nD1 Vulnerability (CVSS+EPSS+KEV): 0.06\nD2 Asset Criticality:             1.25\nD3 Propagation Risk:              0.00\nD4 Entity History:                0.67\nD5 Data Sensitivity:              0.45\nEPSS Score: 0.05\nCISA KEV: No\nSources: []\n\n── ENRICHMENT ──\nCVSS Max: 0.0\nMITRE: \nCVEs: \nEntity History: score=89.5 attacks=['ransomware_activity']\nUEBA Suspicion: 14.0\nTemplate Sequence: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 3, 4, 3, 4, 3]\nAffected Assets: ['aegis-test', 'webserver', 'appserver', 'dbserver']\n\n── ANALYSIS ──\nRoot Cause: Behavioral anomaly on 185.220.101.60. UEBA suspicion score: 14.0. Manual investigation required.\nImpact: C=3 I=2 A=7\nPlaybook: 17 steps, ~485 minutes",
+      "isolation_actions": [],
+      "regulations": [
+        {
+          "reg_id": "DZ-CERT",
+          "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+          "deadline_hours": 24,
+          "urgency": "IMMEDIATE",
+          "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+        },
+        {
+          "reg_id": "DZ-ANPDP",
+          "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+          "deadline_hours": 72,
+          "urgency": "STANDARD",
+          "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+        }
+      ]
+    },
+    {
+      "report_id": "efd3287c-be88-4def-a1a2-7c6c0262e74c",
+      "entity_id": "185.220.101.50",
+      "severity": "P1",
+      "risk_score": 4.88,
+      "risk_label": "MEDIUM",
+      "generated_at": "2026-05-03T07:54:59.271187+00:00",
+      "attack_classification": "Post-Compromise Expansion",
+      "kill_chain": "Lateral Movement → Discovery",
+      "root_cause": "Credential reuse or token theft from 185.220.101.50. Attacker pivoted to 4 assets. MITRE chain: T1021 → T1021.004.",
+      "impact_c": 7,
+      "impact_i": 6,
+      "impact_a": 7,
+      "playbook_steps": 18,
+      "playbook_time_min": 530,
+      "mitre_techniques": [
+        "T1021",
+        "T1021.004"
+      ],
+      "cves": [
+        "CVE-2024-6387",
+        "CVE-2023-48795"
+      ],
+      "max_cvss": 8.1,
+      "cert_dz_deadline": "2026-05-04T07:54:59.271048+00:00",
+      "cert_dz_hours": 24.0,
+      "cert_dz_liability": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale.",
+      "cert_dz_penalties_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+      "anpdp_deadline": "2026-05-06T07:54:59.271098+00:00",
+      "anpdp_hours": 72.0,
+      "anpdp_persons_affected": 150,
+      "anpdp_fines": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+      "anpdp_data_categories": [
+        "Catégories à déterminer après investigation"
+      ],
+      "executive_summary": "On 2026-05-03T07:54:59.254739+00:00, AEGIS detected a Post-Compromise Expansion incident targeting 185.220.101.50. The attack was classified as P1 with a risk score of 4.88/10 (MEDIUM). 1 containment actions were executed. 4 additional assets were identified as affected. MITRE ATT&CK techniques: T1021, T1021.004. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+      "technical_summary": "INCIDENT TECHNICAL SUMMARY — 9d56240b\nEntity: 185.220.101.50\nClassification: Post-Compromise Expansion\nKill Chain: Lateral Movement → Discovery\nRisk Score: 4.88 (MEDIUM)\n\n── ASSET CONTEXT ──\nAsset Type: unknown\nAsset Role: unknown\nBusiness Impact: unknown\nData Classification: unknown\n\n── 5D RISK DECOMPOSITION ──\nD1 Vulnerability (CVSS+EPSS+KEV): 2.50\nD2 Asset Criticality:             1.25\nD3 Propagation Risk:              0.00\nD4 Entity History:                0.68\nD5 Data Sensitivity:              0.45\nEPSS Score: 0.55\nCISA KEV: YES — actively exploited\nSources: ['CISA-KEV', 'EPSS(55%)', 'CVSS(8.1)']\n\n── ENRICHMENT ──\nCVSS Max: 8.1\nMITRE: T1021, T1021.004\nCVEs: CVE-2024-6387, CVE-2023-48795\nEntity History: score=91.0 attacks=['lateral_movement']\nUEBA Suspicion: 14.0\nTemplate Sequence: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 3, 4, 3, 4, 3]\nAffected Assets: ['aegis-test', 'webserver', 'appserver', 'dbserver']\n\n── ANALYSIS ──\nRoot Cause: Credential reuse or token theft from 185.220.101.50. Attacker pivoted to 4 assets. MITRE chain: T1021 → T1021.004.\nImpact: C=7 I=6 A=7\nPlaybook: 18 steps, ~530 minutes",
+      "isolation_actions": [],
+      "regulations": [
+        {
+          "reg_id": "DZ-CERT",
+          "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+          "deadline_hours": 24,
+          "urgency": "IMMEDIATE",
+          "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+        },
+        {
+          "reg_id": "DZ-ANPDP",
+          "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+          "deadline_hours": 72,
+          "urgency": "STANDARD",
+          "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+        }
+      ]
+    },
+    {
+      "report_id": "06cfdc8a-9e4f-485a-a7e3-db0db911e171",
+      "entity_id": "185.220.101.93",
+      "severity": "P1",
+      "risk_score": 2.41,
+      "risk_label": "LOW",
+      "generated_at": "2026-05-03T07:54:58.950109+00:00",
+      "attack_classification": "Unclassified Behavioral Anomaly",
+      "kill_chain": "Unknown — requires manual analysis",
+      "root_cause": "Behavioral anomaly on 185.220.101.93. UEBA suspicion score: 14.0. Manual investigation required.",
+      "impact_c": 3,
+      "impact_i": 2,
+      "impact_a": 7,
+      "playbook_steps": 17,
+      "playbook_time_min": 485,
+      "mitre_techniques": [],
+      "cves": [],
+      "max_cvss": 0.0,
+      "cert_dz_deadline": "2026-05-04T07:54:58.949958+00:00",
+      "cert_dz_hours": 24.0,
+      "cert_dz_liability": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale.",
+      "cert_dz_penalties_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+      "anpdp_deadline": "2026-05-06T07:54:58.950009+00:00",
+      "anpdp_hours": 72.0,
+      "anpdp_persons_affected": 150,
+      "anpdp_fines": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+      "anpdp_data_categories": [
+        "Catégories à déterminer après investigation"
+      ],
+      "executive_summary": "On 2026-05-03T07:54:58.935951+00:00, AEGIS detected a Unclassified Behavioral Anomaly incident targeting 185.220.101.93. The attack was classified as P1 with a risk score of 2.41/10 (LOW). 1 containment actions were executed. 4 additional assets were identified as affected. MITRE ATT&CK techniques: . Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+      "technical_summary": "INCIDENT TECHNICAL SUMMARY — e82927a3\nEntity: 185.220.101.93\nClassification: Unclassified Behavioral Anomaly\nKill Chain: Unknown — requires manual analysis\nRisk Score: 2.41 (LOW)\n\n── ASSET CONTEXT ──\nAsset Type: unknown\nAsset Role: unknown\nBusiness Impact: unknown\nData Classification: unknown\n\n── 5D RISK DECOMPOSITION ──\nD1 Vulnerability (CVSS+EPSS+KEV): 0.06\nD2 Asset Criticality:             1.25\nD3 Propagation Risk:              0.00\nD4 Entity History:                0.65\nD5 Data Sensitivity:              0.45\nEPSS Score: 0.05\nCISA KEV: No\nSources: []\n\n── ENRICHMENT ──\nCVSS Max: 0.0\nMITRE: \nCVEs: \nEntity History: score=86.9 attacks=['credential_stuffing']\nUEBA Suspicion: 14.0\nTemplate Sequence: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 3, 4, 3, 4, 3]\nAffected Assets: ['aegis-test', 'webserver', 'appserver', 'dbserver']\n\n── ANALYSIS ──\nRoot Cause: Behavioral anomaly on 185.220.101.93. UEBA suspicion score: 14.0. Manual investigation required.\nImpact: C=3 I=2 A=7\nPlaybook: 17 steps, ~485 minutes",
+      "isolation_actions": [],
+      "regulations": [
+        {
+          "reg_id": "DZ-CERT",
+          "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+          "deadline_hours": 24,
+          "urgency": "IMMEDIATE",
+          "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+        },
+        {
+          "reg_id": "DZ-ANPDP",
+          "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+          "deadline_hours": 72,
+          "urgency": "STANDARD",
+          "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+        }
+      ]
+    },
+    {
+      "report_id": "783c5d45-3ea8-42d1-8605-6252169be11b",
+      "entity_id": "185.220.101.79",
+      "severity": "P1",
+      "risk_score": 2.47,
+      "risk_label": "LOW",
+      "generated_at": "2026-05-03T07:54:58.622202+00:00",
+      "attack_classification": "Unclassified Behavioral Anomaly",
+      "kill_chain": "Unknown — requires manual analysis",
+      "root_cause": "Behavioral anomaly on 185.220.101.79. UEBA suspicion score: 14.0. Manual investigation required.",
+      "impact_c": 3,
+      "impact_i": 2,
+      "impact_a": 7,
+      "playbook_steps": 17,
+      "playbook_time_min": 485,
+      "mitre_techniques": [],
+      "cves": [],
+      "max_cvss": 0.0,
+      "cert_dz_deadline": "2026-05-04T07:54:58.622012+00:00",
+      "cert_dz_hours": 24.0,
+      "cert_dz_liability": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale.",
+      "cert_dz_penalties_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+      "anpdp_deadline": "2026-05-06T07:54:58.622081+00:00",
+      "anpdp_hours": 72.0,
+      "anpdp_persons_affected": 150,
+      "anpdp_fines": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+      "anpdp_data_categories": [
+        "Catégories à déterminer après investigation"
+      ],
+      "executive_summary": "On 2026-05-03T07:54:58.606605+00:00, AEGIS detected a Unclassified Behavioral Anomaly incident targeting 185.220.101.79. The attack was classified as P1 with a risk score of 2.47/10 (LOW). 1 containment actions were executed. 4 additional assets were identified as affected. MITRE ATT&CK techniques: . Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+      "technical_summary": "INCIDENT TECHNICAL SUMMARY — f32d7cdd\nEntity: 185.220.101.79\nClassification: Unclassified Behavioral Anomaly\nKill Chain: Unknown — requires manual analysis\nRisk Score: 2.47 (LOW)\n\n── ASSET CONTEXT ──\nAsset Type: unknown\nAsset Role: unknown\nBusiness Impact: unknown\nData Classification: unknown\n\n── 5D RISK DECOMPOSITION ──\nD1 Vulnerability (CVSS+EPSS+KEV): 0.06\nD2 Asset Criticality:             1.25\nD3 Propagation Risk:              0.00\nD4 Entity History:                0.71\nD5 Data Sensitivity:              0.45\nEPSS Score: 0.05\nCISA KEV: No\nSources: []\n\n── ENRICHMENT ──\nCVSS Max: 0.0\nMITRE: \nCVEs: \nEntity History: score=94.5 attacks=['credential_stuffing']\nUEBA Suspicion: 14.0\nTemplate Sequence: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 3, 4, 3, 4, 3]\nAffected Assets: ['aegis-test', 'webserver', 'appserver', 'dbserver']\n\n── ANALYSIS ──\nRoot Cause: Behavioral anomaly on 185.220.101.79. UEBA suspicion score: 14.0. Manual investigation required.\nImpact: C=3 I=2 A=7\nPlaybook: 17 steps, ~485 minutes",
+      "isolation_actions": [],
+      "regulations": [
+        {
+          "reg_id": "DZ-CERT",
+          "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+          "deadline_hours": 24,
+          "urgency": "IMMEDIATE",
+          "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+        },
+        {
+          "reg_id": "DZ-ANPDP",
+          "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+          "deadline_hours": 72,
+          "urgency": "STANDARD",
+          "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+        }
+      ]
+    },
     {
       "report_id": "ebdc03f2-ccf2-4d22-82b7-de5381672f4b",
       "entity_id": "185.220.101.38",

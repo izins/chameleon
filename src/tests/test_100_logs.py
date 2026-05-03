@@ -116,19 +116,28 @@ def main():
     hacker_events = [ev for ev in all_events if ev.source_ip == hacker_ip or hacker_ip in ev.log_original]
     
     if hacker_events:
+        attack_types = [
+            "advanced_persistent_threat",
+            "lateral_movement",
+            "data_exfiltration",
+            "credential_stuffing",
+            "ransomware_activity"
+        ]
+        chosen_attack = random.choice(attack_types)
+        
         alert = ModelAlert(
             severity="P1",
-            attack_type="advanced_persistent_threat",
-            confidence=0.95,
+            attack_type=chosen_attack,
+            confidence=random.uniform(0.85, 0.99),
             source_host=hacker_ip,
             affected_assets=["aegis-test", "webserver", "appserver", "dbserver"],
             model_source="Ensemble_LSTM_XGB",
             event_hashes=[ev.event_hash for ev in hacker_events],
             raw_sequence=[ev.template_id for ev in hacker_events],
-            xgb_proba={"advanced_persistent_threat": 0.95}
+            xgb_proba={chosen_attack: 0.95}
         )
         simulated_alerts = [alert]
-        logger.info(f"Generated 1 P1 Alert covering {len(hacker_events)} anomalous events from {hacker_ip}")
+        logger.info(f"Generated 1 P1 Alert ({chosen_attack}) covering {len(hacker_events)} anomalous events from {hacker_ip}")
     else:
         simulated_alerts = []
         logger.info("No malicious events detected by ML.")
