@@ -25,6 +25,7 @@ from src.response.isolation_log import IsolationLog
 from src.reporting.report_generator import ReportGenerator
 from src.blockchain.aegis_chain import AegisChain
 from src.database.db_manager import db
+from src.response.iso27035_tracker import ISO27035Tracker, ISOPhase
 import json
 
 def generate_dynamic_logs(num_logs=100):
@@ -144,9 +145,24 @@ def main():
 
     logger.info("\n--- PHASE 3: ENRICHMENT & BLOCKCHAIN ---")
     enrichment_engine = EnrichmentEngine()
+    iso_tracker = ISO27035Tracker()
     enriched_alerts = []
     for alert in simulated_alerts:
+        # ISO Phase 1: Detection
+        iso_record = iso_tracker.create_incident(alert.source_host)
+        iso_id = iso_record.incident_id
+        iso_tracker.start_phase(iso_id, ISOPhase.DETECTION, {"source": "AEGIS ML Pipeline"}, module="test_100_logs.py")
+        
         enriched = enrichment_engine.enrich(alert)
+        
+        iso_tracker.complete_phase(iso_id, ISOPhase.DETECTION, {
+            "attack_type": enriched.attack_type,
+            "confidence": enriched.confidence
+        }, requirements_met=["Correlate events to identify potential incidents"])
+
+        # ISO Phase 2: Assessment
+        iso_tracker.start_phase(iso_id, ISOPhase.ASSESSMENT, {"enrichment": "active"}, module="enrichment_engine.py")
+        
         enriched_alerts.append(enriched)
         blockchain.anchor_alert(enriched)
         logger.info(f"Enriched Alert: MITRE {enriched.mitre_tactic}, CVEs {enriched.cve_ids}, CVSS {enriched.max_cvss}")
@@ -162,13 +178,30 @@ def main():
         verdict = scorer.score(final_enriched)
         logger.info(f"Risk Score: {verdict.final_risk_score}/10 -> {verdict.risk_label}")
         
+        # Complete Assessment Phase
+        iso_tracker.complete_phase(iso_id, ISOPhase.ASSESSMENT, {
+            "risk_score": verdict.final_risk_score,
+            "risk_label": verdict.risk_label
+        }, requirements_met=["Classify the incident by type and severity"])
+        
+        # ISO Phase 3: Response
+        iso_tracker.start_phase(iso_id, ISOPhase.RESPONSE, {"isolation_requested": verdict.requires_isolation}, module="isolator.py")
+        
         actions = isolator.execute(verdict)
         blockchain.anchor_isolation_actions(final_enriched.enriched_id, actions)
+        
+        iso_tracker.complete_phase(iso_id, ISOPhase.RESPONSE, {
+            "actions_executed": len(actions)
+        }, requirements_met=["Isolate affected systems proportionally"])
+
         for a in actions:
             logger.info(f"Action executed: {a.action_type.value.upper()} on {a.entity_id} -> {a.status.value}")
 
     logger.info("\n--- PHASE 5: REPORTING ---")
     if enriched_alerts:
+        # ISO Phase 4: Lessons Learned
+        iso_tracker.start_phase(iso_id, ISOPhase.LESSONS, {}, module="report_generator.py")
+        
         report_gen = ReportGenerator()
         report = report_gen.generate(
             enriched=final_enriched,
@@ -179,6 +212,17 @@ def main():
             total_suspicion=sum(ev.suspicion_delta for ev in all_events),
             affected_persons=150
         )
+        
+        iso_tracker.complete_phase(iso_id, ISOPhase.LESSONS, {
+            "report_id": report.report_id
+        }, requirements_met=["Identify root cause and contributing factors"])
+        
+        # ISO Phase 5: Closure
+        iso_tracker.start_phase(iso_id, ISOPhase.CLOSURE, {}, module="blockchain")
+        iso_tracker.complete_phase(iso_id, ISOPhase.CLOSURE, {
+            "blockchain_anchored": True
+        }, requirements_met=["Complete incident report with full timeline"])
+
         logger.info(f"Incident Report Generated: {report.report_id}")
         logger.info(f"Classification: {report.analysis.attack_classification}")
         logger.info(f"CERT-DZ Deadline: {report.cert_dz_notification.deadline}")
