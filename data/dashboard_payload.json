@@ -2,10 +2,10 @@
   "generated_at": "2026-05-03T07:28:45.628306+00:00",
   "test_name": "Needle in the Haystack — 200 logs, 1 attack",
   "scenarios_tested": 1,
-  "total_events": 800,
-  "total_sessions": 495,
-  "total_ml_alerts": 8,
-  "total_reports": 8,
+  "total_events": 900,
+  "total_sessions": 571,
+  "total_ml_alerts": 9,
+  "total_reports": 9,
   "attack_distribution": {
     "Brute_Force_SSH": 5,
     "DDoS_SynFlood": 6,
@@ -21,7 +21,7 @@
     "anomaly_unknown": 117,
     "credential_stuffing": 6,
     "data_exfil": 26,
-    "lateral_movement": 3,
+    "lateral_movement": 5,
     "privilege_escalation": 9,
     "ransomware_activity": 2,
     "ssh_bruteforce": 30
@@ -1030,7 +1030,7 @@
     "03:00": 4,
     "04:00": 2,
     "05:00": 3,
-    "07:00": 23,
+    "07:00": 25,
     "09:00": 1,
     "10:00": 1,
     "11:00": 5,
@@ -1047,6 +1047,22 @@
     "23:00": 2
   },
   "recent_attacks": [
+    {
+      "alert_id": "72725eb3-c9c8-4ed7-85a7-2d48c831e44f",
+      "ip": "185.220.101.86",
+      "attack_type": "lateral_movement",
+      "severity": "P1",
+      "confidence": 0.9090070123454516,
+      "timestamp": "2026-05-03T07:57:31.359319+00:00"
+    },
+    {
+      "alert_id": "222b7350-9c0e-4dd4-bb3c-ee0b1f93d85f",
+      "ip": "185.220.101.86",
+      "attack_type": "lateral_movement",
+      "severity": "P1",
+      "confidence": 0.9090070123454516,
+      "timestamp": "2026-05-03T07:57:31.343447+00:00"
+    },
     {
       "alert_id": "b7d0e239-b329-4368-8e19-7e938c4a4747",
       "ip": "185.220.101.88",
@@ -1110,25 +1126,64 @@
       "severity": "P1",
       "confidence": 0.8689440750659133,
       "timestamp": "2026-05-03T07:54:58.938073+00:00"
-    },
-    {
-      "alert_id": "e96d50c2-c1f0-435a-9e79-0a0d439532ba",
-      "ip": "185.220.101.79",
-      "attack_type": "credential_stuffing",
-      "severity": "P1",
-      "confidence": 0.9447215431699426,
-      "timestamp": "2026-05-03T07:54:58.628417+00:00"
-    },
-    {
-      "alert_id": "9c9d5493-f7cc-427d-9abf-ca1f402d662f",
-      "ip": "185.220.101.79",
-      "attack_type": "credential_stuffing",
-      "severity": "P1",
-      "confidence": 0.9447215431699426,
-      "timestamp": "2026-05-03T07:54:58.610447+00:00"
     }
   ],
   "reports": [
+    {
+      "report_id": "3e5abe63-9cd2-422b-b422-4a35a1e397e1",
+      "entity_id": "185.220.101.86",
+      "severity": "P1",
+      "risk_score": 4.88,
+      "risk_label": "MEDIUM",
+      "generated_at": "2026-05-03T07:57:31.355328+00:00",
+      "attack_classification": "Post-Compromise Expansion",
+      "kill_chain": "Lateral Movement → Discovery",
+      "root_cause": "Credential reuse or token theft from 185.220.101.86. Attacker pivoted to 4 assets. MITRE chain: T1021 → T1021.004.",
+      "impact_c": 7,
+      "impact_i": 6,
+      "impact_a": 7,
+      "playbook_steps": 18,
+      "playbook_time_min": 530,
+      "mitre_techniques": [
+        "T1021",
+        "T1021.004"
+      ],
+      "cves": [
+        "CVE-2024-6387",
+        "CVE-2023-48795"
+      ],
+      "max_cvss": 8.1,
+      "cert_dz_deadline": "2026-05-04T07:57:31.355178+00:00",
+      "cert_dz_hours": 24.0,
+      "cert_dz_liability": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale.",
+      "cert_dz_penalties_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+      "anpdp_deadline": "2026-05-06T07:57:31.355230+00:00",
+      "anpdp_hours": 72.0,
+      "anpdp_persons_affected": 150,
+      "anpdp_fines": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+      "anpdp_data_categories": [
+        "Catégories à déterminer après investigation"
+      ],
+      "executive_summary": "On 2026-05-03T07:57:31.341383+00:00, AEGIS detected a Post-Compromise Expansion incident targeting 185.220.101.86. The attack was classified as P1 with a risk score of 4.88/10 (MEDIUM). 1 containment actions were executed. 4 additional assets were identified as affected. MITRE ATT&CK techniques: T1021, T1021.004. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+      "technical_summary": "INCIDENT TECHNICAL SUMMARY — 445bb28a\nEntity: 185.220.101.86\nClassification: Post-Compromise Expansion\nKill Chain: Lateral Movement → Discovery\nRisk Score: 4.88 (MEDIUM)\n\n── ASSET CONTEXT ──\nAsset Type: unknown\nAsset Role: unknown\nBusiness Impact: unknown\nData Classification: unknown\n\n── 5D RISK DECOMPOSITION ──\nD1 Vulnerability (CVSS+EPSS+KEV): 2.50\nD2 Asset Criticality:             1.25\nD3 Propagation Risk:              0.00\nD4 Entity History:                0.68\nD5 Data Sensitivity:              0.45\nEPSS Score: 0.55\nCISA KEV: YES — actively exploited\nSources: ['CISA-KEV', 'EPSS(55%)', 'CVSS(8.1)']\n\n── ENRICHMENT ──\nCVSS Max: 8.1\nMITRE: T1021, T1021.004\nCVEs: CVE-2024-6387, CVE-2023-48795\nEntity History: score=90.9 attacks=['lateral_movement']\nUEBA Suspicion: 17.0\nTemplate Sequence: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 3, 4, 3, 4, 3]\nAffected Assets: ['aegis-test', 'webserver', 'appserver', 'dbserver']\n\n── ANALYSIS ──\nRoot Cause: Credential reuse or token theft from 185.220.101.86. Attacker pivoted to 4 assets. MITRE chain: T1021 → T1021.004.\nImpact: C=7 I=6 A=7\nPlaybook: 18 steps, ~530 minutes",
+      "isolation_actions": [],
+      "regulations": [
+        {
+          "reg_id": "DZ-CERT",
+          "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+          "deadline_hours": 24,
+          "urgency": "IMMEDIATE",
+          "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+        },
+        {
+          "reg_id": "DZ-ANPDP",
+          "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+          "deadline_hours": 72,
+          "urgency": "STANDARD",
+          "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+        }
+      ]
+    },
     {
       "report_id": "9458243c-bebf-44b4-a9a8-66647dc549ef",
       "entity_id": "185.220.101.88",

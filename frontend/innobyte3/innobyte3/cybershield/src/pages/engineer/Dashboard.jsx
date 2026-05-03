@@ -31,21 +31,25 @@ export const Dashboard = () => {
   const [progressStats, setProgressStats] = useState(null);
   const [unifiedAttacks, setUnifiedAttacks] = useState([]);
 
-  useEffect(() => {
+  const fetchData = async () => {
     fetchIncidents();
     fetchLogs();
     fetchAnalytics();
-    (async () => {
-      try {
-        const [stats, unified] = await Promise.all([
-          api.getProgressStats(),
-          api.getUnifiedAttacks(),
-        ]);
-        if (stats) setProgressStats(stats);
-        if (unified?.attacks) setUnifiedAttacks(unified.attacks);
-      } catch {}
-    })();
-  }, [fetchIncidents, fetchLogs, fetchAnalytics]);
+    try {
+      const [stats, unified] = await Promise.all([
+        api.getProgressStats(),
+        api.getUnifiedAttacks(),
+      ]);
+      if (stats) setProgressStats(stats);
+      if (unified?.attacks) setUnifiedAttacks(unified.attacks);
+    } catch { }
+  };
+
+  useEffect(() => {
+    fetchData();
+    const interval = setInterval(fetchData, 5000); // Polling every 5s
+    return () => clearInterval(interval);
+  }, []);
 
   /* Build chart data from unified DB + analytics */
   const attackDistribution = useMemo(() => {
