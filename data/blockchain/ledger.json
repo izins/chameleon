@@ -2196,5 +2196,66 @@
     "previous_hash": "008009f0e7e57f9884e7a865782ee88d17594d1e5b9dd8667c9676c61b8728de",
     "nonce": 158,
     "hash": "00c4970e53bb426dc7d301dda151c9bc1bd6bc0a9d4480a2e659b2f463ad0f31"
+  },
+  {
+    "index": 105,
+    "timestamp": "2026-05-03T08:20:06.255845+00:00",
+    "transactions": [
+      {
+        "tx_id": "fd39d06c-72fe-4e5e-be4d-5e653a7ee0ab",
+        "timestamp": "2026-05-03T08:20:06.255825+00:00",
+        "document_type": "EnrichedAlert",
+        "document_id": "0e944a30-4128-451f-a8c5-51fb07eda92e",
+        "document_hash": "916107fb795c020c247be1ecd78ea025609ca29e625e7aa6df8946192621ddc8",
+        "metadata": {
+          "attack_type": "lateral_movement",
+          "severity": "P1"
+        }
+      }
+    ],
+    "previous_hash": "00c4970e53bb426dc7d301dda151c9bc1bd6bc0a9d4480a2e659b2f463ad0f31",
+    "nonce": 242,
+    "hash": "0072f0d5612ee6f7cddb411781ba33ec5c43f5716842170fcdb993fd7cae6f27"
+  },
+  {
+    "index": 106,
+    "timestamp": "2026-05-03T08:20:06.263346+00:00",
+    "transactions": [
+      {
+        "tx_id": "dea951eb-3723-44ab-b159-d0ce41bf0a8c",
+        "timestamp": "2026-05-03T08:20:06.263327+00:00",
+        "document_type": "IsolationActions",
+        "document_id": "0e944a30-4128-451f-a8c5-51fb07eda92e",
+        "document_hash": "fa4c174dd836d2df0d001e1d9b64e668a65dd05873cb98ffd7932254eb4708d9",
+        "metadata": {
+          "actions_count": 1
+        }
+      }
+    ],
+    "previous_hash": "0072f0d5612ee6f7cddb411781ba33ec5c43f5716842170fcdb993fd7cae6f27",
+    "nonce": 293,
+    "hash": "00c08aae669af78c180a2ebda2093eb64b12756fb0bc17a46ae091d88a321373"
+  },
+  {
+    "index": 107,
+    "timestamp": "2026-05-03T08:20:06.272589+00:00",
+    "transactions": [
+      {
+        "tx_id": "df8e675c-a7d2-4fab-8bdc-07d3008e3493",
+        "timestamp": "2026-05-03T08:20:06.272573+00:00",
+        "document_type": "IncidentReport",
+        "document_id": "504d59c2-3c64-46ed-bb40-7cd2d7905c22",
+        "document_hash": "db00e9ec0be2b4d9e90e361f951401385fd71c83aa9f57bb1bace6ebef8b65dd",
+        "metadata": {
+          "entity_id": "185.220.101.37",
+          "severity": "P1",
+          "risk_score": 4.89,
+          "attack_classification": "Post-Compromise Expansion"
+        }
+      }
+    ],
+    "previous_hash": "00c08aae669af78c180a2ebda2093eb64b12756fb0bc17a46ae091d88a321373",
+    "nonce": 148,
+    "hash": "00a6614983ec70ea6c2c2f0e13222bffc644c869e00b465129f8700b3c8f8494"
   }
 ]
