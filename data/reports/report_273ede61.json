@@ -1,0 +1,699 @@
+{
+  "report_id": "273ede61-9129-40e3-8555-daa6ace66828",
+  "generated_at": "2026-05-02T15:16:41.328828+00:00",
+  "entity_id": "10.0.0.5",
+  "severity": "P1",
+  "risk_score": 9.02,
+  "risk_label": "CRITICAL",
+  "evidence": {
+    "package_id": "3c9dc548-a19d-4f72-9ebb-0033937d9065",
+    "incident_timestamp": "2026-05-02T15:16:41.117735+00:00",
+    "entity_id": "10.0.0.5",
+    "timeline": [
+      {
+        "timestamp": "2026-05-02T15:16:41.117735+00:00",
+        "event_type": "alert",
+        "source": "XGBoost",
+        "description": "Attack detected: data_exfil (confidence=91%)",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.312339+00:00",
+        "event_type": "enrichment",
+        "source": "EnrichmentEngine",
+        "description": "MITRE: ['T1041'] | CVEs: ['CVE-2024-21047', 'CVE-2024-38476'] | CVSS: 9.8",
+        "severity": "",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.312339+00:00",
+        "event_type": "scoring",
+        "source": "RiskScorer",
+        "description": "Risk score: 9.02 (CRITICAL) | Severity: P1→P1",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.313911+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "network_quarantine on 10.0.0.5 — status=dry_run",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.314929+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "db_revoke on 10.0.0.5 — status=dry_run",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.316057+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "user_lock on 10.0.0.5 — status=dry_run",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.317324+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "alert_soc on 10.0.0.5 — status=dry_run",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      }
+    ],
+    "iocs": [
+      {
+        "ioc_type": "ip",
+        "value": "10.0.0.5",
+        "context": "Primary attacker IP",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.9085
+      },
+      {
+        "ioc_type": "ip",
+        "value": "10.0.0.1",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "ip",
+        "value": "10.0.0.10",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "ip",
+        "value": "10.0.0.100",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "ip",
+        "value": "10.0.0.20",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "ip",
+        "value": "192.168.1.20",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "hash",
+        "value": "f7b8bbf7af2f81d62831610a0c55350276ebd0afbd3028b9033f08a70a48aad4",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.9085
+      },
+      {
+        "ioc_type": "hash",
+        "value": "5e6c7fb66752249d81488abfcc78b683778da3d9e4acf70606d3c0d4685c156d",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.9085
+      },
+      {
+        "ioc_type": "hash",
+        "value": "33a8fdd5c67599becbb5d20449778fe29afcf696e7caba25e3e2d75950164ac5",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.9085
+      },
+      {
+        "ioc_type": "hash",
+        "value": "8d5545d2119a8eb77708563570fb5810348ed94c7f541c96561416f464676db5",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.9085
+      },
+      {
+        "ioc_type": "hash",
+        "value": "0647cf7871f80c98a1b023e72ce48ffacf8788a8ca56a9a71fb3cbb02f3dec91",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.117735+00:00",
+        "confidence": 0.9085
+      }
+    ],
+    "raw_logs": [],
+    "event_hashes": [
+      "f7b8bbf7af2f81d62831610a0c55350276ebd0afbd3028b9033f08a70a48aad4",
+      "5e6c7fb66752249d81488abfcc78b683778da3d9e4acf70606d3c0d4685c156d",
+      "33a8fdd5c67599becbb5d20449778fe29afcf696e7caba25e3e2d75950164ac5",
+      "8d5545d2119a8eb77708563570fb5810348ed94c7f541c96561416f464676db5",
+      "0647cf7871f80c98a1b023e72ce48ffacf8788a8ca56a9a71fb3cbb02f3dec91",
+      "c320126df11ecc7dfd35e198f2c3d0aeb52ac3da9a5e8b34dc62e4ace991037e",
+      "dc9dae73ea6ffe1571a0b1f305c9203bb2af924ccee1a40099787d67e2332bc4",
+      "dd6065d22b15f39857e2d2337f8d376ff92b7793184a3a61ec579bc621bf2778",
+      "6bb97b9dbd782dd3f3eb52f01a6825152c03e4668d0f244e39491ac28d0e2f8a",
+      "139a64ee90b0b04f11826d4f524fe00bcc647203b15c030680f76e0287b03040",
+      "ef41751794a1bea08fe12d13f86ddef3b4c618b305fb773af06fe26bd852bb61",
+      "39aeaad152558885a51b04804c6ec89798567821cb7b14a343c76a5f71a25953"
+    ],
+    "template_sequence": [
+      6,
+      2,
+      6,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "total_suspicion": 5.0,
+    "mitre_techniques": [
+      "T1041"
+    ],
+    "mitre_tactic": "Exfiltration",
+    "cve_ids": [
+      "CVE-2024-21047",
+      "CVE-2024-38476"
+    ],
+    "max_cvss": 9.8,
+    "entity_cumulative_score": 90.85,
+    "entity_attack_history": [
+      "data_exfil"
+    ],
+    "risk_score": 9.02,
+    "risk_label": "CRITICAL",
+    "adjusted_severity": "P1",
+    "isolation_actions": [
+      {
+        "action_id": "f2497f9f-bf36-477d-873f-7bcc88e034f9",
+        "timestamp": "2026-05-02T15:16:41.313911Z",
+        "alert_id": "f6468ce6-13cf-41e9-8cf0-40cf18d97245",
+        "entity_id": "10.0.0.5",
+        "action_type": "network_quarantine",
+        "severity": "P1",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 9.02,
+        "details": "network_quarantine on 10.0.0.5 — severity=P1 risk=9.02 (CRITICAL)",
+        "error": ""
+      },
+      {
+        "action_id": "cb420c75-d593-4a85-938d-8e60cb7d0b19",
+        "timestamp": "2026-05-02T15:16:41.314929Z",
+        "alert_id": "f6468ce6-13cf-41e9-8cf0-40cf18d97245",
+        "entity_id": "10.0.0.5",
+        "action_type": "db_revoke",
+        "severity": "P1",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 9.02,
+        "details": "db_revoke on 10.0.0.5 — severity=P1 risk=9.02 (CRITICAL)",
+        "error": ""
+      },
+      {
+        "action_id": "41188b3d-86f4-4c57-ab4a-13ee4cd52e63",
+        "timestamp": "2026-05-02T15:16:41.316057Z",
+        "alert_id": "f6468ce6-13cf-41e9-8cf0-40cf18d97245",
+        "entity_id": "10.0.0.5",
+        "action_type": "user_lock",
+        "severity": "P1",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 9.02,
+        "details": "user_lock on 10.0.0.5 — severity=P1 risk=9.02 (CRITICAL)",
+        "error": ""
+      },
+      {
+        "action_id": "640b20b5-eeee-4a91-ae12-1d84bdb632fa",
+        "timestamp": "2026-05-02T15:16:41.317324Z",
+        "alert_id": "f6468ce6-13cf-41e9-8cf0-40cf18d97245",
+        "entity_id": "10.0.0.5",
+        "action_type": "alert_soc",
+        "severity": "P1",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 9.02,
+        "details": "alert_soc on 10.0.0.5 — severity=P1 risk=9.02 (CRITICAL)",
+        "error": ""
+      }
+    ],
+    "affected_assets": [
+      "10.0.0.1",
+      "10.0.0.10",
+      "10.0.0.100",
+      "10.0.0.20",
+      "192.168.1.20"
+    ]
+  },
+  "analysis": {
+    "analysis_id": "78a7b33a-3442-428a-af57-33b133a12d9f",
+    "timestamp": "2026-05-02T15:16:41.328206+00:00",
+    "entity_id": "10.0.0.5",
+    "attack_classification": "Data Theft",
+    "kill_chain_phase": "Collection → Exfiltration",
+    "attack_vector": "DNS tunneling, HTTPS POST to C2, cloud storage upload",
+    "root_cause_hypothesis": "Data exfiltration from 10.0.0.5. Risk score 9.02 (CRITICAL). Likely using encrypted channel (HTTPS/DNS tunneling).",
+    "data_at_risk": "CRITICAL — data has likely left the network",
+    "lateral_risk_level": "LOW — attacker has what they need",
+    "impact": {
+      "confidentiality": 9,
+      "integrity": 8,
+      "availability": 7,
+      "overall": 8.0,
+      "description": "Critical impact on confidentiality, integrity, and availability"
+    },
+    "investigation_steps": [
+      "Quantify data volume transferred to external IPs",
+      "Check DNS logs for high-entropy subdomain queries (tunneling)",
+      "Review outbound HTTPS connections to unknown domains",
+      "Identify the data categories that were accessible to the host"
+    ],
+    "dwell_time_description": "Single attack event. Estimated dwell time: minutes to hours.",
+    "ioc_summary": "Primary IP: 10.0.0.5 | Targets: 10.0.0.1, 10.0.0.10, 10.0.0.100, 10.0.0.20, 192.168.1.20 | Event hashes: 12 collected | MITRE: T1041",
+    "evidence_package_id": "3c9dc548-a19d-4f72-9ebb-0033937d9065",
+    "recommendations": [
+      "Immediate: Verify containment of 10.0.0.5",
+      "Forensic: Preserve disk image and memory dump of 10.0.0.5",
+      "Patch: Apply patches for CVE-2024-21047, CVE-2024-38476 (CVSS 9.8)",
+      "Threat Intel: Share IoCs for 10.0.0.5 with CERT-DZ and industry ISACs"
+    ]
+  },
+  "playbook": {
+    "playbook_id": "acc41743-ac9d-4d73-9f93-9df2399ce3c0",
+    "generated_at": "2026-05-02T15:16:41.328495+00:00",
+    "incident_id": "3c9dc548-a19d-4f72-9ebb-0033937d9065",
+    "entity_id": "10.0.0.5",
+    "severity": "P1",
+    "attack_type": "Data Theft",
+    "total_steps": 19,
+    "estimated_total_minutes": 540,
+    "steps": [
+      {
+        "step_id": "e783b1ec-17f9-417c-8151-9901c79d525d",
+        "order": 1,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Verify network isolation of 10.0.0.5",
+        "description": "Confirm that 10.0.0.5 has been isolated from the network. Risk score: 9.02 (CRITICAL).",
+        "technical_commands": [
+          "iptables -L -n | grep 10.0.0.5",
+          "ping -c 1 10.0.0.5  # should fail if quarantined"
+        ],
+        "expected_output": "iptables DROP rules present, ping should timeout",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 5
+      },
+      {
+        "step_id": "61b85f59-1cc3-445a-9c36-ed4e64807804",
+        "order": 2,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Block attacker IP at perimeter firewall",
+        "description": "Add permanent block rule for 10.0.0.5 on all perimeter firewalls and WAF.",
+        "technical_commands": [
+          "# Palo Alto: set security policy block-10.0.0.5",
+          "# pfSense: pfctl -t blocklist -T add 10.0.0.5"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Network Engineer",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "8cc836c5-b7df-4cec-ba90-c8971717df83",
+        "order": 3,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Disable compromised accounts",
+        "description": "Lock all user accounts that were active on 10.0.0.5 during the incident window.",
+        "technical_commands": [
+          "# List active sessions: who | last",
+          "# Lock accounts: passwd -l <username>",
+          "# AD: Disable-ADAccount -Identity <user>"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "51b55f3b-e306-4394-a1ae-26fbcb990056",
+        "order": 4,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Capture volatile evidence (memory + processes)",
+        "description": "Capture RAM dump and running processes on 10.0.0.5 BEFORE any remediation. This evidence is volatile.",
+        "technical_commands": [
+          "# Memory dump: ssh 10.0.0.5 'sudo dd if=/dev/mem of=/tmp/memdump.raw'",
+          "# Processes: ssh 10.0.0.5 'ps auxww > /tmp/processes.txt'",
+          "# Network: ssh 10.0.0.5 'netstat -tulpn > /tmp/netstat.txt'",
+          "# Open files: ssh 10.0.0.5 'lsof -i > /tmp/lsof.txt'"
+        ],
+        "expected_output": "4 evidence files collected and preserved",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "2a581357-5fad-4293-8c58-0cb51b7011b8",
+        "order": 5,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Preserve disk image",
+        "description": "Create a forensic disk image for offline analysis.",
+        "technical_commands": [
+          "# dd if=/dev/sda of=/forensics/10.0.0.5_disk.img bs=4M",
+          "# sha256sum /forensics/10.0.0.5_disk.img > checksum.txt"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "1f7e3d23-5516-4809-84d4-a0dfd2b7f61b",
+        "order": 6,
+        "category": "forensics",
+        "priority": "medium",
+        "title": "Collect AEGIS evidence hashes",
+        "description": "Verify 12 event hashes from AEGIS. MITRE techniques: T1041. Template sequence: [6, 2, 6, 2, 2, 1, 1, 1, 1, 1]...",
+        "technical_commands": [
+          "# AEGIS Evidence Package ID: 3c9dc548-a19d-4f72-9ebb-0033937d9065",
+          "# Total suspicion (UEBA): 5.0",
+          "# Entity cumulative score: 90.8"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "72fc2caa-c57b-485b-adfa-ad762b45e193",
+        "order": 7,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Quantify data volume transferred to external IPs",
+        "description": "Quantify data volume transferred to external IPs",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "a6224d4b-b572-4daf-ab9c-7c22f948590c",
+        "order": 8,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Check DNS logs for high-entropy subdomain queries (tunneling",
+        "description": "Check DNS logs for high-entropy subdomain queries (tunneling)",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "a4872f97-0d58-4ef7-af12-1ab568a8ae1a",
+        "order": 9,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Review outbound HTTPS connections to unknown domains",
+        "description": "Review outbound HTTPS connections to unknown domains",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "10dad011-c8a2-448c-8cc7-e301242dcb11",
+        "order": 10,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Identify the data categories that were accessible to the hos",
+        "description": "Identify the data categories that were accessible to the host",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "57a35841-96e6-4ec8-9347-b8915fc3fe1b",
+        "order": 11,
+        "category": "eradication",
+        "priority": "high",
+        "title": "Remove attacker persistence mechanisms",
+        "description": "Check for backdoors, cron jobs, SSH keys, and rootkits installed by the attacker.",
+        "technical_commands": [
+          "ssh 10.0.0.5 'crontab -l'",
+          "ssh 10.0.0.5 'find / -name authorized_keys -exec cat {} \\;'",
+          "ssh 10.0.0.5 'find / -perm -4000 -type f 2>/dev/null'",
+          "rkhunter --check --skip-keypress"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Security Engineer",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "bf9ae7ab-605f-4a45-8a6a-b0b4af65c821",
+        "order": 12,
+        "category": "eradication",
+        "priority": "critical",
+        "title": "Patch vulnerabilities: CVE-2024-21047, CVE-2024-38476",
+        "description": "Apply patches for CVSS 9.8 vulnerabilities. CVEs: CVE-2024-21047, CVE-2024-38476.",
+        "technical_commands": [
+          "apt update && apt upgrade -y  # Debian/Ubuntu",
+          "yum update -y                 # RHEL/CentOS"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Sysadmin",
+        "estimated_minutes": 45
+      },
+      {
+        "step_id": "03206478-721d-4386-a3d5-777c5c0363b8",
+        "order": 13,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Restore from clean backup",
+        "description": "If 10.0.0.5 was fully compromised, restore from last known-good backup.",
+        "technical_commands": [
+          "# Verify backup integrity before restore",
+          "# rsync -av /backups/10.0.0.5/ /"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Sysadmin",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "ff054a74-17ff-42c0-8754-7fb1fe797f4f",
+        "order": 14,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Rotate all credentials",
+        "description": "Reset passwords, API keys, SSH keys, and DB credentials.",
+        "technical_commands": [
+          "passwd <affected_users>",
+          "ssh-keygen -t ed25519  # regenerate SSH keys",
+          "ALTER USER 'app'@'%' IDENTIFIED BY '<new_password>';"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "8a4bcc28-cf8a-4707-b08f-7fe85db49992",
+        "order": 15,
+        "category": "communication",
+        "priority": "high",
+        "title": "Notify SOC Manager and CISO",
+        "description": "Escalate incident to management. Severity: P1. Risk: 9.02 (CRITICAL).",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Lead",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "7a97434c-08cb-4852-828c-15ea2391705a",
+        "order": 16,
+        "category": "legal",
+        "priority": "critical",
+        "title": "Notify CERT-DZ within 24 hours",
+        "description": "Legal obligation: Décret 20-05 requires notification to CERT.dz within 24h of incident discovery.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Legal / Compliance",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "546cb947-0fa0-4615-997a-e57e89cc06dc",
+        "order": 17,
+        "category": "legal",
+        "priority": "high",
+        "title": "Notify ANPDP within 72 hours (if PII affected)",
+        "description": "Loi 18-07: If personal data was compromised, ANPDP must be notified within 72 hours.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "DPO",
+        "estimated_minutes": 45
+      },
+      {
+        "step_id": "2fe88b5f-ccd2-4c2c-96cd-bc75f1ed8745",
+        "order": 18,
+        "category": "monitoring",
+        "priority": "medium",
+        "title": "Enable enhanced monitoring (30 days)",
+        "description": "Set elevated monitoring rules for 10.0.0.5 and all 5 affected assets for a minimum of 30 days post-incident.",
+        "technical_commands": [
+          "# SIEM: Add watchlist for 10.0.0.5",
+          "# IDS: Lower alert thresholds for affected subnet"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "8bfc0688-d4b8-4179-bb05-6944b4aecc11",
+        "order": 19,
+        "category": "monitoring",
+        "priority": "low",
+        "title": "Schedule post-incident review",
+        "description": "Lessons learned meeting within 5 business days.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Manager",
+        "estimated_minutes": 60
+      }
+    ]
+  },
+  "cert_dz_notification": {
+    "notification_id": "0a7b99c2-5a73-4a53-935c-2f3952805d0c",
+    "generated_at": "2026-05-02T15:16:41.328586+00:00",
+    "deadline": "2026-05-03T15:16:41.328557+00:00",
+    "hours_remaining": 24.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "contact_email": "[EMAIL]",
+    "contact_phone": "[TELEPHONE]",
+    "incident_id": "3c9dc548-a19d-4f72-9ebb-0033937d9065",
+    "incident_timestamp": "2026-05-02T15:16:41.117735+00:00",
+    "severity_level": "P1",
+    "nature_of_breach": "Data Theft — Collection → Exfiltration",
+    "attack_type": "Data Theft",
+    "source_ip": "10.0.0.5",
+    "affected_systems": [
+      "10.0.0.5",
+      "10.0.0.1",
+      "10.0.0.10",
+      "10.0.0.100",
+      "10.0.0.20",
+      "192.168.1.20"
+    ],
+    "mitre_techniques": [
+      "T1041"
+    ],
+    "containment_measures": [
+      "network_quarantine — dry_run",
+      "db_revoke — dry_run",
+      "user_lock — dry_run",
+      "alert_soc — dry_run"
+    ],
+    "impact_assessment": "Critical impact on confidentiality, integrity, and availability",
+    "evidence_preservation": "AEGIS Evidence Package 3c9dc548 — 12 event hashes preserved, blockchain immutability pending (Phase 5)",
+    "regulatory_reference": "Décret exécutif 20-05 relatif au dispositif national de sécurité des systèmes d'information",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "Direction Générale",
+      "Direction Juridique",
+      "RSSI/CISO",
+      "DPO"
+    ],
+    "legal_liability_risk": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale."
+  },
+  "anpdp_notification": {
+    "notification_id": "a4e05c47-c46f-4105-b49a-3a15bf291921",
+    "generated_at": "2026-05-02T15:16:41.328682+00:00",
+    "deadline": "2026-05-05T15:16:41.328648+00:00",
+    "hours_remaining": 72.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "dpo_contact": "[DPO - NOM ET CONTACT]",
+    "incident_id": "3c9dc548-a19d-4f72-9ebb-0033937d9065",
+    "incident_timestamp": "2026-05-02T15:16:41.117735+00:00",
+    "nature_of_breach": "Data Theft avec impact potentiel sur les données personnelles",
+    "affected_data_categories": [
+      "Catégories à déterminer après investigation"
+    ],
+    "estimated_persons_affected": 50,
+    "data_processing_purpose": "[BUT DU TRAITEMENT]",
+    "likely_consequences": "Risque élevé: possibilité d'usurpation d'identité, accès non autorisé aux comptes des personnes concernées, divulgation de données confidentielles.",
+    "containment_measures": [
+      "network_quarantine — dry_run",
+      "db_revoke — dry_run",
+      "user_lock — dry_run",
+      "alert_soc — dry_run"
+    ],
+    "notification_to_subjects": false,
+    "regulatory_reference": "Loi 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel",
+    "fines_for_non_compliance": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+    "data_loss_risk_assessment": "CRITICAL — data has likely left the network",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "DPO",
+      "Direction Juridique",
+      "Service Communication"
+    ]
+  },
+  "applicable_regulations": [
+    {
+      "reg_id": "DZ-CERT",
+      "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+      "deadline_hours": 24,
+      "urgency": "IMMEDIATE",
+      "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+    },
+    {
+      "reg_id": "DZ-CYBER",
+      "name": "Loi 09-04 — Règles relatives à la cybercriminalité",
+      "deadline_hours": 48,
+      "urgency": "URGENT",
+      "penalty": "Emprisonnement de 6 mois à 3 ans (Art. 394bis du Code pénal). Aggravation si atteinte aux données de"
+    },
+    {
+      "reg_id": "DZ-ANPDP",
+      "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+      "deadline_hours": 72,
+      "urgency": "STANDARD",
+      "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+    }
+  ],
+  "executive_summary": "On 2026-05-02T15:16:41.117735+00:00, AEGIS detected a Data Theft incident targeting 10.0.0.5. The attack was classified as P1 with a risk score of 9.02/10 (CRITICAL). 4 containment actions were executed. 5 additional assets were identified as affected. MITRE ATT&CK techniques: T1041. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+  "technical_summary": "INCIDENT TECHNICAL SUMMARY — 3c9dc548\nEntity: 10.0.0.5\nClassification: Data Theft\nKill Chain: Collection → Exfiltration\nRisk Score: 9.02 (CRITICAL)\nCVSS Max: 9.8\nMITRE: T1041\nCVEs: CVE-2024-21047, CVE-2024-38476\nEntity History: score=90.8 attacks=['data_exfil']\nUEBA Suspicion: 5.0\nTemplate Sequence: [6, 2, 6, 2, 2, 1, 1, 1, 1, 1, 1, 1]\nAffected Assets: ['10.0.0.1', '10.0.0.10', '10.0.0.100', '10.0.0.20', '192.168.1.20']\nRoot Cause: Data exfiltration from 10.0.0.5. Risk score 9.02 (CRITICAL). Likely using encrypted channel (HTTPS/DNS tunneling).\nImpact: C=9 I=8 A=7\nPlaybook: 19 steps, ~540 minutes"
+}

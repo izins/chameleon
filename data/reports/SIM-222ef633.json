@@ -1,0 +1,42 @@
+{
+  "id": "SIM-222ef633",
+  "generated_at": "2026-05-03T01:46:57.504159",
+  "attack_type": "Advanced Persistent Threat (APT) \u2014 Multi-Stage Intrusion",
+  "severity": "P1",
+  "risk_score": 9.4,
+  "entity_id": "10.0.0.40",
+  "kill_chain": "Full Kill Chain \u2014 Recon to Exfiltration",
+  "mitre": [
+    "TA0043",
+    "TA0001",
+    "TA0004",
+    "TA0008",
+    "TA0010"
+  ],
+  "cves": [
+    "CVE-2024-1086"
+  ],
+  "forensic_analysis": "Multi-stage APT attack detected across 200 log events. Attack originated from 185.220.101.42, targeting WS-HR-042. Privilege escalation via CVE-2024-1086 followed by lateral movement to FS-FIN-01. Data exfiltration attempted (2.4GB) \u2014 blocked at 68% by DLP.",
+  "root_cause": "Unpatched local privilege escalation vulnerability (CVE-2024-1086) on workstation WS-HR-042",
+  "attack_vector": "Spear-phishing email with weaponized PDF then CVE-2024-1086 then credential harvesting then lateral movement then data exfiltration",
+  "impact": {
+    "confidentiality": 9,
+    "integrity": 7,
+    "availability": 5,
+    "overall": 8.5
+  },
+  "recommendations": [
+    "Patch CVE-2024-1086 on all endpoints immediately",
+    "Implement network segmentation between HR and Finance VLANs",
+    "Enable MFA for all administrative accounts",
+    "Deploy EDR with behavioral analysis on all workstations",
+    "Review and harden GPO policies for lateral movement prevention"
+  ],
+  "total_logs_analyzed": 200,
+  "devices_isolated": [
+    "10.0.0.40",
+    "10.0.0.30"
+  ],
+  "dwell_time": "1h 14m",
+  "status": "contained"
+}

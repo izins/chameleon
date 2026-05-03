@@ -1,0 +1,269 @@
+{
+  "api_routes_mocks": {
+    "GET_/api/legal/history/verified": {
+      "status": "success",
+      "total_historical_incidents": 1,
+      "verified_incidents": [
+        {
+          "incident_id": "c0923b73-2084-4cda-852e-27f68b6a5942",
+          "severity": "P1",
+          "generated_at": "2026-05-02T08:20:28.909948+00:00",
+          "cryptographic_integrity_valid": true,
+          "blockchain_hash_match": true,
+          "full_data": {
+            "report_id": "c0923b73-2084-4cda-852e-27f68b6a5942",
+            "entity_id": "185.220.101.42",
+            "severity": "P1",
+            "risk_score": 4.62,
+            "risk_label": "MEDIUM",
+            "executive_summary": "On 2026-05-02T08:20:28, AEGIS detected a Privilege Elevation Attack incident targeting 185.220.101.42. The attack was classified as P1 with a risk score of 4.62/10 (MEDIUM). 4 containment actions were executed. 3 additional assets were identified as affected. MITRE ATT&CK techniques: T1068, T1548. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+            "technical_summary": "INCIDENT TECHNICAL SUMMARY - 61e41395\nEntity: 185.220.101.42\nClassification: Privilege Elevation Attack\nKill Chain: Privilege Escalation -> Persistence\nRisk Score: 4.62 (MEDIUM)\nCVSS Max: 7.8\nMITRE: T1068, T1548\nCVEs: CVE-2024-1086\nEntity History: score=259.0 attacks=['ssh_bruteforce', 'lateral_movement', 'privilege_escalation']\nUEBA Suspicion: 12.0\nAffected Assets: ['10.0.0.1', '10.0.0.5', '10.0.0.10']\nRoot Cause: Privilege escalation on 185.220.101.42 via known CVE: CVE-2024-1086. MITRE: T1068 -> T1548.\nImpact: C=8 I=8 A=1",
+            "analysis": {
+              "attack_classification": "Privilege Elevation Attack",
+              "cve_exploited": ["CVE-2024-1086"],
+              "mitre_techniques": ["T1068", "T1548"],
+              "root_cause_hypothesis": "Privilege escalation on 185.220.101.42 via known CVE: CVE-2024-1086. MITRE: T1068 -> T1548.",
+              "impact_assessment": "C=8 I=8 A=1"
+            },
+            "evidence": {
+              "incident_timestamp": "2026-05-02T08:20:28.887987+00:00",
+              "raw_logs": "Jan  5 22:01:15 webserver sshd[12001]: Failed password for root from 185.220.101.42 port 44231 ssh2\nJan  5 22:01:16 webserver sshd[12002]: Failed password for root from 185.220.101.42 port 44232 ssh2\nJan  7 03:30:15 dbserver mysqld[16001]: Access denied for user 'deploy'@'10.0.0.5' (using password: YES)\nJan  7 03:31:30 appserver sudo: deploy : TTY=pts/0 ; PWD=/tmp ; USER=root ; COMMAND=/bin/bash",
+              "event_hashes": "8c109f7ee4dd40616f212c45d3fdec202aae857bd6f7957d1e79a1ce22671a4a 3157be65bbee5e1ae83e3e9dac9c93082c91f64978c7c90a2d3ee24bd7fbcdb1",
+              "entity_attack_history": "ssh_bruteforce lateral_movement privilege_escalation",
+              "entity_cumulative_score": 259.0,
+              "affected_assets": "10.0.0.1 10.0.0.5 10.0.0.10"
+            },
+            "playbook": {
+              "playbook_id": "002ca0f8-759d-463f-927f-a4d7b55e75d7",
+              "incident_id": "61e41395-e2f9-44c9-ba1a-79dac514c2f7",
+              "entity_id": "185.220.101.42",
+              "attack_type": "Privilege Elevation Attack",
+              "severity": "P1",
+              "total_steps": 4,
+              "estimated_total_minutes": 540,
+              "generated_at": "2026-05-02T08:20:28.909743+00:00",
+              "steps": [
+                {
+                  "order": 1,
+                  "title": "Isolate Affected Entity",
+                  "action": "network_quarantine",
+                  "priority": "CRITICAL",
+                  "description": "Immediately isolate 185.220.101.42 from the network to prevent further lateral movement or exfiltration.",
+                  "assignee": "SOC L1 / Automated",
+                  "estimated_minutes": 15
+                },
+                {
+                  "order": 2,
+                  "title": "Revoke Compromised Credentials",
+                  "action": "user_lock",
+                  "priority": "HIGH",
+                  "description": "Lock associated user accounts to halt unauthorized access.",
+                  "assignee": "IAM Admin",
+                  "estimated_minutes": 30
+                },
+                {
+                  "order": 3,
+                  "title": "Notify Legal and Compliance",
+                  "action": "alert_legal",
+                  "priority": "HIGH",
+                  "description": "Inform the legal team due to potential data breach and compliance implications.",
+                  "assignee": "Incident Commander",
+                  "estimated_minutes": 60
+                },
+                {
+                  "order": 4,
+                  "title": "Forensic Investigation",
+                  "action": "forensic_analysis",
+                  "priority": "MEDIUM",
+                  "description": "Conduct a deep dive forensic analysis to determine root cause and extent of compromise.",
+                  "assignee": "Forensic Team",
+                  "estimated_minutes": 240
+                }
+              ]
+            },
+            "cert_dz_notification": {
+              "notification_id": "fc565459-49c3-46a5-9848-d38af6adc4ad",
+              "organization_name": "[ORGANISATION]",
+              "source_ip": "185.220.101.42",
+              "incident_type": "Privilege Elevation Attack",
+              "severity_level": "P1",
+              "regulatory_reference": "Décret exécutif 20-05 relatif au dispositif national de sécurité des systèmes d'information",
+              "deadline": "2026-05-03T08:20:28.909776+00:00",
+              "hours_remaining": 24.0,
+              "legal_liability_risk": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale.",
+              "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+              "internal_services_to_notify": [
+                "Direction Générale",
+                "Direction Juridique",
+                "RSSI/CISO",
+                "DPO"
+              ]
+            },
+            "anpdp_notification": {
+              "notification_id": "e6a17bcf-40a2-4a0b-99f6-1d1fc5c18e38",
+              "organization_name": "[ORGANISATION]",
+              "data_breach_type": "Privilege Elevation Attack avec impact potentiel sur les données personnelles",
+              "affected_data_categories": [
+                "Données à caractère personnel",
+                "Données professionnelles"
+              ],
+              "estimated_affected_individuals": 250,
+              "regulatory_reference": "Loi 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel",
+              "deadline": "2026-05-05T08:20:28.909839+00:00",
+              "hours_remaining": 72.0,
+              "fines_for_non_compliance": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+              "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+              "potential_consequences": "Risque élevé: possibilité d'usurpation d'identité, accès non autorisé aux comptes des personnes concernées, divulgation de données confidentielles.",
+              "measures_taken": [
+                "network_quarantine — dry_run",
+                "db_revoke — dry_run",
+                "user_lock — dry_run",
+                "alert_soc — dry_run"
+              ],
+              "data_loss_estimate": "Full system access, all data on host",
+              "internal_services_to_notify": [
+                "DPO",
+                "Direction Juridique",
+                "Service Communication"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "GET_/api/soc/entity/185.220.101.42": {
+      "entity_id": "185.220.101.42",
+      "current_risk_score": 4.62,
+      "is_isolated": true,
+      "history": {
+        "blockchain_events_count": 3,
+        "isolation_actions": [
+          {
+            "action_id": "ec1086fe-447a-49f7-a8c3-3d3e49bcd863",
+            "action_type": "network_quarantine",
+            "alert_id": "ab8f0144-b807-484d-a9a3-40fd1f0ac251",
+            "details": "network_quarantine on 185.220.101.42 — severity=P1 risk=4.62 (MEDIUM)",
+            "dry_run": false,
+            "entity_id": "185.220.101.42",
+            "error": "",
+            "risk_score": 4.62,
+            "severity": "P1",
+            "status": "executed",
+            "timestamp": "2026-05-02T08:20:28.116201Z"
+          },
+          {
+            "action_id": "7b3fdecc-1e01-46d6-aa7b-3e09abb953e0",
+            "action_type": "user_lock",
+            "alert_id": "ab8f0144-b807-484d-a9a3-40fd1f0ac251",
+            "details": "user_lock on 185.220.101.42 — severity=P1 risk=4.62 (MEDIUM)",
+            "dry_run": false,
+            "entity_id": "185.220.101.42",
+            "error": "",
+            "risk_score": 4.62,
+            "severity": "P1",
+            "status": "executed",
+            "timestamp": "2026-05-02T08:20:28.117540Z"
+          }
+        ]
+      },
+      "raw_logs_timeline": [
+        {
+          "timestamp": "2026-05-02T08:15:22Z",
+          "host": "webserver",
+          "process": "sshd",
+          "message": "Failed password for root from 185.220.101.42 port 44231 ssh2",
+          "anomaly_score": 0.8
+        },
+        {
+          "timestamp": "2026-05-02T08:16:10Z",
+          "host": "appserver",
+          "process": "sshd",
+          "message": "Accepted publickey for deploy from 185.220.101.42 port 33002 ssh2",
+          "anomaly_score": 2.0
+        },
+        {
+          "timestamp": "2026-05-02T08:19:30Z",
+          "host": "appserver",
+          "process": "sudo",
+          "message": "deploy : TTY=pts/0 ; PWD=/tmp ; USER=root ; COMMAND=/bin/bash",
+          "anomaly_score": 9.5
+        }
+      ]
+    },
+    "GET_/api/soc/feed": {
+      "status": "success",
+      "live_alerts": [
+        {
+          "time": "2026-05-02T08:20:28Z",
+          "tx_id": "e9f9a833-abcd-1234",
+          "entity_id": "185.220.101.42",
+          "attack_type": "privilege_escalation",
+          "severity": "P1",
+          "confidence_score": 94.5,
+          "ml_model": "Ensemble (DeepLog + XGBoost)",
+          "block_index": 11
+        },
+        {
+          "time": "2026-05-02T08:18:12Z",
+          "tx_id": "f1129ce2-abcd-1234",
+          "entity_id": "185.220.101.42",
+          "attack_type": "lateral_movement",
+          "severity": "P2",
+          "confidence_score": 88.2,
+          "ml_model": "DeepLog",
+          "block_index": 10
+        }
+      ]
+    },
+    "GET_/api/soc/logs/realtime": {
+      "status": "streaming",
+      "logs": [
+        {"timestamp": "2026-05-02T10:19:55Z", "raw": "May 2 10:19:55 dbserver kernel: [4123.123] DROP IN-eth0 OUT= MAC=00:11:22:33:44 SRC=192.168.1.100 DST=10.0.0.5", "parsed_action": "Firewall Block"},
+        {"timestamp": "2026-05-02T10:19:58Z", "raw": "May 2 10:19:58 webserver nginx[1022]: 45.33.22.11 - - [02/May/2026:10:19:58 +0000] \"GET /etc/passwd HTTP/1.1\" 403 153 \"-\" \"curl/7.68.0\"", "parsed_action": "Directory Traversal Attempt"}
+      ]
+    },
+    "GET_/api/analytics/global": {
+      "status": "success",
+      "metrics_summary": {
+        "total_incidents_24h": 142,
+        "critical_p1_active": 3,
+        "isolation_actions_taken": 45,
+        "average_time_to_detect_sec": 1.2
+      },
+      "threat_intelligence": {
+        "top_attack_types": [
+          { "name": "Privilege Escalation", "value": 45 },
+          { "name": "SSH Brute Force", "value": 120 },
+          { "name": "Lateral Movement", "value": 30 },
+          { "name": "SQL Injection", "value": 85 }
+        ],
+        "attacks_by_time_series": [
+          { "time": "00:00", "attacks": 12 },
+          { "time": "01:00", "attacks": 15 },
+          { "time": "02:00", "attacks": 80 },
+          { "time": "03:00", "attacks": 120 },
+          { "time": "04:00", "attacks": 40 },
+          { "time": "05:00", "attacks": 10 }
+        ],
+        "geo_origins": [
+          { "id": "RU", "country": "Russie", "attack_count": 450, "lat": 61.5240, "lng": 105.3188 },
+          { "id": "CN", "country": "Chine", "attack_count": 320, "lat": 35.8617, "lng": 104.1954 },
+          { "id": "US", "country": "États-Unis", "attack_count": 150, "lat": 37.0902, "lng": -95.7129 },
+          { "id": "BR", "country": "Brésil", "attack_count": 80, "lat": -14.2350, "lng": -51.9253 }
+        ],
+        "top_targeted_cves": [
+          { "cve": "CVE-2024-1086", "description": "Linux Kernel Privilege Escalation", "hits": 24 },
+          { "cve": "CVE-2024-6387", "description": "OpenSSH regreSSHion", "hits": 89 }
+        ]
+      },
+      "ueba_internal_risk": {
+        "errors_by_department": [
+          { "department": "Développement / IT", "anomalies": 120, "color": "#ef4444" },
+          { "department": "Finance", "anomalies": 15, "color": "#f59e0b" },
+          { "department": "Ressources Humaines", "anomalies": 5, "color": "#3b82f6" },
+          { "department": "Marketing", "anomalies": 25, "color": "#10b981" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,550 @@
+{
+  "report_id": "943acb24-026a-4b8a-9da3-4e2d2121d931",
+  "generated_at": "2026-05-02T15:26:23.140861+00:00",
+  "entity_id": "203.0.113.66",
+  "severity": "P4",
+  "risk_score": 4.74,
+  "risk_label": "MEDIUM",
+  "evidence": {
+    "package_id": "301973d3-4eb4-4316-b60a-eed93c6d7e9a",
+    "incident_timestamp": "2026-05-02T15:26:23.063495+00:00",
+    "entity_id": "203.0.113.66",
+    "timeline": [
+      {
+        "timestamp": "2026-05-02T15:26:23.063495+00:00",
+        "event_type": "alert",
+        "source": "XGBoost",
+        "description": "Attack detected: ssh_bruteforce (confidence=46%)",
+        "severity": "P3",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:26:23.129541+00:00",
+        "event_type": "enrichment",
+        "source": "EnrichmentEngine",
+        "description": "MITRE: ['T1110', 'T1110.001'] | CVEs: ['CVE-2024-6387', 'CVE-2023-48795'] | CVSS: 8.1",
+        "severity": "",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:26:23.129541+00:00",
+        "event_type": "scoring",
+        "source": "RiskScorer",
+        "description": "Risk score: 4.74 (MEDIUM) | Severity: P3→P4",
+        "severity": "P4",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:26:23.131621+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "log_only on 203.0.113.66 — status=dry_run",
+        "severity": "P4",
+        "raw_data": "",
+        "event_hash": ""
+      }
+    ],
+    "iocs": [
+      {
+        "ioc_type": "ip",
+        "value": "203.0.113.66",
+        "context": "Primary attacker IP",
+        "first_seen": "2026-05-02T15:26:23.063495+00:00",
+        "confidence": 0.4611
+      },
+      {
+        "ioc_type": "ip",
+        "value": "203.0.113.66",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:26:23.063495+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "hash",
+        "value": "af5e056f5f637a6390965eebfc48208f5d3807ce43514ecc254c5041968999f5",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:26:23.063495+00:00",
+        "confidence": 0.4611
+      },
+      {
+        "ioc_type": "hash",
+        "value": "099a16555fe1b4565c4a580f56ace26707606f06f62b3059ffee9cfd3cc59b69",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:26:23.063495+00:00",
+        "confidence": 0.4611
+      },
+      {
+        "ioc_type": "hash",
+        "value": "4f616de4777b8f9ef41c6b94e1e7f3957a2358f951403cceb4c3db17f9b93d52",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:26:23.063495+00:00",
+        "confidence": 0.4611
+      },
+      {
+        "ioc_type": "hash",
+        "value": "5111030fd8c5abf9e999d86a49d235dbfba84ddd5b85b9f1d9b361d84d5c137f",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:26:23.063495+00:00",
+        "confidence": 0.4611
+      },
+      {
+        "ioc_type": "hash",
+        "value": "83132ada42f0f0b2d486ee2e5131de6975930c6d48382d3eb4f878fe155e6348",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:26:23.063495+00:00",
+        "confidence": 0.4611
+      }
+    ],
+    "raw_logs": [
+      "Jan 15 02:31:10 webserver sshd[20000]: Failed password for admin from 203.0.113.66 port 55000 ssh2",
+      "Jan 15 02:31:11 webserver sshd[20001]: Failed password for root from 203.0.113.66 port 55001 ssh2",
+      "Jan 15 02:31:12 webserver sshd[20002]: Failed password for admin from 203.0.113.66 port 55002 ssh2",
+      "Jan 15 02:31:13 webserver sshd[20003]: Failed password for deploy from 203.0.113.66 port 55003 ssh2",
+      "Jan 15 02:31:14 webserver sshd[20004]: Failed password for admin from 203.0.113.66 port 55004 ssh2",
+      "Jan 15 02:31:15 webserver sshd[20005]: Failed password for root from 203.0.113.66 port 55005 ssh2",
+      "Jan 15 02:31:16 webserver sshd[20006]: Failed password for admin from 203.0.113.66 port 55006 ssh2",
+      "Jan 15 02:31:17 webserver sshd[20007]: Failed password for postgres from 203.0.113.66 port 55007 ssh2",
+      "Jan 15 02:32:05 webserver sshd[20010]: Accepted password for deploy from 203.0.113.66 port 55100 ssh2",
+      "Jan 15 02:32:30 webserver kernel: [UFW BLOCK] IN=eth0 OUT= SRC=203.0.113.66 DST=10.0.0.5 PROTO=TCP"
+    ],
+    "event_hashes": [
+      "af5e056f5f637a6390965eebfc48208f5d3807ce43514ecc254c5041968999f5",
+      "099a16555fe1b4565c4a580f56ace26707606f06f62b3059ffee9cfd3cc59b69",
+      "4f616de4777b8f9ef41c6b94e1e7f3957a2358f951403cceb4c3db17f9b93d52",
+      "5111030fd8c5abf9e999d86a49d235dbfba84ddd5b85b9f1d9b361d84d5c137f",
+      "83132ada42f0f0b2d486ee2e5131de6975930c6d48382d3eb4f878fe155e6348",
+      "96cc981510cfd387e3fa6ca5e09e3696c05d002ce617a627108fa64858db4ba9",
+      "849b04469ab7844854b84003af187bc5a7988100fdf84c77853be9cb5fb4e01c",
+      "e5f6c20b534cd75c2883e59e763fd7db58bf25139e4eb3e4ba5222d9581e25ee",
+      "55e5aaf88174670fcc909ba5bf4f5b9184752358fe6ff4e6177698d0fb8c71f5"
+    ],
+    "template_sequence": [
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13,
+      13
+    ],
+    "total_suspicion": 18.0,
+    "mitre_techniques": [
+      "T1110",
+      "T1110.001"
+    ],
+    "mitre_tactic": "Credential Access",
+    "cve_ids": [
+      "CVE-2024-6387",
+      "CVE-2023-48795"
+    ],
+    "max_cvss": 8.1,
+    "entity_cumulative_score": 46.11,
+    "entity_attack_history": [
+      "ssh_bruteforce"
+    ],
+    "risk_score": 4.74,
+    "risk_label": "MEDIUM",
+    "adjusted_severity": "P4",
+    "isolation_actions": [
+      {
+        "action_id": "cb6b8c1b-19e2-4154-8613-b92fbffb9eef",
+        "timestamp": "2026-05-02T15:26:23.131621Z",
+        "alert_id": "ef8a2e3b-f761-4a79-8a1d-cfb9916a93df",
+        "entity_id": "203.0.113.66",
+        "action_type": "log_only",
+        "severity": "P4",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 4.74,
+        "details": "log_only on 203.0.113.66 — severity=P4 risk=4.74 (MEDIUM)",
+        "error": ""
+      }
+    ],
+    "affected_assets": [
+      "203.0.113.66"
+    ]
+  },
+  "analysis": {
+    "analysis_id": "61df0769-7ce3-4624-bd8b-734fee966dc2",
+    "timestamp": "2026-05-02T15:26:23.140158+00:00",
+    "entity_id": "203.0.113.66",
+    "attack_classification": "Credential-Based Attack",
+    "kill_chain_phase": "Initial Access → Credential Access",
+    "attack_vector": "Automated password spraying via SSH",
+    "root_cause_hypothesis": "Weak or default SSH credentials on 203.0.113.66. Entity accumulated 46 risk points across 1 attack types, suggesting persistent targeting.",
+    "data_at_risk": "User credentials, SSH keys",
+    "lateral_risk_level": "HIGH — SSH access enables pivot to any reachable host",
+    "impact": {
+      "confidentiality": 7,
+      "integrity": 2,
+      "availability": 1,
+      "overall": 3.3,
+      "description": "Primary impact on data confidentiality"
+    },
+    "investigation_steps": [
+      "Check /var/log/auth.log for failed attempts count",
+      "Verify if any account was successfully compromised",
+      "Audit SSH key additions in ~/.ssh/authorized_keys",
+      "Check for new cron jobs or persistence mechanisms"
+    ],
+    "dwell_time_description": "Single attack event. Estimated dwell time: minutes to hours.",
+    "ioc_summary": "Primary IP: 203.0.113.66 | Targets: 203.0.113.66 | Event hashes: 9 collected | MITRE: T1110, T1110.001",
+    "evidence_package_id": "301973d3-4eb4-4316-b60a-eed93c6d7e9a",
+    "recommendations": [
+      "Immediate: Verify containment of 203.0.113.66",
+      "Forensic: Preserve disk image and memory dump of 203.0.113.66",
+      "Patch: Apply patches for CVE-2024-6387, CVE-2023-48795 (CVSS 8.1)",
+      "Enforce MFA on all SSH access",
+      "Implement fail2ban or similar rate-limiting",
+      "Rotate all SSH keys on affected hosts"
+    ]
+  },
+  "playbook": {
+    "playbook_id": "56cbff3a-a0d7-481e-a7a2-46764c27cfa1",
+    "generated_at": "2026-05-02T15:26:23.140507+00:00",
+    "incident_id": "301973d3-4eb4-4316-b60a-eed93c6d7e9a",
+    "entity_id": "203.0.113.66",
+    "severity": "P4",
+    "attack_type": "Credential-Based Attack",
+    "total_steps": 16,
+    "estimated_total_minutes": 450,
+    "steps": [
+      {
+        "step_id": "f3bd4c72-4fc7-48c3-8294-ce09ac0882b8",
+        "order": 1,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Verify network isolation of 203.0.113.66",
+        "description": "Confirm that 203.0.113.66 has been isolated from the network. Risk score: 4.74 (MEDIUM).",
+        "technical_commands": [
+          "iptables -L -n | grep 203.0.113.66",
+          "ping -c 1 203.0.113.66  # should fail if quarantined"
+        ],
+        "expected_output": "iptables DROP rules present, ping should timeout",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 5
+      },
+      {
+        "step_id": "ceae20e4-131e-41a3-bd21-f6b5118c108f",
+        "order": 2,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Block attacker IP at perimeter firewall",
+        "description": "Add permanent block rule for 203.0.113.66 on all perimeter firewalls and WAF.",
+        "technical_commands": [
+          "# Palo Alto: set security policy block-203.0.113.66",
+          "# pfSense: pfctl -t blocklist -T add 203.0.113.66"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Network Engineer",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "4b870858-0cd9-4ce3-8949-62d9935d294f",
+        "order": 3,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Capture volatile evidence (memory + processes)",
+        "description": "Capture RAM dump and running processes on 203.0.113.66 BEFORE any remediation. This evidence is volatile.",
+        "technical_commands": [
+          "# Memory dump: ssh 203.0.113.66 'sudo dd if=/dev/mem of=/tmp/memdump.raw'",
+          "# Processes: ssh 203.0.113.66 'ps auxww > /tmp/processes.txt'",
+          "# Network: ssh 203.0.113.66 'netstat -tulpn > /tmp/netstat.txt'",
+          "# Open files: ssh 203.0.113.66 'lsof -i > /tmp/lsof.txt'"
+        ],
+        "expected_output": "4 evidence files collected and preserved",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "196e720c-051d-4f6c-b212-2b379e67a31e",
+        "order": 4,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Preserve disk image",
+        "description": "Create a forensic disk image for offline analysis.",
+        "technical_commands": [
+          "# dd if=/dev/sda of=/forensics/203.0.113.66_disk.img bs=4M",
+          "# sha256sum /forensics/203.0.113.66_disk.img > checksum.txt"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "89e90602-9c62-4a7f-8499-e072496ceb80",
+        "order": 5,
+        "category": "forensics",
+        "priority": "medium",
+        "title": "Collect AEGIS evidence hashes",
+        "description": "Verify 9 event hashes from AEGIS. MITRE techniques: T1110, T1110.001. Template sequence: [13, 13, 13, 13, 13, 13, 13, 13, 13]...",
+        "technical_commands": [
+          "# AEGIS Evidence Package ID: 301973d3-4eb4-4316-b60a-eed93c6d7e9a",
+          "# Total suspicion (UEBA): 18.0",
+          "# Entity cumulative score: 46.1"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "5a0785d5-5b58-418d-abc7-b1eb66f77e22",
+        "order": 6,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Check /var/log/auth.log for failed attempts count",
+        "description": "Check /var/log/auth.log for failed attempts count",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "f37eda07-1294-476e-a9aa-a5be9138f75f",
+        "order": 7,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Verify if any account was successfully compromised",
+        "description": "Verify if any account was successfully compromised",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "b1e6be60-4fde-436a-8abb-bd2a13e3c293",
+        "order": 8,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Audit SSH key additions in ~/.ssh/authorized_keys",
+        "description": "Audit SSH key additions in ~/.ssh/authorized_keys",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "1f1734d9-5546-4f25-80fe-fbbe0879a273",
+        "order": 9,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Check for new cron jobs or persistence mechanisms",
+        "description": "Check for new cron jobs or persistence mechanisms",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "484e4897-48c7-433a-89ae-9fdef4324ce5",
+        "order": 10,
+        "category": "eradication",
+        "priority": "high",
+        "title": "Remove attacker persistence mechanisms",
+        "description": "Check for backdoors, cron jobs, SSH keys, and rootkits installed by the attacker.",
+        "technical_commands": [
+          "ssh 203.0.113.66 'crontab -l'",
+          "ssh 203.0.113.66 'find / -name authorized_keys -exec cat {} \\;'",
+          "ssh 203.0.113.66 'find / -perm -4000 -type f 2>/dev/null'",
+          "rkhunter --check --skip-keypress"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Security Engineer",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "ff89bd8c-f95c-459c-9711-71130693b3d8",
+        "order": 11,
+        "category": "eradication",
+        "priority": "critical",
+        "title": "Patch vulnerabilities: CVE-2024-6387, CVE-2023-48795",
+        "description": "Apply patches for CVSS 8.1 vulnerabilities. CVEs: CVE-2024-6387, CVE-2023-48795.",
+        "technical_commands": [
+          "apt update && apt upgrade -y  # Debian/Ubuntu",
+          "yum update -y                 # RHEL/CentOS"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Sysadmin",
+        "estimated_minutes": 45
+      },
+      {
+        "step_id": "dd41508d-f170-470e-a8d1-506e2b93a088",
+        "order": 12,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Restore from clean backup",
+        "description": "If 203.0.113.66 was fully compromised, restore from last known-good backup.",
+        "technical_commands": [
+          "# Verify backup integrity before restore",
+          "# rsync -av /backups/203.0.113.66/ /"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Sysadmin",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "24fffda1-e497-40fa-a00a-45cc90180452",
+        "order": 13,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Rotate all credentials",
+        "description": "Reset passwords, API keys, SSH keys, and DB credentials.",
+        "technical_commands": [
+          "passwd <affected_users>",
+          "ssh-keygen -t ed25519  # regenerate SSH keys",
+          "ALTER USER 'app'@'%' IDENTIFIED BY '<new_password>';"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "0135056f-05a4-4111-9113-ca3ed0492097",
+        "order": 14,
+        "category": "communication",
+        "priority": "high",
+        "title": "Notify SOC Manager and CISO",
+        "description": "Escalate incident to management. Severity: P4. Risk: 4.74 (MEDIUM).",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Lead",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "21bc1a60-3dea-48df-ac93-aacbca9c2c7c",
+        "order": 15,
+        "category": "monitoring",
+        "priority": "medium",
+        "title": "Enable enhanced monitoring (30 days)",
+        "description": "Set elevated monitoring rules for 203.0.113.66 and all 1 affected assets for a minimum of 30 days post-incident.",
+        "technical_commands": [
+          "# SIEM: Add watchlist for 203.0.113.66",
+          "# IDS: Lower alert thresholds for affected subnet"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "ead8039f-43ce-44c5-956b-2dcfab79237b",
+        "order": 16,
+        "category": "monitoring",
+        "priority": "low",
+        "title": "Schedule post-incident review",
+        "description": "Lessons learned meeting within 5 business days.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Manager",
+        "estimated_minutes": 60
+      }
+    ]
+  },
+  "cert_dz_notification": {
+    "notification_id": "4da0220c-04b3-450d-890c-c36b6516efea",
+    "generated_at": "2026-05-02T15:26:23.140617+00:00",
+    "deadline": "2026-05-03T15:26:23.140579+00:00",
+    "hours_remaining": 24.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "contact_email": "[EMAIL]",
+    "contact_phone": "[TELEPHONE]",
+    "incident_id": "301973d3-4eb4-4316-b60a-eed93c6d7e9a",
+    "incident_timestamp": "2026-05-02T15:26:23.063495+00:00",
+    "severity_level": "P4",
+    "nature_of_breach": "Credential-Based Attack — Initial Access → Credential Access",
+    "attack_type": "Credential-Based Attack",
+    "source_ip": "203.0.113.66",
+    "affected_systems": [
+      "203.0.113.66",
+      "203.0.113.66"
+    ],
+    "mitre_techniques": [
+      "T1110",
+      "T1110.001"
+    ],
+    "containment_measures": [
+      "log_only — dry_run"
+    ],
+    "impact_assessment": "Primary impact on data confidentiality",
+    "evidence_preservation": "AEGIS Evidence Package 301973d3 — 9 event hashes preserved, blockchain immutability pending (Phase 5)",
+    "regulatory_reference": "Décret exécutif 20-05 relatif au dispositif national de sécurité des systèmes d'information",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "Direction Générale",
+      "Direction Juridique",
+      "RSSI/CISO",
+      "DPO"
+    ],
+    "legal_liability_risk": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale."
+  },
+  "anpdp_notification": {
+    "notification_id": "f012dd33-cdac-41ac-89ef-39f797738044",
+    "generated_at": "2026-05-02T15:26:23.140722+00:00",
+    "deadline": "2026-05-05T15:26:23.140685+00:00",
+    "hours_remaining": 72.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "dpo_contact": "[DPO - NOM ET CONTACT]",
+    "incident_id": "301973d3-4eb4-4316-b60a-eed93c6d7e9a",
+    "incident_timestamp": "2026-05-02T15:26:23.063495+00:00",
+    "nature_of_breach": "Credential-Based Attack avec impact potentiel sur les données personnelles",
+    "affected_data_categories": [
+      "Identifiants et mots de passe"
+    ],
+    "estimated_persons_affected": 50,
+    "data_processing_purpose": "[BUT DU TRAITEMENT]",
+    "likely_consequences": "Risque modéré: exposition potentielle de données personnelles, surveillance recommandée pour les personnes concernées.",
+    "containment_measures": [
+      "log_only — dry_run"
+    ],
+    "notification_to_subjects": false,
+    "regulatory_reference": "Loi 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel",
+    "fines_for_non_compliance": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+    "data_loss_risk_assessment": "User credentials, SSH keys",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "DPO",
+      "Direction Juridique",
+      "Service Communication"
+    ]
+  },
+  "applicable_regulations": [
+    {
+      "reg_id": "DZ-CERT",
+      "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+      "deadline_hours": 24,
+      "urgency": "IMMEDIATE",
+      "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+    },
+    {
+      "reg_id": "DZ-ANPDP",
+      "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+      "deadline_hours": 72,
+      "urgency": "STANDARD",
+      "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+    }
+  ],
+  "executive_summary": "On 2026-05-02T15:26:23.063495+00:00, AEGIS detected a Credential-Based Attack incident targeting 203.0.113.66. The attack was classified as P4 with a risk score of 4.74/10 (MEDIUM). 1 containment actions were executed. 1 additional assets were identified as affected. MITRE ATT&CK techniques: T1110, T1110.001. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+  "technical_summary": "INCIDENT TECHNICAL SUMMARY — 301973d3\nEntity: 203.0.113.66\nClassification: Credential-Based Attack\nKill Chain: Initial Access → Credential Access\nRisk Score: 4.74 (MEDIUM)\nCVSS Max: 8.1\nMITRE: T1110, T1110.001\nCVEs: CVE-2024-6387, CVE-2023-48795\nEntity History: score=46.1 attacks=['ssh_bruteforce']\nUEBA Suspicion: 18.0\nTemplate Sequence: [13, 13, 13, 13, 13, 13, 13, 13, 13]\nAffected Assets: ['203.0.113.66']\nRoot Cause: Weak or default SSH credentials on 203.0.113.66. Entity accumulated 46 risk points across 1 attack types, suggesting persistent targeting.\nImpact: C=7 I=2 A=1\nPlaybook: 16 steps, ~450 minutes"
+}

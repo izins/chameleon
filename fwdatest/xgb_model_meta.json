@@ -1,0 +1,44 @@
+{
+  "version": "2.0",
+  "n_features": 18,
+  "feature_names": [
+    "seq_0",
+    "seq_1",
+    "seq_2",
+    "seq_3",
+    "seq_4",
+    "seq_5",
+    "seq_6",
+    "seq_7",
+    "seq_8",
+    "seq_9",
+    "n_unique_templates",
+    "max_template_freq",
+    "entropy",
+    "consecutive_repeats",
+    "max_consecutive",
+    "template_range",
+    "t1_dominant",
+    "alternation_count"
+  ],
+  "best_params": {
+    "colsample_bytree": 0.8,
+    "gamma": 0.1,
+    "learning_rate": 0.05,
+    "max_depth": 4,
+    "min_child_weight": 3,
+    "n_estimators": 300,
+    "reg_alpha": 0.1,
+    "reg_lambda": 1.0,
+    "subsample": 0.8
+  },
+  "test_accuracy": 1.0,
+  "test_f1_macro": 1.0,
+  "label_map": {
+    "normal": 0,
+    "bruteforce": 1,
+    "malware_beacon": 2,
+    "scan": 3,
+    "data_exfiltration": 4
+  }
+}

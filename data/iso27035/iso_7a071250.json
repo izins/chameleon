@@ -1,0 +1,283 @@
+{
+  "incident_id": "7a071250-bcdf-4ca5-b100-4db302dc629e",
+  "entity_id": "haystack-test",
+  "created_at": "2026-05-02T17:53:59.033252+00:00",
+  "last_updated": "2026-05-02T17:53:59.070026+00:00",
+  "current_phase": "Phase 5: Documentation & Closure",
+  "overall_status": "closed",
+  "phases": {
+    "Phase 1: Detection & Reporting": {
+      "phase": "Phase 1: Detection & Reporting",
+      "status": "completed",
+      "iso_clause": "ISO 27035-2:2023 §7.2",
+      "iso_title": "Detection and Reporting",
+      "started_at": "2026-05-02T17:53:59.034345+00:00",
+      "completed_at": "2026-05-02T17:53:59.035046+00:00",
+      "duration_seconds": 0.001,
+      "operator": "AEGIS-AUTO",
+      "module": "ml_detector.py",
+      "inputs": {
+        "source": "ML Pipeline (XGBoost)",
+        "session_id": "9bcfa01d",
+        "event_count": 50,
+        "confidence": 0.6423,
+        "attack_type": "anomaly_unknown",
+        "suspicion_score": 26.0
+      },
+      "outputs": {
+        "alert_id": "f6a5fcf3",
+        "attack_type": "anomaly_unknown",
+        "severity": "P2",
+        "confidence": 0.6423,
+        "model_source": "XGBoost",
+        "template_sequence": [
+          8,
+          8,
+          11,
+          15,
+          15,
+          8,
+          12,
+          11
+        ]
+      },
+      "sub_phases": {},
+      "requirements": [
+        "Monitor information security events from multiple sources",
+        "Correlate events to identify potential incidents",
+        "Ensure initial reporting within defined SLA",
+        "Preserve volatile evidence at point of detection"
+      ],
+      "requirements_met": [
+        "Monitor information security events from multiple sources",
+        "Correlate events to identify potential incidents"
+      ],
+      "compliance_notes": []
+    },
+    "Phase 2: Assessment & Decision": {
+      "phase": "Phase 2: Assessment & Decision",
+      "status": "completed",
+      "iso_clause": "ISO 27035-2:2023 §7.3",
+      "iso_title": "Assessment and Decision",
+      "started_at": "2026-05-02T17:53:59.035823+00:00",
+      "completed_at": "2026-05-02T17:53:59.041510+00:00",
+      "duration_seconds": 0.006,
+      "operator": "AEGIS-AUTO",
+      "module": "enrichment_engine.py + verification_gate.py + scorer.py",
+      "inputs": {
+        "alert_id": "f6a5fcf3",
+        "enrichment_sources": [
+          "MITRE",
+          "CVE",
+          "EPSS",
+          "KEV",
+          "EntityTracker"
+        ]
+      },
+      "outputs": {
+        "gate_verdict": "INCONCLUSIVE",
+        "gate_score": 3.52,
+        "risk_score": 2.24,
+        "risk_label": "LOW",
+        "5d_decomposition": {
+          "D1_vulnerability": 0.06,
+          "D2_asset_criticality": 1.25,
+          "D3_propagation": 0.0,
+          "D4_entity_history": 0.48,
+          "D5_data_sensitivity": 0.45
+        },
+        "mitre_techniques": [
+          "T1071"
+        ],
+        "max_cvss": 0.0,
+        "epss_score": 0.05,
+        "is_kev": false,
+        "asset_type": "unknown",
+        "business_impact": "unknown"
+      },
+      "sub_phases": {},
+      "requirements": [
+        "Classify the incident by type and severity",
+        "Assess business impact (confidentiality, integrity, availability)",
+        "Determine if escalation is required",
+        "Verify the incident is not a false positive",
+        "Assign incident handler based on classification"
+      ],
+      "requirements_met": [
+        "Classify the incident by type and severity",
+        "Assess business impact (confidentiality, integrity, availability)",
+        "Verify the incident is not a false positive"
+      ],
+      "compliance_notes": []
+    },
+    "Phase 3: Response": {
+      "phase": "Phase 3: Response",
+      "status": "completed",
+      "iso_clause": "ISO 27035-2:2023 §7.4",
+      "iso_title": "Responses",
+      "started_at": "2026-05-02T17:53:59.047287+00:00",
+      "completed_at": "2026-05-02T17:53:59.048056+00:00",
+      "duration_seconds": 0.001,
+      "operator": "AEGIS-AUTO",
+      "module": "isolator.py",
+      "inputs": {
+        "containment_done": true
+      },
+      "outputs": {
+        "total_actions": 2
+      },
+      "sub_phases": {
+        "containment": {
+          "phase": "Phase 3.containment",
+          "status": "completed",
+          "iso_clause": "§7.4.2",
+          "iso_title": "Immediate Containment",
+          "started_at": "2026-05-02T17:53:59.043160+00:00",
+          "completed_at": "2026-05-02T17:53:59.046374+00:00",
+          "duration_seconds": 0.003,
+          "operator": "AEGIS-AUTO",
+          "module": "isolator.py",
+          "inputs": {
+            "risk_score": 2.24,
+            "requires_isolation": true
+          },
+          "outputs": {
+            "actions_count": 2,
+            "actions": [
+              "alert_soc",
+              "network_quarantine"
+            ],
+            "dry_run": true
+          },
+          "sub_phases": {},
+          "requirements": [
+            "Isolate affected systems proportionally",
+            "Preserve evidence before containment actions",
+            "Minimize business disruption during containment"
+          ],
+          "requirements_met": [
+            "Isolate affected systems proportionally",
+            "Preserve evidence before containment actions"
+          ],
+          "compliance_notes": []
+        },
+        "eradication": {
+          "phase": "Phase 3.eradication",
+          "status": "pending",
+          "iso_clause": "§7.4.3",
+          "iso_title": "Eradication",
+          "started_at": null,
+          "completed_at": null,
+          "duration_seconds": null,
+          "operator": "AEGIS-AUTO",
+          "module": "",
+          "inputs": {},
+          "outputs": {},
+          "sub_phases": {},
+          "requirements": [
+            "Remove threat actor access and persistence",
+            "Patch exploited vulnerabilities",
+            "Verify removal with integrity checks"
+          ],
+          "requirements_met": [],
+          "compliance_notes": []
+        },
+        "recovery": {
+          "phase": "Phase 3.recovery",
+          "status": "pending",
+          "iso_clause": "§7.4.4",
+          "iso_title": "Recovery",
+          "started_at": null,
+          "completed_at": null,
+          "duration_seconds": null,
+          "operator": "AEGIS-AUTO",
+          "module": "",
+          "inputs": {},
+          "outputs": {},
+          "sub_phases": {},
+          "requirements": [
+            "Restore systems from clean backups",
+            "Rotate all potentially compromised credentials",
+            "Verify system integrity before returning to production",
+            "Implement enhanced monitoring for recurrence"
+          ],
+          "requirements_met": [],
+          "compliance_notes": []
+        }
+      },
+      "requirements": [],
+      "requirements_met": [],
+      "compliance_notes": []
+    },
+    "Phase 4: Lessons Learned": {
+      "phase": "Phase 4: Lessons Learned",
+      "status": "completed",
+      "iso_clause": "ISO 27035-2:2023 §7.5",
+      "iso_title": "Lessons Learned",
+      "started_at": "2026-05-02T17:53:59.062545+00:00",
+      "completed_at": "2026-05-02T17:53:59.068408+00:00",
+      "duration_seconds": 0.006,
+      "operator": "AEGIS-AUTO",
+      "module": "incident_analyzer.py",
+      "inputs": {
+        "enriched_alert_id": "0e30e79d"
+      },
+      "outputs": {
+        "root_cause": "Behavioral anomaly on haystack-test. UEBA suspicion score: 26.0. Manual investigation required.",
+        "attack_classification": "Unclassified Behavioral Anomaly",
+        "kill_chain_phase": "Unknown — requires manual analysis"
+      },
+      "sub_phases": {},
+      "requirements": [
+        "Conduct post-incident review within 5 business days",
+        "Identify root cause and contributing factors",
+        "Document improvements to detection and response",
+        "Update incident response procedures"
+      ],
+      "requirements_met": [
+        "Identify root cause and contributing factors"
+      ],
+      "compliance_notes": []
+    },
+    "Phase 5: Documentation & Closure": {
+      "phase": "Phase 5: Documentation & Closure",
+      "status": "completed",
+      "iso_clause": "ISO 27035-2:2023 §7.6",
+      "iso_title": "Documentation and Closure",
+      "started_at": "2026-05-02T17:53:59.069209+00:00",
+      "completed_at": "2026-05-02T17:53:59.070026+00:00",
+      "duration_seconds": 0.001,
+      "operator": "AEGIS-AUTO",
+      "module": "report_generator.py + blockchain",
+      "inputs": {
+        "report_id": "333c76d2"
+      },
+      "outputs": {
+        "report_persisted": true,
+        "blockchain_anchored": true,
+        "cert_dz_generated": true,
+        "anpdp_generated": true,
+        "playbook_steps": 17
+      },
+      "sub_phases": {},
+      "requirements": [
+        "Complete incident report with full timeline",
+        "Archive all evidence with cryptographic integrity",
+        "Submit regulatory notifications (CERT-DZ T+24h, ANPDP T+72h)",
+        "Obtain management sign-off for incident closure"
+      ],
+      "requirements_met": [
+        "Complete incident report with full timeline",
+        "Archive all evidence with cryptographic integrity",
+        "Submit regulatory notifications (CERT-DZ T+24h, ANPDP T+72h)"
+      ],
+      "compliance_notes": []
+    }
+  },
+  "severity": "P2",
+  "attack_type": "anomaly_unknown",
+  "risk_score": 2.24,
+  "risk_label": "LOW",
+  "total_phases_completed": 5,
+  "total_phases": 5
+}

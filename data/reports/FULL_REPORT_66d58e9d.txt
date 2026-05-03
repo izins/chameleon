@@ -1,0 +1,249 @@
+========================================================================
+  AEGIS INCIDENT REPORT
+========================================================================
+
+Report ID    : 66d58e9d-e513-4ab7-85ff-7dfbf2a05b9e
+Generated    : 2026-05-02T19:52:16.362409+00:00
+Entity       : 185.220.101.42
+Severity     : P1
+Risk Score   : 5.70 (MEDIUM)
+
+────────────────────────────────────────────────────────────────────────
+EXECUTIVE SUMMARY
+────────────────────────────────────────────────────────────────────────
+On 2026-05-02T19:52:16.337402+00:00, AEGIS detected a Privilege Elevation Attack incident targeting 185.220.101.42. The attack was classified as P1 with a risk score of 5.70/10 (MEDIUM). 3 containment actions were executed. 3 additional assets were identified as affected. MITRE ATT&CK techniques: T1068, T1548. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.
+
+────────────────────────────────────────────────────────────────────────
+TECHNICAL SUMMARY
+────────────────────────────────────────────────────────────────────────
+INCIDENT TECHNICAL SUMMARY — 18316782
+Entity: 185.220.101.42
+Classification: Privilege Elevation Attack
+Kill Chain: Privilege Escalation → Persistence
+Risk Score: 5.70 (MEDIUM)
+
+── ASSET CONTEXT ──
+Asset Type: unknown
+Asset Role: unknown
+Business Impact: unknown
+Data Classification: unknown
+
+── 5D RISK DECOMPOSITION ──
+D1 Vulnerability (CVSS+EPSS+KEV): 2.50
+D2 Asset Criticality:             1.25
+D3 Propagation Risk:              0.00
+D4 Entity History:                1.50
+D5 Data Sensitivity:              0.45
+EPSS Score: 0.65
+CISA KEV: YES — actively exploited
+Sources: ['CISA-KEV', 'EPSS(65%)', 'CVSS(7.8)', 'MultiStage', 'History(3alerts)']
+
+── ENRICHMENT ──
+CVSS Max: 7.8
+MITRE: T1068, T1548
+CVEs: CVE-2024-1086
+Entity History: score=259.0 attacks=['ssh_bruteforce', 'lateral_movement', 'privilege_escalation']
+UEBA Suspicion: 12.0
+Template Sequence: [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 4, 5]
+Affected Assets: ['10.0.0.1', '10.0.0.5', '10.0.0.10']
+
+── ANALYSIS ──
+Root Cause: Privilege escalation on 185.220.101.42 via known CVE: CVE-2024-1086. MITRE: T1068 → T1548.
+Impact: C=8 I=8 A=1
+Playbook: 18 steps, ~530 minutes
+
+────────────────────────────────────────────────────────────────────────
+FORENSIC ANALYSIS
+────────────────────────────────────────────────────────────────────────
+Classification : Privilege Elevation Attack
+Kill Chain     : Privilege Escalation → Persistence
+Attack Vector  : Kernel exploit, SUID abuse, sudo misconfiguration
+Root Cause     : Privilege escalation on 185.220.101.42 via known CVE: CVE-2024-1086. MITRE: T1068 → T1548.
+Dwell Time     : Multi-stage attack with 3 distinct attack types observed. Likely dwell time: days to weeks.
+Impact (CIA)   : C=8 I=8 A=1 (overall=5.7)
+
+────────────────────────────────────────────────────────────────────────
+INCIDENT RESPONSE PLAYBOOK
+────────────────────────────────────────────────────────────────────────
+
+[Step 1] [CRITICAL] CONTAINMENT
+  Title   : Full network quarantine of 185.220.101.42
+  Detail  : Standard asset (unknown). Full network isolation is safe. Risk score: 5.70 (MEDIUM).
+  Assignee: SOC L1 (~5 min)
+  Commands:
+    $ iptables -A INPUT -s 185.220.101.42 -j DROP
+    $ iptables -A OUTPUT -d 185.220.101.42 -j DROP
+    $ ping -c 1 185.220.101.42  # should fail if quarantined
+
+[Step 2] [CRITICAL] CONTAINMENT
+  Title   : Disable compromised accounts
+  Detail  : Lock all user accounts that were active on 185.220.101.42 during the incident window.
+  Assignee: IAM Team (~15 min)
+  Commands:
+    $ # List active sessions: who | last
+    $ # Lock accounts: passwd -l <username>
+    $ # AD: Disable-ADAccount -Identity <user>
+
+[Step 3] [HIGH] FORENSICS
+  Title   : Capture volatile evidence (memory + processes)
+  Detail  : Capture RAM dump and running processes on 185.220.101.42 BEFORE any remediation. This evidence is volatile.
+  Assignee: Forensic Analyst (~30 min)
+  Commands:
+    $ # Memory dump: ssh 185.220.101.42 'sudo dd if=/dev/mem of=/tmp/memdump.raw'
+    $ # Processes: ssh 185.220.101.42 'ps auxww > /tmp/processes.txt'
+    $ # Network: ssh 185.220.101.42 'netstat -tulpn > /tmp/netstat.txt'
+    $ # Open files: ssh 185.220.101.42 'lsof -i > /tmp/lsof.txt'
+
+[Step 4] [HIGH] FORENSICS
+  Title   : Preserve disk image
+  Detail  : Create a forensic disk image for offline analysis.
+  Assignee: Forensic Analyst (~60 min)
+  Commands:
+    $ # dd if=/dev/sda of=/forensics/185.220.101.42_disk.img bs=4M
+    $ # sha256sum /forensics/185.220.101.42_disk.img > checksum.txt
+
+[Step 5] [MEDIUM] FORENSICS
+  Title   : Collect AEGIS evidence hashes
+  Detail  : Verify 4 event hashes from AEGIS. MITRE techniques: T1068, T1548. Template sequence: [1, 1, 1, 1, 1, 1, 1, 2, 2, 2]...
+  Assignee: SOC L2 (~15 min)
+  Commands:
+    $ # AEGIS Evidence Package ID: 18316782-890b-42eb-aa7b-5c4e2a73f4fa
+    $ # Total suspicion (UEBA): 12.0
+    $ # Entity cumulative score: 259.0
+
+[Step 6] [HIGH] FORENSICS
+  Title   : Investigation: Check for new SUID binaries: find / -perm -4000
+  Detail  : Check for new SUID binaries: find / -perm -4000
+  Assignee: SOC L2 (~20 min)
+
+[Step 7] [HIGH] FORENSICS
+  Title   : Investigation: Audit /etc/sudoers for recent modifications
+  Detail  : Audit /etc/sudoers for recent modifications
+  Assignee: SOC L2 (~20 min)
+
+[Step 8] [HIGH] FORENSICS
+  Title   : Investigation: Review kernel logs for exploit signatures (dmesg)
+  Detail  : Review kernel logs for exploit signatures (dmesg)
+  Assignee: SOC L2 (~20 min)
+
+[Step 9] [HIGH] FORENSICS
+  Title   : Investigation: Check for rootkit indicators: rkhunter / chkrootkit
+  Detail  : Check for rootkit indicators: rkhunter / chkrootkit
+  Assignee: SOC L2 (~20 min)
+
+[Step 10] [HIGH] ERADICATION
+  Title   : Remove attacker persistence mechanisms
+  Detail  : Check for backdoors, cron jobs, SSH keys, and rootkits installed by the attacker.
+  Assignee: Security Engineer (~30 min)
+  Commands:
+    $ ssh 185.220.101.42 'crontab -l'
+    $ ssh 185.220.101.42 'find / -name authorized_keys -exec cat {} \;'
+    $ ssh 185.220.101.42 'find / -perm -4000 -type f 2>/dev/null'
+    $ rkhunter --check --skip-keypress
+
+[Step 11] [CRITICAL] ERADICATION
+  Title   : Patch vulnerabilities: CVE-2024-1086
+  Detail  : Apply patches for CVSS 7.8 vulnerabilities. CVEs: CVE-2024-1086.
+  Assignee: Sysadmin (~45 min)
+  Commands:
+    $ apt update && apt upgrade -y  # Debian/Ubuntu
+    $ yum update -y                 # RHEL/CentOS
+
+[Step 12] [MEDIUM] RECOVERY
+  Title   : Restore from clean backup
+  Detail  : If 185.220.101.42 was fully compromised, restore from last known-good backup.
+  Assignee: Sysadmin (~60 min)
+  Commands:
+    $ # Verify backup integrity before restore
+    $ # rsync -av /backups/185.220.101.42/ /
+
+[Step 13] [MEDIUM] RECOVERY
+  Title   : Rotate all credentials
+  Detail  : Reset passwords, API keys, SSH keys, and DB credentials.
+  Assignee: IAM Team (~30 min)
+  Commands:
+    $ passwd <affected_users>
+    $ ssh-keygen -t ed25519  # regenerate SSH keys
+    $ ALTER USER 'app'@'%' IDENTIFIED BY '<new_password>';
+
+[Step 14] [HIGH] COMMUNICATION
+  Title   : Notify SOC Manager and CISO
+  Detail  : Escalate incident to management. Severity: P1. Risk: 5.70 (MEDIUM).
+  Assignee: SOC Lead (~10 min)
+
+[Step 15] [CRITICAL] LEGAL
+  Title   : Notify CERT-DZ within 24 hours
+  Detail  : Legal obligation: Décret 20-05 requires notification to CERT.dz within 24h of incident discovery.
+  Assignee: Legal / Compliance (~30 min)
+
+[Step 16] [HIGH] LEGAL
+  Title   : Notify ANPDP within 72 hours (if PII affected)
+  Detail  : Loi 18-07: If personal data was compromised, ANPDP must be notified within 72 hours.
+  Assignee: DPO (~45 min)
+
+[Step 17] [MEDIUM] MONITORING
+  Title   : Enable enhanced monitoring (30 days)
+  Detail  : Set elevated monitoring rules for 185.220.101.42 and all 3 affected assets for a minimum of 30 days post-incident.
+  Assignee: SOC L1 (~15 min)
+  Commands:
+    $ # SIEM: Add watchlist for 185.220.101.42
+    $ # IDS: Lower alert thresholds for affected subnet
+
+[Step 18] [LOW] MONITORING
+  Title   : Schedule post-incident review
+  Detail  : Lessons learned meeting within 5 business days.
+  Assignee: SOC Manager (~60 min)
+
+────────────────────────────────────────────────────────────────────────
+LEGAL — NOTIFICATION CERT-DZ (T+24h)
+────────────────────────────────────────────────────────────────────────
+Deadline       : 2026-05-03T19:52:16.362247+00:00
+Référence      : Décret exécutif 20-05 relatif au dispositif national de sécurité des systèmes d'information
+Sévérité       : P1
+Nature         : Privilege Elevation Attack — Privilege Escalation → Persistence
+IP Source      : 185.220.101.42
+Systèmes       : ['185.220.101.42', '10.0.0.1', '10.0.0.5', '10.0.0.10']
+MITRE          : ['T1068', 'T1548']
+Mesures        : ['alert_soc — dry_run', 'network_quarantine — dry_run', 'user_lock — dry_run']
+Impact         : High impact on confidentiality and integrity
+Preuves        : AEGIS Evidence Package 18316782 — 4 event hashes preserved, blockchain immutability pending (Phase 5)
+Risque Légal   : Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale.
+Pénalité Hacker: Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.
+Services Inters: Direction Générale, Direction Juridique, RSSI/CISO, DPO
+
+────────────────────────────────────────────────────────────────────────
+LEGAL — NOTIFICATION ANPDP (T+72h)
+────────────────────────────────────────────────────────────────────────
+Deadline       : 2026-05-05T19:52:16.362302+00:00
+Référence      : Loi 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel
+Nature         : Privilege Elevation Attack avec impact potentiel sur les données personnelles
+Données        : ['Données à caractère personnel', 'Données professionnelles']
+Personnes      : 250
+Conséquences   : Risque élevé: possibilité d'usurpation d'identité, accès non autorisé aux comptes des personnes concernées, divulgation de données confidentielles.
+Pertes Données : Full system access, all data on host
+Amendes Entité : Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.
+Pénalité Hacker: Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.
+Services Inters: DPO, Direction Juridique, Service Communication
+
+────────────────────────────────────────────────────────────────────────
+INVESTIGATION STEPS (Attack-Specific)
+────────────────────────────────────────────────────────────────────────
+  1. Check for new SUID binaries: find / -perm -4000
+  2. Audit /etc/sudoers for recent modifications
+  3. Review kernel logs for exploit signatures (dmesg)
+  4. Check for rootkit indicators: rkhunter / chkrootkit
+
+────────────────────────────────────────────────────────────────────────
+RECOMMENDATIONS
+────────────────────────────────────────────────────────────────────────
+  1. Immediate: Verify containment of 185.220.101.42
+  2. Forensic: Preserve disk image and memory dump of 185.220.101.42
+  3. Patch: Apply patches for CVE-2024-1086 (CVSS 7.8)
+  4. Reset credentials for all accounts on affected hosts
+  5. Audit network segmentation policies
+  6. Review sudo/admin privilege assignments
+  7. Threat Intel: Share IoCs for 185.220.101.42 with CERT-DZ and industry ISACs
+
+========================================================================
+  END OF REPORT — AEGIS Adaptive Enterprise Guard
+========================================================================

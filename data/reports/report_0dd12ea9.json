@@ -1,0 +1,606 @@
+{
+  "report_id": "0dd12ea9-574a-481d-86ba-338ad7339838",
+  "generated_at": "2026-05-02T15:16:41.372984+00:00",
+  "entity_id": "192.168.1.10",
+  "severity": "P2",
+  "risk_score": 1.5,
+  "risk_label": "INFO",
+  "evidence": {
+    "package_id": "d9398fec-7039-4df2-a486-6890457df2e6",
+    "incident_timestamp": "2026-05-02T15:16:41.122184+00:00",
+    "entity_id": "192.168.1.10",
+    "timeline": [
+      {
+        "timestamp": "2026-05-02T15:16:41.122184+00:00",
+        "event_type": "alert",
+        "source": "XGBoost",
+        "description": "Attack detected: anomaly_unknown (confidence=99%)",
+        "severity": "P2",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.362062+00:00",
+        "event_type": "enrichment",
+        "source": "EnrichmentEngine",
+        "description": "MITRE: ['T1071'] | CVEs: [] | CVSS: 0.0",
+        "severity": "",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.362062+00:00",
+        "event_type": "scoring",
+        "source": "RiskScorer",
+        "description": "Risk score: 1.50 (INFO) | Severity: P2→P2",
+        "severity": "P2",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.362978+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "network_quarantine on 192.168.1.10 — status=dry_run",
+        "severity": "P2",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.363886+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "alert_soc on 192.168.1.10 — status=dry_run",
+        "severity": "P2",
+        "raw_data": "",
+        "event_hash": ""
+      }
+    ],
+    "iocs": [
+      {
+        "ioc_type": "ip",
+        "value": "192.168.1.10",
+        "context": "Primary attacker IP",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.9865
+      },
+      {
+        "ioc_type": "ip",
+        "value": "10.0.0.100",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "ip",
+        "value": "10.0.0.5",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "ip",
+        "value": "192.168.1.20",
+        "context": "Targeted asset",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.8
+      },
+      {
+        "ioc_type": "hash",
+        "value": "71018667cbbadc6133ababe415fc67184dbc616055045bf8877a296e832b0f6a",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.9865
+      },
+      {
+        "ioc_type": "hash",
+        "value": "8ace9943dae2993be41a3cc12de12cae639f1cae33501d09b9c639d2123c65be",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.9865
+      },
+      {
+        "ioc_type": "hash",
+        "value": "ccca91be839987b59086f775b7f7649e8bc112e32c00d044e1cb7e59d7c8f8a9",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.9865
+      },
+      {
+        "ioc_type": "hash",
+        "value": "bb0501d7f9d56ecd04e7f58a33b94a1237ff9963f1b52699d3e732b7599417c0",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.9865
+      },
+      {
+        "ioc_type": "hash",
+        "value": "ef5aff32168ea724f8b4a84d3cc08e24017d19336183bafcf6bea02f9adfdb90",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.122184+00:00",
+        "confidence": 0.9865
+      }
+    ],
+    "raw_logs": [],
+    "event_hashes": [
+      "71018667cbbadc6133ababe415fc67184dbc616055045bf8877a296e832b0f6a",
+      "8ace9943dae2993be41a3cc12de12cae639f1cae33501d09b9c639d2123c65be",
+      "ccca91be839987b59086f775b7f7649e8bc112e32c00d044e1cb7e59d7c8f8a9",
+      "bb0501d7f9d56ecd04e7f58a33b94a1237ff9963f1b52699d3e732b7599417c0",
+      "ef5aff32168ea724f8b4a84d3cc08e24017d19336183bafcf6bea02f9adfdb90",
+      "12c3746b06ddd0e317700a9e2b48b66a88efdf476cd2cf8d076cff9982766405",
+      "74601f13cf14efb06caa650712c5b8ed4b2f116e01baa6ed73dad1339ba53942",
+      "594046dc4ddda6366ab51b58c3e5c98079d19e67326f7fc711d92a46d3f2d7a5",
+      "9038c798c31d94e4ca7ab41ad3dae65fda5c835fc69c3bc594652b8cc31902ad",
+      "8e76e71f6fa09a3834b92466fff794dab2078d99b69c7e91f5740656127d512d",
+      "ee56417980001640f20c27855e3019ca7be77ce1c9155ec0324db606ad80a544",
+      "a7850649cffb7f3116344da2c8efc2f7ba133982698702cb4dfe13b69c06b5f4"
+    ],
+    "template_sequence": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      1,
+      1,
+      1
+    ],
+    "total_suspicion": 0.0,
+    "mitre_techniques": [
+      "T1071"
+    ],
+    "mitre_tactic": "Command and Control",
+    "cve_ids": [],
+    "max_cvss": 0.0,
+    "entity_cumulative_score": 98.65,
+    "entity_attack_history": [
+      "anomaly_unknown"
+    ],
+    "risk_score": 1.5,
+    "risk_label": "INFO",
+    "adjusted_severity": "P2",
+    "isolation_actions": [
+      {
+        "action_id": "9515fda0-c3f4-4e17-913e-d4626e278d74",
+        "timestamp": "2026-05-02T15:16:41.362978Z",
+        "alert_id": "d47c0eea-423c-4930-b42e-0dafedcb9f4f",
+        "entity_id": "192.168.1.10",
+        "action_type": "network_quarantine",
+        "severity": "P2",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 1.5,
+        "details": "network_quarantine on 192.168.1.10 — severity=P2 risk=1.50 (INFO)",
+        "error": ""
+      },
+      {
+        "action_id": "203c6042-50cd-4fee-9705-0ca0ad4ab4d0",
+        "timestamp": "2026-05-02T15:16:41.363886Z",
+        "alert_id": "d47c0eea-423c-4930-b42e-0dafedcb9f4f",
+        "entity_id": "192.168.1.10",
+        "action_type": "alert_soc",
+        "severity": "P2",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 1.5,
+        "details": "alert_soc on 192.168.1.10 — severity=P2 risk=1.50 (INFO)",
+        "error": ""
+      }
+    ],
+    "affected_assets": [
+      "10.0.0.100",
+      "10.0.0.5",
+      "192.168.1.20"
+    ]
+  },
+  "analysis": {
+    "analysis_id": "4899295a-2e22-43e7-8ea9-347768ed83b8",
+    "timestamp": "2026-05-02T15:16:41.372664+00:00",
+    "entity_id": "192.168.1.10",
+    "attack_classification": "Unclassified Behavioral Anomaly",
+    "kill_chain_phase": "Unknown — requires manual analysis",
+    "attack_vector": "Behavioral deviation detected by UEBA / ML models",
+    "root_cause_hypothesis": "Behavioral anomaly on 192.168.1.10. UEBA suspicion score: 0.0. Manual investigation required.",
+    "data_at_risk": "Unknown — manual triage required",
+    "lateral_risk_level": "MEDIUM — assume hostile until proven benign",
+    "impact": {
+      "confidentiality": 3,
+      "integrity": 2,
+      "availability": 1,
+      "overall": 2.0,
+      "description": "CIA scores: C=3 I=2 A=1"
+    },
+    "investigation_steps": [
+      "Review the raw log sequence for patterns",
+      "Compare entity behavior to historical baseline",
+      "Check if the anomaly correlates with known maintenance windows",
+      "Escalate to Tier 2 analyst for manual review"
+    ],
+    "dwell_time_description": "Single attack event. Estimated dwell time: minutes to hours.",
+    "ioc_summary": "Primary IP: 192.168.1.10 | Targets: 10.0.0.100, 10.0.0.5, 192.168.1.20 | Event hashes: 12 collected | MITRE: T1071",
+    "evidence_package_id": "d9398fec-7039-4df2-a486-6890457df2e6",
+    "recommendations": [
+      "Immediate: Verify containment of 192.168.1.10",
+      "Forensic: Preserve disk image and memory dump of 192.168.1.10",
+      "Threat Intel: Share IoCs for 192.168.1.10 with CERT-DZ and industry ISACs"
+    ]
+  },
+  "playbook": {
+    "playbook_id": "b5b1b3b1-0e3d-4066-8f90-78c534c08668",
+    "generated_at": "2026-05-02T15:16:41.372822+00:00",
+    "incident_id": "d9398fec-7039-4df2-a486-6890457df2e6",
+    "entity_id": "192.168.1.10",
+    "severity": "P2",
+    "attack_type": "Unclassified Behavioral Anomaly",
+    "total_steps": 18,
+    "estimated_total_minutes": 495,
+    "steps": [
+      {
+        "step_id": "b3c7a4c2-70e5-405b-a94b-326280cf1140",
+        "order": 1,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Verify network isolation of 192.168.1.10",
+        "description": "Confirm that 192.168.1.10 has been isolated from the network. Risk score: 1.50 (INFO).",
+        "technical_commands": [
+          "iptables -L -n | grep 192.168.1.10",
+          "ping -c 1 192.168.1.10  # should fail if quarantined"
+        ],
+        "expected_output": "iptables DROP rules present, ping should timeout",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 5
+      },
+      {
+        "step_id": "67f33f70-c742-43e2-a3e0-3388499308bd",
+        "order": 2,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Block attacker IP at perimeter firewall",
+        "description": "Add permanent block rule for 192.168.1.10 on all perimeter firewalls and WAF.",
+        "technical_commands": [
+          "# Palo Alto: set security policy block-192.168.1.10",
+          "# pfSense: pfctl -t blocklist -T add 192.168.1.10"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Network Engineer",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "6a40c5f8-1581-4da0-a3a2-e5ca5c885b3a",
+        "order": 3,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Disable compromised accounts",
+        "description": "Lock all user accounts that were active on 192.168.1.10 during the incident window.",
+        "technical_commands": [
+          "# List active sessions: who | last",
+          "# Lock accounts: passwd -l <username>",
+          "# AD: Disable-ADAccount -Identity <user>"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "3d4e0485-1757-4ebc-b58c-4f4e79d0070b",
+        "order": 4,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Capture volatile evidence (memory + processes)",
+        "description": "Capture RAM dump and running processes on 192.168.1.10 BEFORE any remediation. This evidence is volatile.",
+        "technical_commands": [
+          "# Memory dump: ssh 192.168.1.10 'sudo dd if=/dev/mem of=/tmp/memdump.raw'",
+          "# Processes: ssh 192.168.1.10 'ps auxww > /tmp/processes.txt'",
+          "# Network: ssh 192.168.1.10 'netstat -tulpn > /tmp/netstat.txt'",
+          "# Open files: ssh 192.168.1.10 'lsof -i > /tmp/lsof.txt'"
+        ],
+        "expected_output": "4 evidence files collected and preserved",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "4f75d2d1-8205-4c54-b799-528bb1a522d8",
+        "order": 5,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Preserve disk image",
+        "description": "Create a forensic disk image for offline analysis.",
+        "technical_commands": [
+          "# dd if=/dev/sda of=/forensics/192.168.1.10_disk.img bs=4M",
+          "# sha256sum /forensics/192.168.1.10_disk.img > checksum.txt"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "8fcbd6c6-999a-4e0f-a1a3-561a74ad119c",
+        "order": 6,
+        "category": "forensics",
+        "priority": "medium",
+        "title": "Collect AEGIS evidence hashes",
+        "description": "Verify 12 event hashes from AEGIS. MITRE techniques: T1071. Template sequence: [6, 6, 6, 6, 6, 6, 6, 6, 6, 1]...",
+        "technical_commands": [
+          "# AEGIS Evidence Package ID: d9398fec-7039-4df2-a486-6890457df2e6",
+          "# Total suspicion (UEBA): 0.0",
+          "# Entity cumulative score: 98.7"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "1f5b26e6-6762-42a8-af6e-6c302e7e52fe",
+        "order": 7,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Review the raw log sequence for patterns",
+        "description": "Review the raw log sequence for patterns",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "7f3d1d11-9a32-4007-a05a-db9b2f37998d",
+        "order": 8,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Compare entity behavior to historical baseline",
+        "description": "Compare entity behavior to historical baseline",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "c27bb951-6fd3-4cfc-9273-ee4a52cb69e8",
+        "order": 9,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Check if the anomaly correlates with known maintenance windo",
+        "description": "Check if the anomaly correlates with known maintenance windows",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "ea3cc473-c702-4627-b28a-f2ba18320e23",
+        "order": 10,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Escalate to Tier 2 analyst for manual review",
+        "description": "Escalate to Tier 2 analyst for manual review",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "ccbb2792-052b-4a0f-8697-2b906acf9270",
+        "order": 11,
+        "category": "eradication",
+        "priority": "high",
+        "title": "Remove attacker persistence mechanisms",
+        "description": "Check for backdoors, cron jobs, SSH keys, and rootkits installed by the attacker.",
+        "technical_commands": [
+          "ssh 192.168.1.10 'crontab -l'",
+          "ssh 192.168.1.10 'find / -name authorized_keys -exec cat {} \\;'",
+          "ssh 192.168.1.10 'find / -perm -4000 -type f 2>/dev/null'",
+          "rkhunter --check --skip-keypress"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Security Engineer",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "bb91e309-c052-461a-9011-c517f0c98471",
+        "order": 12,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Restore from clean backup",
+        "description": "If 192.168.1.10 was fully compromised, restore from last known-good backup.",
+        "technical_commands": [
+          "# Verify backup integrity before restore",
+          "# rsync -av /backups/192.168.1.10/ /"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Sysadmin",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "aa079b92-0658-4c8a-8cdf-00b8b9753020",
+        "order": 13,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Rotate all credentials",
+        "description": "Reset passwords, API keys, SSH keys, and DB credentials.",
+        "technical_commands": [
+          "passwd <affected_users>",
+          "ssh-keygen -t ed25519  # regenerate SSH keys",
+          "ALTER USER 'app'@'%' IDENTIFIED BY '<new_password>';"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "e27653a4-7add-40d3-ab9e-ab30275ba21b",
+        "order": 14,
+        "category": "communication",
+        "priority": "high",
+        "title": "Notify SOC Manager and CISO",
+        "description": "Escalate incident to management. Severity: P2. Risk: 1.50 (INFO).",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Lead",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "75f9a934-be62-4cc9-8c49-0b13629b2f9d",
+        "order": 15,
+        "category": "legal",
+        "priority": "critical",
+        "title": "Notify CERT-DZ within 24 hours",
+        "description": "Legal obligation: Décret 20-05 requires notification to CERT.dz within 24h of incident discovery.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Legal / Compliance",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "2ecfdc12-a5ff-4767-bb24-43ef2c1074d8",
+        "order": 16,
+        "category": "legal",
+        "priority": "high",
+        "title": "Notify ANPDP within 72 hours (if PII affected)",
+        "description": "Loi 18-07: If personal data was compromised, ANPDP must be notified within 72 hours.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "DPO",
+        "estimated_minutes": 45
+      },
+      {
+        "step_id": "b9266bba-523a-405a-b4a6-a960b3854cdd",
+        "order": 17,
+        "category": "monitoring",
+        "priority": "medium",
+        "title": "Enable enhanced monitoring (30 days)",
+        "description": "Set elevated monitoring rules for 192.168.1.10 and all 3 affected assets for a minimum of 30 days post-incident.",
+        "technical_commands": [
+          "# SIEM: Add watchlist for 192.168.1.10",
+          "# IDS: Lower alert thresholds for affected subnet"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "e8dd551a-2a0d-440b-a62e-91c5cb340a25",
+        "order": 18,
+        "category": "monitoring",
+        "priority": "low",
+        "title": "Schedule post-incident review",
+        "description": "Lessons learned meeting within 5 business days.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Manager",
+        "estimated_minutes": 60
+      }
+    ]
+  },
+  "cert_dz_notification": {
+    "notification_id": "7dd72957-892a-43b4-9712-628191659ebf",
+    "generated_at": "2026-05-02T15:16:41.372873+00:00",
+    "deadline": "2026-05-03T15:16:41.372853+00:00",
+    "hours_remaining": 24.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "contact_email": "[EMAIL]",
+    "contact_phone": "[TELEPHONE]",
+    "incident_id": "d9398fec-7039-4df2-a486-6890457df2e6",
+    "incident_timestamp": "2026-05-02T15:16:41.122184+00:00",
+    "severity_level": "P2",
+    "nature_of_breach": "Unclassified Behavioral Anomaly — Unknown — requires manual analysis",
+    "attack_type": "Unclassified Behavioral Anomaly",
+    "source_ip": "192.168.1.10",
+    "affected_systems": [
+      "192.168.1.10",
+      "10.0.0.100",
+      "10.0.0.5",
+      "192.168.1.20"
+    ],
+    "mitre_techniques": [
+      "T1071"
+    ],
+    "containment_measures": [
+      "network_quarantine — dry_run",
+      "alert_soc — dry_run"
+    ],
+    "impact_assessment": "CIA scores: C=3 I=2 A=1",
+    "evidence_preservation": "AEGIS Evidence Package d9398fec — 12 event hashes preserved, blockchain immutability pending (Phase 5)",
+    "regulatory_reference": "Décret exécutif 20-05 relatif au dispositif national de sécurité des systèmes d'information",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "Direction Générale",
+      "Direction Juridique",
+      "RSSI/CISO",
+      "DPO"
+    ],
+    "legal_liability_risk": "Risque MODÉRÉ: Le défaut de notification au CERT-DZ dans les délais impartis expose l'entité à une amende allant de 1 000 000 DA à 5 000 000 DA."
+  },
+  "anpdp_notification": {
+    "notification_id": "32605492-ddb6-4654-b14f-fae213fa03e8",
+    "generated_at": "2026-05-02T15:16:41.372922+00:00",
+    "deadline": "2026-05-05T15:16:41.372905+00:00",
+    "hours_remaining": 72.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "dpo_contact": "[DPO - NOM ET CONTACT]",
+    "incident_id": "d9398fec-7039-4df2-a486-6890457df2e6",
+    "incident_timestamp": "2026-05-02T15:16:41.122184+00:00",
+    "nature_of_breach": "Unclassified Behavioral Anomaly avec impact potentiel sur les données personnelles",
+    "affected_data_categories": [
+      "Catégories à déterminer après investigation"
+    ],
+    "estimated_persons_affected": 50,
+    "data_processing_purpose": "[BUT DU TRAITEMENT]",
+    "likely_consequences": "Risque faible: impact limité sur les données personnelles. Investigation en cours pour confirmer l'étendue.",
+    "containment_measures": [
+      "network_quarantine — dry_run",
+      "alert_soc — dry_run"
+    ],
+    "notification_to_subjects": false,
+    "regulatory_reference": "Loi 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel",
+    "fines_for_non_compliance": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+    "data_loss_risk_assessment": "Unknown — manual triage required",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "DPO",
+      "Direction Juridique",
+      "Service Communication"
+    ]
+  },
+  "applicable_regulations": [
+    {
+      "reg_id": "DZ-CERT",
+      "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+      "deadline_hours": 24,
+      "urgency": "IMMEDIATE",
+      "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+    },
+    {
+      "reg_id": "DZ-ANPDP",
+      "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+      "deadline_hours": 72,
+      "urgency": "STANDARD",
+      "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+    }
+  ],
+  "executive_summary": "On 2026-05-02T15:16:41.122184+00:00, AEGIS detected a Unclassified Behavioral Anomaly incident targeting 192.168.1.10. The attack was classified as P2 with a risk score of 1.50/10 (INFO). 2 containment actions were executed. 3 additional assets were identified as affected. MITRE ATT&CK techniques: T1071. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+  "technical_summary": "INCIDENT TECHNICAL SUMMARY — d9398fec\nEntity: 192.168.1.10\nClassification: Unclassified Behavioral Anomaly\nKill Chain: Unknown — requires manual analysis\nRisk Score: 1.50 (INFO)\nCVSS Max: 0.0\nMITRE: T1071\nCVEs: \nEntity History: score=98.7 attacks=['anomaly_unknown']\nUEBA Suspicion: 0.0\nTemplate Sequence: [6, 6, 6, 6, 6, 6, 6, 6, 6, 1, 1, 1]\nAffected Assets: ['10.0.0.100', '10.0.0.5', '192.168.1.20']\nRoot Cause: Behavioral anomaly on 192.168.1.10. UEBA suspicion score: 0.0. Manual investigation required.\nImpact: C=3 I=2 A=1\nPlaybook: 18 steps, ~495 minutes"
+}

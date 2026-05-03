@@ -1,0 +1,612 @@
+{
+  "report_id": "ba2b085f-5c04-4037-9f6f-8e4d841247d5",
+  "generated_at": "2026-05-02T15:16:41.183787+00:00",
+  "entity_id": "haystack-test",
+  "severity": "P1",
+  "risk_score": 5.42,
+  "risk_label": "MEDIUM",
+  "evidence": {
+    "package_id": "9e248771-861c-4cc5-b123-c44af0fbc719",
+    "incident_timestamp": "2026-05-02T15:16:41.074589+00:00",
+    "entity_id": "haystack-test",
+    "timeline": [
+      {
+        "timestamp": "2026-05-02T15:16:41.074589+00:00",
+        "event_type": "alert",
+        "source": "XGBoost",
+        "description": "Attack detected: data_exfil (confidence=94%)",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.165724+00:00",
+        "event_type": "enrichment",
+        "source": "EnrichmentEngine",
+        "description": "MITRE: ['T1041'] | CVEs: ['CVE-2024-21047', 'CVE-2024-38476'] | CVSS: 9.8",
+        "severity": "",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.165724+00:00",
+        "event_type": "scoring",
+        "source": "RiskScorer",
+        "description": "Risk score: 5.42 (MEDIUM) | Severity: P1→P1",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.167423+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "network_quarantine on haystack-test — status=dry_run",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.168634+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "db_revoke on haystack-test — status=dry_run",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.169741+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "user_lock on haystack-test — status=dry_run",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T15:16:41.170802+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "alert_soc on haystack-test — status=dry_run",
+        "severity": "P1",
+        "raw_data": "",
+        "event_hash": ""
+      }
+    ],
+    "iocs": [
+      {
+        "ioc_type": "ip",
+        "value": "haystack-test",
+        "context": "Primary attacker IP",
+        "first_seen": "2026-05-02T15:16:41.074589+00:00",
+        "confidence": 0.9427
+      },
+      {
+        "ioc_type": "hash",
+        "value": "77b564a3b3f76354ea5049a2572ae044bcfb6e8520bfcab8aa39258ae31f28ce",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.074589+00:00",
+        "confidence": 0.9427
+      },
+      {
+        "ioc_type": "hash",
+        "value": "1af10b2be96f439bd850a4cf9634ee37e1b9280f87f708950a1b95fcead44c3f",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T15:16:41.074589+00:00",
+        "confidence": 0.9427
+      }
+    ],
+    "raw_logs": [],
+    "event_hashes": [
+      "77b564a3b3f76354ea5049a2572ae044bcfb6e8520bfcab8aa39258ae31f28ce",
+      "1af10b2be96f439bd850a4cf9634ee37e1b9280f87f708950a1b95fcead44c3f"
+    ],
+    "template_sequence": [
+      4,
+      3
+    ],
+    "total_suspicion": 0.0,
+    "mitre_techniques": [
+      "T1041"
+    ],
+    "mitre_tactic": "Exfiltration",
+    "cve_ids": [
+      "CVE-2024-21047",
+      "CVE-2024-38476"
+    ],
+    "max_cvss": 9.8,
+    "entity_cumulative_score": 94.27,
+    "entity_attack_history": [
+      "data_exfil"
+    ],
+    "risk_score": 5.42,
+    "risk_label": "MEDIUM",
+    "adjusted_severity": "P1",
+    "isolation_actions": [
+      {
+        "action_id": "13517126-049e-44aa-8122-fb0198f2a7d3",
+        "timestamp": "2026-05-02T15:16:41.167423Z",
+        "alert_id": "594585a1-22cf-40d6-9552-93f682232971",
+        "entity_id": "haystack-test",
+        "action_type": "network_quarantine",
+        "severity": "P1",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 5.42,
+        "details": "network_quarantine on haystack-test — severity=P1 risk=5.42 (MEDIUM)",
+        "error": ""
+      },
+      {
+        "action_id": "2e0e2cd6-3aec-449b-950b-f9866d7f1cc7",
+        "timestamp": "2026-05-02T15:16:41.168634Z",
+        "alert_id": "594585a1-22cf-40d6-9552-93f682232971",
+        "entity_id": "haystack-test",
+        "action_type": "db_revoke",
+        "severity": "P1",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 5.42,
+        "details": "db_revoke on haystack-test — severity=P1 risk=5.42 (MEDIUM)",
+        "error": ""
+      },
+      {
+        "action_id": "bce8c3fc-ce30-4dbb-b7db-c445a9a61159",
+        "timestamp": "2026-05-02T15:16:41.169741Z",
+        "alert_id": "594585a1-22cf-40d6-9552-93f682232971",
+        "entity_id": "haystack-test",
+        "action_type": "user_lock",
+        "severity": "P1",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 5.42,
+        "details": "user_lock on haystack-test — severity=P1 risk=5.42 (MEDIUM)",
+        "error": ""
+      },
+      {
+        "action_id": "372f9d80-16eb-4846-b865-b4a82918926e",
+        "timestamp": "2026-05-02T15:16:41.170802Z",
+        "alert_id": "594585a1-22cf-40d6-9552-93f682232971",
+        "entity_id": "haystack-test",
+        "action_type": "alert_soc",
+        "severity": "P1",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 5.42,
+        "details": "alert_soc on haystack-test — severity=P1 risk=5.42 (MEDIUM)",
+        "error": ""
+      }
+    ],
+    "affected_assets": []
+  },
+  "analysis": {
+    "analysis_id": "9945fd26-b468-4b2e-8ef2-44a5a5527fe0",
+    "timestamp": "2026-05-02T15:16:41.183048+00:00",
+    "entity_id": "haystack-test",
+    "attack_classification": "Data Theft",
+    "kill_chain_phase": "Collection → Exfiltration",
+    "attack_vector": "DNS tunneling, HTTPS POST to C2, cloud storage upload",
+    "root_cause_hypothesis": "Data exfiltration from haystack-test. Risk score 5.42 (MEDIUM). Likely using encrypted channel (HTTPS/DNS tunneling).",
+    "data_at_risk": "CRITICAL — data has likely left the network",
+    "lateral_risk_level": "LOW — attacker has what they need",
+    "impact": {
+      "confidentiality": 9,
+      "integrity": 8,
+      "availability": 1,
+      "overall": 6.0,
+      "description": "High impact on confidentiality and integrity"
+    },
+    "investigation_steps": [
+      "Quantify data volume transferred to external IPs",
+      "Check DNS logs for high-entropy subdomain queries (tunneling)",
+      "Review outbound HTTPS connections to unknown domains",
+      "Identify the data categories that were accessible to the host"
+    ],
+    "dwell_time_description": "Single attack event. Estimated dwell time: minutes to hours.",
+    "ioc_summary": "Primary IP: haystack-test | Event hashes: 2 collected | MITRE: T1041",
+    "evidence_package_id": "9e248771-861c-4cc5-b123-c44af0fbc719",
+    "recommendations": [
+      "Immediate: Verify containment of haystack-test",
+      "Forensic: Preserve disk image and memory dump of haystack-test",
+      "Patch: Apply patches for CVE-2024-21047, CVE-2024-38476 (CVSS 9.8)",
+      "Threat Intel: Share IoCs for haystack-test with CERT-DZ and industry ISACs"
+    ]
+  },
+  "playbook": {
+    "playbook_id": "8fbd069d-2f53-47b9-9afa-148b202d7928",
+    "generated_at": "2026-05-02T15:16:41.183399+00:00",
+    "incident_id": "9e248771-861c-4cc5-b123-c44af0fbc719",
+    "entity_id": "haystack-test",
+    "severity": "P1",
+    "attack_type": "Data Theft",
+    "total_steps": 19,
+    "estimated_total_minutes": 540,
+    "steps": [
+      {
+        "step_id": "7db23411-d2ad-4695-89f1-8849dafe001e",
+        "order": 1,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Verify network isolation of haystack-test",
+        "description": "Confirm that haystack-test has been isolated from the network. Risk score: 5.42 (MEDIUM).",
+        "technical_commands": [
+          "iptables -L -n | grep haystack-test",
+          "ping -c 1 haystack-test  # should fail if quarantined"
+        ],
+        "expected_output": "iptables DROP rules present, ping should timeout",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 5
+      },
+      {
+        "step_id": "31a2909b-81ec-4d80-8cb2-d75238dcd624",
+        "order": 2,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Block attacker IP at perimeter firewall",
+        "description": "Add permanent block rule for haystack-test on all perimeter firewalls and WAF.",
+        "technical_commands": [
+          "# Palo Alto: set security policy block-haystack-test",
+          "# pfSense: pfctl -t blocklist -T add haystack-test"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Network Engineer",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "556106d1-9a5f-4d97-a729-41bba8538ed1",
+        "order": 3,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Disable compromised accounts",
+        "description": "Lock all user accounts that were active on haystack-test during the incident window.",
+        "technical_commands": [
+          "# List active sessions: who | last",
+          "# Lock accounts: passwd -l <username>",
+          "# AD: Disable-ADAccount -Identity <user>"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "99503b60-bd21-44f7-b78b-b4b4bc3e5b09",
+        "order": 4,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Capture volatile evidence (memory + processes)",
+        "description": "Capture RAM dump and running processes on haystack-test BEFORE any remediation. This evidence is volatile.",
+        "technical_commands": [
+          "# Memory dump: ssh haystack-test 'sudo dd if=/dev/mem of=/tmp/memdump.raw'",
+          "# Processes: ssh haystack-test 'ps auxww > /tmp/processes.txt'",
+          "# Network: ssh haystack-test 'netstat -tulpn > /tmp/netstat.txt'",
+          "# Open files: ssh haystack-test 'lsof -i > /tmp/lsof.txt'"
+        ],
+        "expected_output": "4 evidence files collected and preserved",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "45409aed-466f-4723-a40c-7b9da8984a57",
+        "order": 5,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Preserve disk image",
+        "description": "Create a forensic disk image for offline analysis.",
+        "technical_commands": [
+          "# dd if=/dev/sda of=/forensics/haystack-test_disk.img bs=4M",
+          "# sha256sum /forensics/haystack-test_disk.img > checksum.txt"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "ea2edc69-cc4e-4e3c-ae5e-855ccd0f623b",
+        "order": 6,
+        "category": "forensics",
+        "priority": "medium",
+        "title": "Collect AEGIS evidence hashes",
+        "description": "Verify 2 event hashes from AEGIS. MITRE techniques: T1041. Template sequence: [4, 3]...",
+        "technical_commands": [
+          "# AEGIS Evidence Package ID: 9e248771-861c-4cc5-b123-c44af0fbc719",
+          "# Total suspicion (UEBA): 0.0",
+          "# Entity cumulative score: 94.3"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "053694a8-3782-4f53-9c10-12646cf8982a",
+        "order": 7,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Quantify data volume transferred to external IPs",
+        "description": "Quantify data volume transferred to external IPs",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "9e9caad5-b417-40c6-88f5-8a06fcaf4f87",
+        "order": 8,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Check DNS logs for high-entropy subdomain queries (tunneling",
+        "description": "Check DNS logs for high-entropy subdomain queries (tunneling)",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "e36664d3-adf7-4614-b606-6d8515ccd8ec",
+        "order": 9,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Review outbound HTTPS connections to unknown domains",
+        "description": "Review outbound HTTPS connections to unknown domains",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "90cd159a-f015-44fe-b6df-38977d0693a3",
+        "order": 10,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Identify the data categories that were accessible to the hos",
+        "description": "Identify the data categories that were accessible to the host",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "5727abf6-9445-405e-8a2b-95fb665c56cb",
+        "order": 11,
+        "category": "eradication",
+        "priority": "high",
+        "title": "Remove attacker persistence mechanisms",
+        "description": "Check for backdoors, cron jobs, SSH keys, and rootkits installed by the attacker.",
+        "technical_commands": [
+          "ssh haystack-test 'crontab -l'",
+          "ssh haystack-test 'find / -name authorized_keys -exec cat {} \\;'",
+          "ssh haystack-test 'find / -perm -4000 -type f 2>/dev/null'",
+          "rkhunter --check --skip-keypress"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Security Engineer",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "6206567f-3ff6-4834-96b0-73a1117a3598",
+        "order": 12,
+        "category": "eradication",
+        "priority": "critical",
+        "title": "Patch vulnerabilities: CVE-2024-21047, CVE-2024-38476",
+        "description": "Apply patches for CVSS 9.8 vulnerabilities. CVEs: CVE-2024-21047, CVE-2024-38476.",
+        "technical_commands": [
+          "apt update && apt upgrade -y  # Debian/Ubuntu",
+          "yum update -y                 # RHEL/CentOS"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Sysadmin",
+        "estimated_minutes": 45
+      },
+      {
+        "step_id": "2df5b11a-1047-4e66-8721-4df95dc24bab",
+        "order": 13,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Restore from clean backup",
+        "description": "If haystack-test was fully compromised, restore from last known-good backup.",
+        "technical_commands": [
+          "# Verify backup integrity before restore",
+          "# rsync -av /backups/haystack-test/ /"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Sysadmin",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "e7944d88-0f90-4ab4-846e-b3e35fff66bc",
+        "order": 14,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Rotate all credentials",
+        "description": "Reset passwords, API keys, SSH keys, and DB credentials.",
+        "technical_commands": [
+          "passwd <affected_users>",
+          "ssh-keygen -t ed25519  # regenerate SSH keys",
+          "ALTER USER 'app'@'%' IDENTIFIED BY '<new_password>';"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "09f359d5-1a2f-48ea-b818-d9584f0bd4a9",
+        "order": 15,
+        "category": "communication",
+        "priority": "high",
+        "title": "Notify SOC Manager and CISO",
+        "description": "Escalate incident to management. Severity: P1. Risk: 5.42 (MEDIUM).",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Lead",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "e86632cc-8a80-486a-a688-12f801da3217",
+        "order": 16,
+        "category": "legal",
+        "priority": "critical",
+        "title": "Notify CERT-DZ within 24 hours",
+        "description": "Legal obligation: Décret 20-05 requires notification to CERT.dz within 24h of incident discovery.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Legal / Compliance",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "1178c769-68c4-4917-9f37-22c241c2bd6f",
+        "order": 17,
+        "category": "legal",
+        "priority": "high",
+        "title": "Notify ANPDP within 72 hours (if PII affected)",
+        "description": "Loi 18-07: If personal data was compromised, ANPDP must be notified within 72 hours.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "DPO",
+        "estimated_minutes": 45
+      },
+      {
+        "step_id": "17eee7ef-b547-4704-a929-b90b053a21d8",
+        "order": 18,
+        "category": "monitoring",
+        "priority": "medium",
+        "title": "Enable enhanced monitoring (30 days)",
+        "description": "Set elevated monitoring rules for haystack-test and all 0 affected assets for a minimum of 30 days post-incident.",
+        "technical_commands": [
+          "# SIEM: Add watchlist for haystack-test",
+          "# IDS: Lower alert thresholds for affected subnet"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "52be6a46-6e77-437c-8fa9-ef09ff502e69",
+        "order": 19,
+        "category": "monitoring",
+        "priority": "low",
+        "title": "Schedule post-incident review",
+        "description": "Lessons learned meeting within 5 business days.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Manager",
+        "estimated_minutes": 60
+      }
+    ]
+  },
+  "cert_dz_notification": {
+    "notification_id": "db9298a9-09ba-4729-b28f-c4e08c05c5ea",
+    "generated_at": "2026-05-02T15:16:41.183542+00:00",
+    "deadline": "2026-05-03T15:16:41.183469+00:00",
+    "hours_remaining": 24.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "contact_email": "[EMAIL]",
+    "contact_phone": "[TELEPHONE]",
+    "incident_id": "9e248771-861c-4cc5-b123-c44af0fbc719",
+    "incident_timestamp": "2026-05-02T15:16:41.074589+00:00",
+    "severity_level": "P1",
+    "nature_of_breach": "Data Theft — Collection → Exfiltration",
+    "attack_type": "Data Theft",
+    "source_ip": "haystack-test",
+    "affected_systems": [
+      "haystack-test"
+    ],
+    "mitre_techniques": [
+      "T1041"
+    ],
+    "containment_measures": [
+      "network_quarantine — dry_run",
+      "db_revoke — dry_run",
+      "user_lock — dry_run",
+      "alert_soc — dry_run"
+    ],
+    "impact_assessment": "High impact on confidentiality and integrity",
+    "evidence_preservation": "AEGIS Evidence Package 9e248771 — 2 event hashes preserved, blockchain immutability pending (Phase 5)",
+    "regulatory_reference": "Décret exécutif 20-05 relatif au dispositif national de sécurité des systèmes d'information",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "Direction Générale",
+      "Direction Juridique",
+      "RSSI/CISO",
+      "DPO"
+    ],
+    "legal_liability_risk": "Risque ÉLEVÉ: Possibilité de mise en cause de la responsabilité pénale du dirigeant (Loi 09-04, Art. 11) si une négligence grave dans la sécurisation des systèmes est prouvée. Déclaration immédiate vitale."
+  },
+  "anpdp_notification": {
+    "notification_id": "67ae02d7-cb68-4509-9aa3-dbc2a9d7a30f",
+    "generated_at": "2026-05-02T15:16:41.183654+00:00",
+    "deadline": "2026-05-05T15:16:41.183611+00:00",
+    "hours_remaining": 72.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "dpo_contact": "[DPO - NOM ET CONTACT]",
+    "incident_id": "9e248771-861c-4cc5-b123-c44af0fbc719",
+    "incident_timestamp": "2026-05-02T15:16:41.074589+00:00",
+    "nature_of_breach": "Data Theft avec impact potentiel sur les données personnelles",
+    "affected_data_categories": [
+      "Catégories à déterminer après investigation"
+    ],
+    "estimated_persons_affected": 50,
+    "data_processing_purpose": "[BUT DU TRAITEMENT]",
+    "likely_consequences": "Risque élevé: possibilité d'usurpation d'identité, accès non autorisé aux comptes des personnes concernées, divulgation de données confidentielles.",
+    "containment_measures": [
+      "network_quarantine — dry_run",
+      "db_revoke — dry_run",
+      "user_lock — dry_run",
+      "alert_soc — dry_run"
+    ],
+    "notification_to_subjects": false,
+    "regulatory_reference": "Loi 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel",
+    "fines_for_non_compliance": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+    "data_loss_risk_assessment": "CRITICAL — data has likely left the network",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "DPO",
+      "Direction Juridique",
+      "Service Communication"
+    ]
+  },
+  "applicable_regulations": [
+    {
+      "reg_id": "DZ-CERT",
+      "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+      "deadline_hours": 24,
+      "urgency": "IMMEDIATE",
+      "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+    },
+    {
+      "reg_id": "DZ-CYBER",
+      "name": "Loi 09-04 — Règles relatives à la cybercriminalité",
+      "deadline_hours": 48,
+      "urgency": "URGENT",
+      "penalty": "Emprisonnement de 6 mois à 3 ans (Art. 394bis du Code pénal). Aggravation si atteinte aux données de"
+    },
+    {
+      "reg_id": "DZ-ANPDP",
+      "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+      "deadline_hours": 72,
+      "urgency": "STANDARD",
+      "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+    }
+  ],
+  "executive_summary": "On 2026-05-02T15:16:41.074589+00:00, AEGIS detected a Data Theft incident targeting haystack-test. The attack was classified as P1 with a risk score of 5.42/10 (MEDIUM). 4 containment actions were executed. 0 additional assets were identified as affected. MITRE ATT&CK techniques: T1041. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+  "technical_summary": "INCIDENT TECHNICAL SUMMARY — 9e248771\nEntity: haystack-test\nClassification: Data Theft\nKill Chain: Collection → Exfiltration\nRisk Score: 5.42 (MEDIUM)\nCVSS Max: 9.8\nMITRE: T1041\nCVEs: CVE-2024-21047, CVE-2024-38476\nEntity History: score=94.3 attacks=['data_exfil']\nUEBA Suspicion: 0.0\nTemplate Sequence: [4, 3]\nAffected Assets: []\nRoot Cause: Data exfiltration from haystack-test. Risk score 5.42 (MEDIUM). Likely using encrypted channel (HTTPS/DNS tunneling).\nImpact: C=9 I=8 A=1\nPlaybook: 19 steps, ~540 minutes"
+}

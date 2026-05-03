@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEGIS SOC — Dual Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--card:#111827;--border:#1e293b;--accent:#3b82f6;--red:#ef4444;--green:#22c55e;--yellow:#eab308;--orange:#f97316;--purple:#a855f7;--text:#e2e8f0;--muted:#64748b;--glass:rgba(17,24,39,0.85)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .status{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--green)}
+.header .status::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.tabs{display:flex;gap:4px;background:var(--card);padding:4px;border-radius:12px;margin:20px 32px 0}
+.tab{padding:10px 24px;border-radius:10px;cursor:pointer;font-weight:600;font-size:.9rem;transition:all .3s;color:var(--muted);border:none;background:transparent}
+.tab.active{background:var(--accent);color:#fff;box-shadow:0 4px 15px rgba(59,130,246,.3)}
+.tab:hover:not(.active){color:var(--text);background:rgba(59,130,246,.1)}
+.panel{display:none;padding:20px 32px 40px}
+.panel.active{display:block}
+.grid{display:grid;gap:20px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.3)}
+.card h3{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px}
+.metric{font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.metric.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.metric.green{background:linear-gradient(135deg,#22c55e,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.metric.yellow{background:linear-gradient(135deg,#eab308,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:.75rem;color:var(--muted);margin-top:4px}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700}
+.badge.p1{background:rgba(239,68,68,.2);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+.badge.p2{background:rgba(249,115,22,.2);color:#f97316;border:1px solid rgba(249,115,22,.3)}
+.badge.p3{background:rgba(234,179,8,.2);color:#eab308;border:1px solid rgba(234,179,8,.3)}
+.badge.p4{background:rgba(100,116,139,.2);color:#94a3b8;border:1px solid rgba(100,116,139,.3)}
+.badge.confirmed{background:rgba(239,68,68,.15);color:#ef4444}
+.badge.probable{background:rgba(249,115,22,.15);color:#f97316}
+.badge.inconclusive{background:rgba(100,116,139,.15);color:#94a3b8}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{text-align:left;padding:10px 12px;color:var(--muted);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border)}
+td{padding:10px 12px;border-bottom:1px solid rgba(30,41,59,.5)}
+tr:hover td{background:rgba(59,130,246,.05)}
+#map{height:400px;border-radius:12px;border:1px solid var(--border)}
+.chart-box{height:300px;position:relative}
+.section-title{font-size:1.1rem;font-weight:700;margin:24px 0 12px;display:flex;align-items:center;gap:8px}
+.legal-card{border-left:4px solid var(--red);padding:16px;margin-bottom:12px;background:rgba(239,68,68,.05);border-radius:0 12px 12px 0}
+.legal-card.anpdp{border-left-color:var(--orange)}
+.legal-card h4{font-weight:700;margin-bottom:6px}
+.legal-card p{font-size:.82rem;color:var(--muted);line-height:1.5}
+.deadline{font-size:1.5rem;font-weight:800;color:var(--red)}
+.timeline-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.timeline-dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.timeline-content{flex:1}
+.timeline-content .time{font-size:.75rem;color:var(--muted)}
+.timeline-content .desc{font-size:.85rem;margin-top:2px}
+.loading{text-align:center;padding:60px;color:var(--muted);font-size:1.1rem}
+@media(max-width:1200px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}}
+@media(max-width:768px){.g4,.g3,.g2{grid-template-columns:1fr}.header{padding:12px 16px}.panel{padding:16px}.tabs{margin:12px 16px 0}}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🛡️ AEGIS — Adaptive Enterprise Guard & Incident System</h1>
+  <div class="status"><span id="live-time"></span> — Système Opérationnel</div>
+</div>
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('handler')">📊 Incident Handler</div>
+  <div class="tab" onclick="switchTab('legal')">⚖️ Juridique / Avocat</div>
+  <div class="tab" onclick="switchTab('analytics')">🗺️ Analytics & Maps</div>
+</div>
+
+<!-- INCIDENT HANDLER PANEL -->
+<div id="handler" class="panel active">
+  <div class="grid g4" id="handler-metrics"></div>
+  <div class="section-title">🔴 Alertes Récentes (Temps Réel)</div>
+  <div class="card"><table><thead><tr><th>Entité</th><th>Attaque</th><th>Sévérité</th><th>Confiance</th><th>Heure</th></tr></thead><tbody id="alerts-table"></tbody></table></div>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card"><h3>Distribution des Attaques</h3><div class="chart-box"><canvas id="attack-chart"></canvas></div></div>
+    <div class="card"><h3>Sévérité des Incidents</h3><div class="chart-box"><canvas id="severity-chart"></canvas></div></div>
+  </div>
+  <div class="section-title">📋 Rapports d'Incidents</div>
+  <div class="card"><table><thead><tr><th>ID</th><th>Entité</th><th>Classification</th><th>Score</th><th>Sévérité</th><th>Playbook</th><th>Date</th></tr></thead><tbody id="reports-table"></tbody></table></div>
+</div>
+
+<!-- LEGAL PANEL -->
+<div id="legal" class="panel">
+  <div class="grid g4" id="legal-metrics"></div>
+  <div class="section-title">⏰ Notifications Légales — Délais Critiques</div>
+  <div id="legal-notifications"></div>
+  <div class="section-title">📜 Historique des Incidents (Blockchain Verified)</div>
+  <div class="card"><table><thead><tr><th>Incident</th><th>Entité</th><th>Sévérité</th><th>CERT-DZ</th><th>ANPDP</th><th>Personnes</th><th>Amendes</th></tr></thead><tbody id="legal-table"></tbody></table></div>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card"><h3>Réglementation Applicable</h3><div id="regulations-list"></div></div>
+    <div class="card"><h3>Résumé Exécutif (Dernier Incident)</h3><div id="exec-summary" style="font-size:.85rem;line-height:1.6;color:var(--muted)"></div></div>
+  </div>
+</div>
+
+<!-- ANALYTICS PANEL -->
+<div id="analytics" class="panel">
+  <div class="grid g4" id="analytics-metrics"></div>
+  <div class="section-title">🗺️ Carte des Origines d'Attaque (Temps Réel)</div>
+  <div class="card"><div id="map"></div></div>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card"><h3>Top Attaquants (Score Cumulé)</h3><table><thead><tr><th>IP</th><th>Pays</th><th>Score</th><th>Alertes</th><th>Types</th></tr></thead><tbody id="attackers-table"></tbody></table></div>
+    <div class="card"><h3>Attaques par Heure (Heatmap)</h3><div class="chart-box"><canvas id="hourly-chart"></canvas></div></div>
+  </div>
+  <div class="section-title">📊 Verdicts du Verification Gate</div>
+  <div class="card"><div class="chart-box"><canvas id="verdict-chart"></canvas></div></div>
+</div>
+
+<script>
+let DATA = null;
+let map = null;
+const API = '';
+
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  event.target.classList.add('active');
+  if (name === 'analytics' && map) setTimeout(() => map.invalidateSize(), 100);
+}
+
+function badge(sev) {
+  const s = (sev||'').toLowerCase();
+  return `<span class="badge ${s}">${sev}</span>`;
+}
+
+function shortId(id) { return (id||'').substring(0,8); }
+function shortTime(t) { return (t||'').replace('T',' ').substring(0,19); }
+
+async function loadData() {
+  try {
+    const res = await fetch('/api/dashboard');
+    DATA = await res.json();
+  } catch(e) {
+    try {
+      const res = await fetch('dashboard_payload.json');
+      DATA = await res.json();
+    } catch(e2) { document.body.innerHTML = '<div class="loading">❌ Cannot load data</div>'; return; }
+  }
+  render();
+}
+
+function render() {
+  if (!DATA) return;
+  renderHandlerMetrics();
+  renderAlertsTable();
+  renderReportsTable();
+  renderAttackChart();
+  renderSeverityChart();
+  renderLegalPanel();
+  renderAnalyticsPanel();
+}
+
+function renderHandlerMetrics() {
+  const d = DATA;
+  document.getElementById('handler-metrics').innerHTML = `
+    <div class="card"><h3>Scénarios Testés</h3><div class="metric">${d.scenarios_tested||0}</div><div class="sub">Campagnes d'attaque</div></div>
+    <div class="card"><h3>Alertes ML Générées</h3><div class="metric red">${d.total_ml_alerts||0}</div><div class="sub">LSTM + XGBoost</div></div>
+    <div class="card"><h3>Rapports Générés</h3><div class="metric green">${d.total_reports||0}</div><div class="sub">Incident + Legal</div></div>
+    <div class="card"><h3>Sessions Analysées</h3><div class="metric yellow">${d.total_sessions||0}</div><div class="sub">${d.total_events||0} événements</div></div>`;
+}
+
+function renderAlertsTable() {
+  const alerts = DATA.recent_attacks || [];
+  document.getElementById('alerts-table').innerHTML = alerts.map(a => `<tr>
+    <td><strong>${a.ip||''}</strong></td><td>${a.attack_type||''}</td>
+    <td>${badge(a.severity)}</td><td>${((a.confidence||0)*100).toFixed(0)}%</td>
+    <td>${shortTime(a.timestamp)}</td></tr>`).join('');
+}
+
+function renderReportsTable() {
+  const reps = DATA.reports || [];
+  document.getElementById('reports-table').innerHTML = reps.map(r => `<tr>
+    <td><code>${shortId(r.report_id)}</code></td><td><strong>${r.entity_id||''}</strong></td>
+    <td>${r.attack_classification||''}</td><td>${(r.risk_score||0).toFixed(1)}/10</td>
+    <td>${badge(r.severity)}</td><td>${r.playbook_steps||0} étapes</td>
+    <td>${shortTime(r.generated_at)}</td></tr>`).join('');
+}
+
+function renderAttackChart() {
+  const dist = DATA.attack_distribution || {};
+  const ctx = document.getElementById('attack-chart');
+  if (!ctx) return;
+  new Chart(ctx, {type:'doughnut',data:{labels:Object.keys(dist),datasets:[{data:Object.values(dist),backgroundColor:['#ef4444','#f97316','#eab308','#22c55e','#3b82f6','#a855f7']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#94a3b8',font:{size:11}}}}}});
+}
+
+function renderSeverityChart() {
+  const dist = DATA.severity_distribution || {};
+  const colors = {P1:'#ef4444',P2:'#f97316',P3:'#eab308',P4:'#64748b'};
+  new Chart(document.getElementById('severity-chart'), {type:'bar',data:{labels:Object.keys(dist),datasets:[{label:'Incidents',data:Object.values(dist),backgroundColor:Object.keys(dist).map(k=>colors[k]||'#3b82f6')}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{color:'#94a3b8'},grid:{color:'#1e293b'}},x:{ticks:{color:'#94a3b8'},grid:{display:false}}},plugins:{legend:{display:false}}}});
+}
+
+function renderLegalPanel() {
+  const reps = DATA.reports || [];
+  const totalPersons = reps.reduce((s,r) => s + (r.anpdp_persons_affected||0), 0);
+  document.getElementById('legal-metrics').innerHTML = `
+    <div class="card"><h3>Incidents Actifs</h3><div class="metric red">${reps.length}</div><div class="sub">Notifications requises</div></div>
+    <div class="card"><h3>CERT-DZ (T+24h)</h3><div class="deadline">${reps.length} docs</div><div class="sub">Décret 20-05</div></div>
+    <div class="card"><h3>ANPDP (T+72h)</h3><div class="deadline" style="color:var(--orange)">${reps.length} docs</div><div class="sub">Loi 18-07</div></div>
+    <div class="card"><h3>Personnes Affectées</h3><div class="metric yellow">${totalPersons}</div><div class="sub">Estimation totale</div></div>`;
+
+  let notifs = '';
+  reps.forEach(r => {
+    notifs += `<div class="legal-card"><h4>🔴 CERT-DZ — ${r.entity_id}</h4>
+      <p><strong>Deadline:</strong> ${shortTime(r.cert_dz_deadline)} (${r.cert_dz_hours}h restantes)<br>
+      <strong>Risque Légal:</strong> ${(r.cert_dz_liability||'').substring(0,200)}<br>
+      <strong>Pénalité Hacker:</strong> ${(r.cert_dz_penalties_attacker||'').substring(0,200)}</p></div>
+      <div class="legal-card anpdp"><h4>🟠 ANPDP — ${r.entity_id}</h4>
+      <p><strong>Deadline:</strong> ${shortTime(r.anpdp_deadline)} (${r.anpdp_hours}h restantes)<br>
+      <strong>Personnes:</strong> ${r.anpdp_persons_affected} | <strong>Données:</strong> ${(r.anpdp_data_categories||[]).join(', ')}<br>
+      <strong>Amendes:</strong> ${(r.anpdp_fines||'').substring(0,200)}</p></div>`;
+  });
+  document.getElementById('legal-notifications').innerHTML = notifs;
+
+  document.getElementById('legal-table').innerHTML = reps.map(r => `<tr>
+    <td><code>${shortId(r.report_id)}</code></td><td>${r.entity_id}</td><td>${badge(r.severity)}</td>
+    <td>${shortTime(r.cert_dz_deadline)}</td><td>${shortTime(r.anpdp_deadline)}</td>
+    <td>${r.anpdp_persons_affected}</td><td style="font-size:.75rem">${(r.anpdp_fines||'').substring(0,80)}</td></tr>`).join('');
+
+  const lastRep = reps[0];
+  if (lastRep) {
+    document.getElementById('exec-summary').textContent = lastRep.executive_summary || '';
+    const regs = lastRep.regulations || [];
+    document.getElementById('regulations-list').innerHTML = regs.map(r => `<div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:.85rem">
+      <strong>[${r.reg_id}]</strong> ${r.name}<br><span style="color:var(--muted)">Deadline: ${r.deadline_hours}h — ${r.urgency} — ${(r.penalty||'').substring(0,100)}</span></div>`).join('');
+  }
+}
+
+function renderAnalyticsPanel() {
+  const geo = DATA.geo_origins || [];
+  const top = DATA.top_attackers || [];
+  document.getElementById('analytics-metrics').innerHTML = `
+    <div class="card"><h3>Entités Trackées</h3><div class="metric">${top.length}</div><div class="sub">IPs distinctes</div></div>
+    <div class="card"><h3>Origines Géo</h3><div class="metric green">${geo.length}</div><div class="sub">Pays identifiés</div></div>
+    <div class="card"><h3>Alertes Totales</h3><div class="metric red">${DATA.total_ml_alerts||0}</div><div class="sub">Détections ML</div></div>
+    <div class="card"><h3>Verdicts Confirmés</h3><div class="metric yellow">${(DATA.verdict_distribution||{}).CONFIRMED||0}</div><div class="sub">Gate score ≥ 7/10</div></div>`;
+
+  // Map
+  if (!map) {
+    map = L.map('map',{zoomControl:true}).setView([35, 20], 2);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'©CartoDB',maxZoom:18}).addTo(map);
+  }
+  geo.forEach(g => {
+    if (!g.latitude || !g.longitude) return;
+    const size = Math.min(25, 8 + (g.alert_count||1) * 3);
+    const color = (g.is_tor) ? '#ef4444' : (g.is_vpn) ? '#f97316' : '#3b82f6';
+    L.circleMarker([g.latitude, g.longitude], {radius:size,fillColor:color,color:'#fff',weight:1,opacity:.8,fillOpacity:.6})
+      .bindPopup(`<b>${g.ip}</b><br>${g.city}, ${g.country}<br>ISP: ${g.isp}<br>Score: ${g.score}<br>Alerts: ${g.alert_count}${g.is_tor?' 🧅 TOR':''}${g.is_vpn?' 🔒 VPN':''}`)
+      .addTo(map);
+  });
+
+  // Top attackers
+  document.getElementById('attackers-table').innerHTML = top.map(a => {
+    const g = geo.find(x => x.ip === a.ip) || {};
+    return `<tr><td><strong>${a.ip}</strong></td><td>${g.country||'?'} ${g.is_tor?'🧅':''}</td>
+      <td style="color:var(--red);font-weight:700">${(a.cumulative_score||0).toFixed(0)}</td>
+      <td>${a.alert_count||0}</td><td>${(a.attack_types||[]).join(', ')}</td></tr>`;
+  }).join('');
+
+  // Hourly chart
+  const hourly = DATA.attacks_by_hour || {};
+  const hours = Array.from({length:24}, (_,i) => `${String(i).padStart(2,'0')}:00`);
+  new Chart(document.getElementById('hourly-chart'), {type:'bar',data:{labels:hours,datasets:[{label:'Attaques',data:hours.map(h=>hourly[h]||0),backgroundColor:hours.map(h=>{const v=hourly[h]||0;return v>3?'#ef4444':v>1?'#f97316':'#1e293b'})}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{color:'#94a3b8'},grid:{color:'#1e293b'}},x:{ticks:{color:'#94a3b8',maxRotation:45},grid:{display:false}}},plugins:{legend:{display:false}}}});
+
+  // Verdict chart
+  const vd = DATA.verdict_distribution || {};
+  new Chart(document.getElementById('verdict-chart'), {type:'doughnut',data:{labels:Object.keys(vd),datasets:[{data:Object.values(vd),backgroundColor:['#ef4444','#f97316','#64748b','#22c55e']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#94a3b8',font:{size:12}}}}}});
+}
+
+// Live clock
+setInterval(() => { document.getElementById('live-time').textContent = new Date().toLocaleString('fr-FR'); }, 1000);
+document.getElementById('live-time').textContent = new Date().toLocaleString('fr-FR');
+
+loadData();
+</script>
+</body>
+</html>

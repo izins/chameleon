@@ -1,0 +1,7 @@
+May  1 10:23:45 web01 sshd[12345]: Failed password for root from 192.168.1.100 port 22 ssh2
+May  1 10:23:46 web01 sshd[12346]: Failed password for root from 192.168.1.100 port 22 ssh2
+May  1 10:23:47 web01 sshd[12347]: Failed password for root from 192.168.1.100 port 22 ssh2
+May  1 10:23:50 web01 kernel[0]: [UFW BLOCK] IN=eth0 OUT= SRC=192.168.1.100 DST=10.0.0.5 PROTO=TCP DPT=443
+May  1 10:24:01 web01 sshd[12348]: Accepted publickey for root from 192.168.1.100 port 22 ssh2
+May  1 10:23:48 web01 sshd[12350]: Failed password for admin from 10.0.0.55 port 22 ssh2
+May  1 10:26:30 app01 kernel[0]: [UFW BLOCK] IN=eth0 OUT= SRC=45.33.32.156 DST=10.0.0.10 PROTO=TCP DPT=443

@@ -1,0 +1,639 @@
+{
+  "report_id": "360837d1-9739-454d-9837-c5631a6c819d",
+  "generated_at": "2026-05-02T17:52:33.593811+00:00",
+  "entity_id": "haystack-test",
+  "severity": "P2",
+  "risk_score": 2.24,
+  "risk_label": "LOW",
+  "evidence": {
+    "package_id": "4d575e50-d267-4af8-80e1-66059e74c016",
+    "incident_timestamp": "2026-05-02T17:52:33.484424+00:00",
+    "entity_id": "haystack-test",
+    "timeline": [
+      {
+        "timestamp": "2026-05-02T17:52:33.484424+00:00",
+        "event_type": "alert",
+        "source": "XGBoost",
+        "description": "Attack detected: anomaly_unknown (confidence=64%)",
+        "severity": "P2",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T17:52:33.576991+00:00",
+        "event_type": "enrichment",
+        "source": "EnrichmentEngine",
+        "description": "MITRE: ['T1071'] | CVEs: [] | CVSS: 0.0",
+        "severity": "",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T17:52:33.576991+00:00",
+        "event_type": "scoring",
+        "source": "RiskScorer",
+        "description": "Risk score: 2.24 (LOW) | Severity: P2→P2",
+        "severity": "P2",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T17:52:33.578725+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "alert_soc on haystack-test — status=dry_run",
+        "severity": "P2",
+        "raw_data": "",
+        "event_hash": ""
+      },
+      {
+        "timestamp": "2026-05-02T17:52:33.579941+00:00",
+        "event_type": "isolation",
+        "source": "Isolator",
+        "description": "network_quarantine on haystack-test — status=dry_run",
+        "severity": "P2",
+        "raw_data": "",
+        "event_hash": ""
+      }
+    ],
+    "iocs": [
+      {
+        "ioc_type": "ip",
+        "value": "haystack-test",
+        "context": "Primary attacker IP",
+        "first_seen": "2026-05-02T17:52:33.484424+00:00",
+        "confidence": 0.6423
+      },
+      {
+        "ioc_type": "hash",
+        "value": "ef69f3ba6a92cf21cab41524bd7b407f68c083c9b1dee5deeff8d4713ef5bc68",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T17:52:33.484424+00:00",
+        "confidence": 0.6423
+      },
+      {
+        "ioc_type": "hash",
+        "value": "9aa131bb07e385d7ddd7a5ba46ba1d8b7d446a534159f24032baf282784298b6",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T17:52:33.484424+00:00",
+        "confidence": 0.6423
+      },
+      {
+        "ioc_type": "hash",
+        "value": "41cee6aa43ec5bc2fb1a9e7e32a05d655717db54f91ac66a625bff1d5494f390",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T17:52:33.484424+00:00",
+        "confidence": 0.6423
+      },
+      {
+        "ioc_type": "hash",
+        "value": "7e37a20530b11b200d0b16b861aac395f57aeb15b3cc045e0f53543bea3b4712",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T17:52:33.484424+00:00",
+        "confidence": 0.6423
+      },
+      {
+        "ioc_type": "hash",
+        "value": "0e0542d53e19c35b6f3ef065e5c1cb0ac0596e365eef85603e23d5f2530693da",
+        "context": "Malicious log event hash",
+        "first_seen": "2026-05-02T17:52:33.484424+00:00",
+        "confidence": 0.6423
+      }
+    ],
+    "raw_logs": [],
+    "event_hashes": [
+      "ef69f3ba6a92cf21cab41524bd7b407f68c083c9b1dee5deeff8d4713ef5bc68",
+      "9aa131bb07e385d7ddd7a5ba46ba1d8b7d446a534159f24032baf282784298b6",
+      "41cee6aa43ec5bc2fb1a9e7e32a05d655717db54f91ac66a625bff1d5494f390",
+      "7e37a20530b11b200d0b16b861aac395f57aeb15b3cc045e0f53543bea3b4712",
+      "0e0542d53e19c35b6f3ef065e5c1cb0ac0596e365eef85603e23d5f2530693da",
+      "501053243f29b562220560595ee7bba7a13cc8b6e8cd5c77456cf6b5d9207bcb",
+      "368bc6eca7bed00d4b0f94ebffa1c11b02bd35a9ed43cf7df6c9c48d5f06b57a",
+      "bd5b4d5e97813e18fc148ceaab0ac31c8248bff44602f8a81820fb7c6cadceca",
+      "3110c29c80e82aaa6b97c4ff8992b4ef62b277ddc8f1f1c4b2ada3b63704c564",
+      "45b4de02cc451dbe941e1aea2810f08acc37efddf8903954d72a2be7ae9b0bdb",
+      "a67489277f3935c0959822c75f91dfa702db6f844ed5fc99ac772b23fea8d988",
+      "1a567ff7f594d6f506a8fef2007808ddf8929dff49af0aceb6f1939629d928f8",
+      "7a9385e28dd5dda8712ab7e6dbff5876e18a7ba8087932edf8d13b6e35ffb28a",
+      "d06d41acfbf54c9c9c466b31718e1f930e8ec82a68a3a72f5642d311796fee75",
+      "3704e02044f487ecc4610b478e6548e7476c52a70fabc5d7ab055aca9ee69e61",
+      "4afe6624205edbb079eee2cbfb319cdbfef0fbf692a1497ce64a8228dbcac17c",
+      "8ca451cbeb5dfe9b8e8c28bc1816e02e5d5277289a6fc007a1ced545d525501f",
+      "52a8a5c901cf80e4d929172169f8e715074ff73ff51c259e39f77956cda2a6bc",
+      "bd13861ca6db79dddf7468697e1a9610430812101ac0876665d5719399c44e38",
+      "335b284576d25c3eef54975b4790c8f054a8e1b9546e9744b38daa115e54d442",
+      "31a738a79da64ccc28432f4bcd4be6b898dbc0a14ddd457982268c244c72c844",
+      "68f51c3f858e88aa43a4e47d7d9d837f956c180923356db6b7ba728b51a94d34",
+      "e6914990b1fe398988989f420401f9f9dc02d4d0d447c5421af3ea90489008f6",
+      "5cde874f45df75a1ca22ba156ae21edb9e5d3387d94a1bcee178e76a131f6fa3",
+      "eec0b37c6a04d2852d48c5d7eaa7fd96fa1a4385db1904977b0dc30d385c58b2",
+      "0ed55f2f82f5780bf8679b157fdce491bbc645505a335515867de9e17aa8ff23",
+      "deb3694dc721071787c1c33de9b83a7a2d577eef51542a65eebde167e950125a",
+      "ce37c129121016f6f1d6e0888a5f3820074d053155a3597f799f235f7a924fde",
+      "60cb9932ed0cb1ea30ed999194c9e8522c5fdeffe2816f75fab07eb2098ee94e",
+      "2bfc96eb666272a845a1d8f030f0210ee3cd804140f53f740d535f24d807b2ba",
+      "57b3c0f01b01cebeca598e4427b8517c8e76d25f91279bbb37a6c7cf7a7b025f",
+      "36d5d60400c4df6affb1057bfeeedb01d8f2850323d6d74f6ce624a272684f5b",
+      "772fdfe9bdc8a9144dbc06fc9a4546dc63d3f086c4556f14d7a3a5a8d6071a20",
+      "082f5c8ad081e6861d8b484e106e91f39fe73667b97e65195e39bf3b70c45339",
+      "8af1fe3d3374df34dd57b12217d9056a7fabdb08f61180177aca8eecaac74637",
+      "15d4d91b4cb5264c05347323b58e96dc9cfb34810b8038ef3047fbab904fddab",
+      "7466f0888dee1594baf3713f8cb29081252b0bf275d8252cb566f1283d0b966e",
+      "f3a12a4b12f5756e64585bf75569a7b3bfa8fbed157f73d9a4d43900f8a4f7c8",
+      "a39f27a923823a99491241f4c5548a63c57ac6db1022d2544454cd3c5d8af7e8",
+      "fdf3478d5fe9e6e9b53f003ab912dd4096210c58f6934b396f6d5f44c1045e64",
+      "695bf24db7aeaaeadf7bbb5aabf3bd7cb921eb398ac3964ec8c86d628500a9dc",
+      "87a348a95fdbdbdfefbc407a4000337871aa98c0d0d46bcc4410582f364d816a",
+      "00bad6622ab2e5c7c7d4e9a416fed009a3e64bb4adcbe3d741e6d274535ad652",
+      "297f2f8328c4dda16edae5bf90d2ef0ec1a6d339c67b341da3577f67fd1dce98",
+      "1eb23fa0cb9ca022e709807fcc7110231ef7a1cbda05b3aa075342184f10fa72",
+      "61c964fbdc46f6367e0eda397b4139d0a7eae0d6980e6f48af4f5fc58cc65e56",
+      "a0da70c5601ae17ee3a20cacb09113fcd38c997ae688e09d17def9017f9541dc",
+      "aadaa65e4786432a470734069af82bee0cef62a645ca2e4752cd518ed7f97c3f",
+      "55dea6f3e63947f8dcfd82a469a664c22d163eda2b9456287751c766b46c5ffb",
+      "e882fb057175a181f1d45ff0f1d37a0927fbf84be4987ad2dc58a8ad15a287bf"
+    ],
+    "template_sequence": [
+      8,
+      8,
+      11,
+      15,
+      15,
+      8,
+      12,
+      11,
+      8,
+      12,
+      8,
+      12,
+      11,
+      8,
+      8,
+      9,
+      10,
+      8,
+      12,
+      11,
+      11,
+      10,
+      8,
+      8,
+      8,
+      12,
+      8,
+      12,
+      8,
+      10,
+      11,
+      8,
+      8,
+      9,
+      11,
+      11,
+      15,
+      8,
+      9,
+      12,
+      11,
+      11,
+      12,
+      15,
+      8,
+      8,
+      8,
+      8,
+      11,
+      10
+    ],
+    "total_suspicion": 26.0,
+    "mitre_techniques": [
+      "T1071"
+    ],
+    "mitre_tactic": "Command and Control",
+    "cve_ids": [],
+    "max_cvss": 0.0,
+    "entity_cumulative_score": 64.23,
+    "entity_attack_history": [
+      "anomaly_unknown"
+    ],
+    "risk_score": 2.24,
+    "risk_label": "LOW",
+    "adjusted_severity": "P2",
+    "isolation_actions": [
+      {
+        "action_id": "99cce119-9dac-459b-8137-d2d074e15626",
+        "timestamp": "2026-05-02T17:52:33.578725Z",
+        "alert_id": "3bc4c3cb-f6ca-43b8-9c24-d1c2496a904e",
+        "entity_id": "haystack-test",
+        "action_type": "alert_soc",
+        "severity": "P2",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 2.24,
+        "details": "alert_soc on haystack-test — severity=P2 risk=2.24 (LOW)",
+        "error": ""
+      },
+      {
+        "action_id": "2efc9e9b-64fe-4f21-813f-e96b3a7828da",
+        "timestamp": "2026-05-02T17:52:33.579941Z",
+        "alert_id": "3bc4c3cb-f6ca-43b8-9c24-d1c2496a904e",
+        "entity_id": "haystack-test",
+        "action_type": "network_quarantine",
+        "severity": "P2",
+        "status": "dry_run",
+        "dry_run": true,
+        "risk_score": 2.24,
+        "details": "network_quarantine on haystack-test — severity=P2 risk=2.24 (LOW)",
+        "error": ""
+      }
+    ],
+    "affected_assets": []
+  },
+  "analysis": {
+    "analysis_id": "19f2935f-6c3c-41ef-befa-b4a726648ace",
+    "timestamp": "2026-05-02T17:52:33.593160+00:00",
+    "entity_id": "haystack-test",
+    "attack_classification": "Unclassified Behavioral Anomaly",
+    "kill_chain_phase": "Unknown — requires manual analysis",
+    "attack_vector": "Behavioral deviation detected by UEBA / ML models",
+    "root_cause_hypothesis": "Behavioral anomaly on haystack-test. UEBA suspicion score: 26.0. Manual investigation required.",
+    "data_at_risk": "Unknown — manual triage required",
+    "lateral_risk_level": "MEDIUM — assume hostile until proven benign",
+    "impact": {
+      "confidentiality": 3,
+      "integrity": 2,
+      "availability": 1,
+      "overall": 2.0,
+      "description": "CIA scores: C=3 I=2 A=1"
+    },
+    "investigation_steps": [
+      "Review the raw log sequence for patterns",
+      "Compare entity behavior to historical baseline",
+      "Check if the anomaly correlates with known maintenance windows",
+      "Escalate to Tier 2 analyst for manual review"
+    ],
+    "dwell_time_description": "Single attack event. Estimated dwell time: minutes to hours.",
+    "ioc_summary": "Primary IP: haystack-test | Event hashes: 50 collected | MITRE: T1071",
+    "evidence_package_id": "4d575e50-d267-4af8-80e1-66059e74c016",
+    "recommendations": [
+      "Immediate: Verify containment of haystack-test",
+      "Forensic: Preserve disk image and memory dump of haystack-test",
+      "Threat Intel: Share IoCs for haystack-test with CERT-DZ and industry ISACs"
+    ]
+  },
+  "playbook": {
+    "playbook_id": "569fbeb9-f137-4f16-8d1e-19e54d3b9727",
+    "generated_at": "2026-05-02T17:52:33.593453+00:00",
+    "incident_id": "4d575e50-d267-4af8-80e1-66059e74c016",
+    "entity_id": "haystack-test",
+    "severity": "P2",
+    "attack_type": "Unclassified Behavioral Anomaly",
+    "total_steps": 17,
+    "estimated_total_minutes": 485,
+    "steps": [
+      {
+        "step_id": "737f1f60-fdfd-4ab7-9641-2a3ba548110e",
+        "order": 1,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Full network quarantine of haystack-test",
+        "description": "Standard asset (unknown). Full network isolation is safe. Risk score: 2.24 (LOW).",
+        "technical_commands": [
+          "iptables -A INPUT -s haystack-test -j DROP",
+          "iptables -A OUTPUT -d haystack-test -j DROP",
+          "ping -c 1 haystack-test  # should fail if quarantined"
+        ],
+        "expected_output": "All traffic to/from host blocked",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 5
+      },
+      {
+        "step_id": "ad168fd7-9b35-4e71-a599-f5cb289c6b62",
+        "order": 2,
+        "category": "containment",
+        "priority": "critical",
+        "title": "Disable compromised accounts",
+        "description": "Lock all user accounts that were active on haystack-test during the incident window.",
+        "technical_commands": [
+          "# List active sessions: who | last",
+          "# Lock accounts: passwd -l <username>",
+          "# AD: Disable-ADAccount -Identity <user>"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "d10e59e1-ea74-4aaa-98b3-a945c6a0dd70",
+        "order": 3,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Capture volatile evidence (memory + processes)",
+        "description": "Capture RAM dump and running processes on haystack-test BEFORE any remediation. This evidence is volatile.",
+        "technical_commands": [
+          "# Memory dump: ssh haystack-test 'sudo dd if=/dev/mem of=/tmp/memdump.raw'",
+          "# Processes: ssh haystack-test 'ps auxww > /tmp/processes.txt'",
+          "# Network: ssh haystack-test 'netstat -tulpn > /tmp/netstat.txt'",
+          "# Open files: ssh haystack-test 'lsof -i > /tmp/lsof.txt'"
+        ],
+        "expected_output": "4 evidence files collected and preserved",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "7c1fcaf3-9954-43db-9bdb-ef39807f3b3a",
+        "order": 4,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Preserve disk image",
+        "description": "Create a forensic disk image for offline analysis.",
+        "technical_commands": [
+          "# dd if=/dev/sda of=/forensics/haystack-test_disk.img bs=4M",
+          "# sha256sum /forensics/haystack-test_disk.img > checksum.txt"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Forensic Analyst",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "0a28e968-4bb2-49ee-8fd6-06fee39ad464",
+        "order": 5,
+        "category": "forensics",
+        "priority": "medium",
+        "title": "Collect AEGIS evidence hashes",
+        "description": "Verify 50 event hashes from AEGIS. MITRE techniques: T1071. Template sequence: [8, 8, 11, 15, 15, 8, 12, 11, 8, 12]...",
+        "technical_commands": [
+          "# AEGIS Evidence Package ID: 4d575e50-d267-4af8-80e1-66059e74c016",
+          "# Total suspicion (UEBA): 26.0",
+          "# Entity cumulative score: 64.2"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "e1d0a337-a34a-438c-a58f-b386c439c9b7",
+        "order": 6,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Review the raw log sequence for patterns",
+        "description": "Review the raw log sequence for patterns",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "68cb463a-a3c8-4410-a27a-656f46d2d8df",
+        "order": 7,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Compare entity behavior to historical baseline",
+        "description": "Compare entity behavior to historical baseline",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "4d9f791c-6800-44ca-8c91-edcabee74fb4",
+        "order": 8,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Check if the anomaly correlates with known maintenance windo",
+        "description": "Check if the anomaly correlates with known maintenance windows",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "7381ff23-da5c-4cff-8a03-7d682dfa594c",
+        "order": 9,
+        "category": "forensics",
+        "priority": "high",
+        "title": "Investigation: Escalate to Tier 2 analyst for manual review",
+        "description": "Escalate to Tier 2 analyst for manual review",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L2",
+        "estimated_minutes": 20
+      },
+      {
+        "step_id": "3ae03103-fc21-4f41-be0a-6a8d335f567a",
+        "order": 10,
+        "category": "eradication",
+        "priority": "high",
+        "title": "Remove attacker persistence mechanisms",
+        "description": "Check for backdoors, cron jobs, SSH keys, and rootkits installed by the attacker.",
+        "technical_commands": [
+          "ssh haystack-test 'crontab -l'",
+          "ssh haystack-test 'find / -name authorized_keys -exec cat {} \\;'",
+          "ssh haystack-test 'find / -perm -4000 -type f 2>/dev/null'",
+          "rkhunter --check --skip-keypress"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Security Engineer",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "891cf3d6-8906-4c02-bad2-65e731cfbda4",
+        "order": 11,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Restore from clean backup",
+        "description": "If haystack-test was fully compromised, restore from last known-good backup.",
+        "technical_commands": [
+          "# Verify backup integrity before restore",
+          "# rsync -av /backups/haystack-test/ /"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Sysadmin",
+        "estimated_minutes": 60
+      },
+      {
+        "step_id": "4e861c70-edcb-4ec4-b2a4-840c77abff88",
+        "order": 12,
+        "category": "recovery",
+        "priority": "medium",
+        "title": "Rotate all credentials",
+        "description": "Reset passwords, API keys, SSH keys, and DB credentials.",
+        "technical_commands": [
+          "passwd <affected_users>",
+          "ssh-keygen -t ed25519  # regenerate SSH keys",
+          "ALTER USER 'app'@'%' IDENTIFIED BY '<new_password>';"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "IAM Team",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "c666677d-4a17-43bd-83de-924c9bc31a0f",
+        "order": 13,
+        "category": "communication",
+        "priority": "high",
+        "title": "Notify SOC Manager and CISO",
+        "description": "Escalate incident to management. Severity: P2. Risk: 2.24 (LOW).",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Lead",
+        "estimated_minutes": 10
+      },
+      {
+        "step_id": "262bf400-44d1-4b5a-8fea-d4b4f88b9565",
+        "order": 14,
+        "category": "legal",
+        "priority": "critical",
+        "title": "Notify CERT-DZ within 24 hours",
+        "description": "Legal obligation: Décret 20-05 requires notification to CERT.dz within 24h of incident discovery.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "Legal / Compliance",
+        "estimated_minutes": 30
+      },
+      {
+        "step_id": "6d68d530-dec8-4e23-b9e1-25718c9a88a2",
+        "order": 15,
+        "category": "legal",
+        "priority": "high",
+        "title": "Notify ANPDP within 72 hours (if PII affected)",
+        "description": "Loi 18-07: If personal data was compromised, ANPDP must be notified within 72 hours.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "DPO",
+        "estimated_minutes": 45
+      },
+      {
+        "step_id": "6ae1651c-2698-432f-bfd0-6519b6976888",
+        "order": 16,
+        "category": "monitoring",
+        "priority": "medium",
+        "title": "Enable enhanced monitoring (30 days)",
+        "description": "Set elevated monitoring rules for haystack-test and all 0 affected assets for a minimum of 30 days post-incident.",
+        "technical_commands": [
+          "# SIEM: Add watchlist for haystack-test",
+          "# IDS: Lower alert thresholds for affected subnet"
+        ],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC L1",
+        "estimated_minutes": 15
+      },
+      {
+        "step_id": "73bfdc6d-1f34-4dec-9728-fa9bab9b3e3e",
+        "order": 17,
+        "category": "monitoring",
+        "priority": "low",
+        "title": "Schedule post-incident review",
+        "description": "Lessons learned meeting within 5 business days.",
+        "technical_commands": [],
+        "expected_output": "",
+        "completed": false,
+        "assignee": "SOC Manager",
+        "estimated_minutes": 60
+      }
+    ]
+  },
+  "cert_dz_notification": {
+    "notification_id": "6db981da-b2c0-47c8-890b-5c2c6cd88853",
+    "generated_at": "2026-05-02T17:52:33.593553+00:00",
+    "deadline": "2026-05-03T17:52:33.593518+00:00",
+    "hours_remaining": 24.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "contact_email": "[EMAIL]",
+    "contact_phone": "[TELEPHONE]",
+    "incident_id": "4d575e50-d267-4af8-80e1-66059e74c016",
+    "incident_timestamp": "2026-05-02T17:52:33.484424+00:00",
+    "severity_level": "P2",
+    "nature_of_breach": "Unclassified Behavioral Anomaly — Unknown — requires manual analysis",
+    "attack_type": "Unclassified Behavioral Anomaly",
+    "source_ip": "haystack-test",
+    "affected_systems": [
+      "haystack-test"
+    ],
+    "mitre_techniques": [
+      "T1071"
+    ],
+    "containment_measures": [
+      "alert_soc — dry_run",
+      "network_quarantine — dry_run"
+    ],
+    "impact_assessment": "CIA scores: C=3 I=2 A=1",
+    "evidence_preservation": "AEGIS Evidence Package 4d575e50 — 50 event hashes preserved, blockchain immutability pending (Phase 5)",
+    "regulatory_reference": "Décret exécutif 20-05 relatif au dispositif national de sécurité des systèmes d'information",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "Direction Générale",
+      "Direction Juridique",
+      "RSSI/CISO",
+      "DPO"
+    ],
+    "legal_liability_risk": "Risque MODÉRÉ: Le défaut de notification au CERT-DZ dans les délais impartis expose l'entité à une amende allant de 1 000 000 DA à 5 000 000 DA."
+  },
+  "anpdp_notification": {
+    "notification_id": "aa1d1303-e940-4336-9cd8-49fb59675747",
+    "generated_at": "2026-05-02T17:52:33.593666+00:00",
+    "deadline": "2026-05-05T17:52:33.593622+00:00",
+    "hours_remaining": 72.0,
+    "organization_name": "[ORGANISATION]",
+    "contact_person": "[NOM DU RESPONSABLE]",
+    "dpo_contact": "[DPO - NOM ET CONTACT]",
+    "incident_id": "4d575e50-d267-4af8-80e1-66059e74c016",
+    "incident_timestamp": "2026-05-02T17:52:33.484424+00:00",
+    "nature_of_breach": "Unclassified Behavioral Anomaly avec impact potentiel sur les données personnelles",
+    "affected_data_categories": [
+      "Catégories à déterminer après investigation"
+    ],
+    "estimated_persons_affected": 50,
+    "data_processing_purpose": "[BUT DU TRAITEMENT]",
+    "likely_consequences": "Risque faible: impact limité sur les données personnelles. Investigation en cours pour confirmer l'étendue.",
+    "containment_measures": [
+      "alert_soc — dry_run",
+      "network_quarantine — dry_run"
+    ],
+    "notification_to_subjects": false,
+    "regulatory_reference": "Loi 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel",
+    "fines_for_non_compliance": "Amende de 20 000 DA à 200 000 DA et emprisonnement de 2 mois à 2 ans (Art. 47-54). Interdiction d'exercer possible en cas de négligence grave.",
+    "data_loss_risk_assessment": "Unknown — manual triage required",
+    "penalties_for_attacker": "Emprisonnement de 3 mois à 1 an et amende de 50 000 DA à 100 000 DA (Loi 09-04) pour accès frauduleux à un système de traitement automatisé.",
+    "internal_services_to_notify": [
+      "DPO",
+      "Direction Juridique",
+      "Service Communication"
+    ]
+  },
+  "applicable_regulations": [
+    {
+      "reg_id": "DZ-CERT",
+      "name": "Décret exécutif 20-05 — Notification au CERT.dz",
+      "deadline_hours": 24,
+      "urgency": "IMMEDIATE",
+      "penalty": "Amende de 1 000 000 DA à 5 000 000 DA pour défaut de notification. Responsabilité pénale du dirigean"
+    },
+    {
+      "reg_id": "DZ-ANPDP",
+      "name": "Loi 18-07 — Protection des données personnelles (ANPDP)",
+      "deadline_hours": 72,
+      "urgency": "STANDARD",
+      "penalty": "Emprisonnement de 2 mois à 2 ans et amende de 20 000 DA à 200 000 DA (Loi 18-07, Art. 47-54). Interd"
+    }
+  ],
+  "executive_summary": "On 2026-05-02T17:52:33.484424+00:00, AEGIS detected a Unclassified Behavioral Anomaly incident targeting haystack-test. The attack was classified as P2 with a risk score of 2.24/10 (LOW). 2 containment actions were executed. 0 additional assets were identified as affected. MITRE ATT&CK techniques: T1071. Regulatory notifications (CERT-DZ T+24h, ANPDP T+72h) have been generated and require immediate submission.",
+  "technical_summary": "INCIDENT TECHNICAL SUMMARY — 4d575e50\nEntity: haystack-test\nClassification: Unclassified Behavioral Anomaly\nKill Chain: Unknown — requires manual analysis\nRisk Score: 2.24 (LOW)\n\n── ASSET CONTEXT ──\nAsset Type: unknown\nAsset Role: unknown\nBusiness Impact: unknown\nData Classification: unknown\n\n── 5D RISK DECOMPOSITION ──\nD1 Vulnerability (CVSS+EPSS+KEV): 0.06\nD2 Asset Criticality:             1.25\nD3 Propagation Risk:              0.00\nD4 Entity History:                0.48\nD5 Data Sensitivity:              0.45\nEPSS Score: 0.05\nCISA KEV: No\nSources: []\n\n── ENRICHMENT ──\nCVSS Max: 0.0\nMITRE: T1071\nCVEs: \nEntity History: score=64.2 attacks=['anomaly_unknown']\nUEBA Suspicion: 26.0\nTemplate Sequence: [8, 8, 11, 15, 15, 8, 12, 11, 8, 12, 8, 12, 11, 8, 8, 9, 10, 8, 12, 11, 11, 10, 8, 8, 8, 12, 8, 12, 8, 10, 11, 8, 8, 9, 11, 11, 15, 8, 9, 12, 11, 11, 12, 15, 8, 8, 8, 8, 11, 10]\nAffected Assets: []\n\n── ANALYSIS ──\nRoot Cause: Behavioral anomaly on haystack-test. UEBA suspicion score: 26.0. Manual investigation required.\nImpact: C=3 I=2 A=1\nPlaybook: 17 steps, ~485 minutes"
+}

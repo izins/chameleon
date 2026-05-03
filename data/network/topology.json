@@ -1,0 +1,146 @@
+{
+  "scan_id": "5f178ea3",
+  "scanned_at": "2026-05-03T07:09:18.430745+00:00",
+  "local_ip": "10.5.2.62",
+  "gateway_ip": "",
+  "total_devices": 5,
+  "devices": [
+    {
+      "ip": "10.5.2.62",
+      "mac": "",
+      "hostname": "mina",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "analyst_workstation",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": true,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "",
+      "connections": [],
+      "last_seen": "2026-05-03T07:09:03.333894+00:00"
+    },
+    {
+      "ip": "10.5.1.205",
+      "mac": "18:47:3d:17:27:fb",
+      "hostname": "DESKTOP-61T2J01",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": false,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "10.5.1.0/24",
+      "connections": [],
+      "last_seen": "2026-05-03T07:09:03.333921+00:00"
+    },
+    {
+      "ip": "10.5.2.101",
+      "mac": "20:c1:9b:85:f4:21",
+      "hostname": "",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": false,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "10.5.2.0/24",
+      "connections": [],
+      "last_seen": "2026-05-03T07:09:04.869866+00:00"
+    },
+    {
+      "ip": "10.5.2.153",
+      "mac": "38:7a:0e:2b:c9:79",
+      "hostname": "",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": false,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "10.5.2.0/24",
+      "connections": [],
+      "last_seen": "2026-05-03T07:09:09.385254+00:00"
+    },
+    {
+      "ip": "10.5.3.254",
+      "mac": "00:57:d2:29:55:47",
+      "hostname": "",
+      "vendor": "",
+      "device_type": "workstation",
+      "device_role": "",
+      "criticality": 5,
+      "business_impact": "medium",
+      "is_gateway": false,
+      "is_local": false,
+      "is_isolated": false,
+      "isolation_reason": "",
+      "isolated_at": null,
+      "open_ports": [],
+      "subnet": "10.5.3.0/24",
+      "connections": [],
+      "last_seen": "2026-05-03T07:09:13.915559+00:00"
+    }
+  ],
+  "edges": [
+    {
+      "source": "10.5.2.62",
+      "target": "10.5.1.205"
+    },
+    {
+      "source": "10.5.2.62",
+      "target": "10.5.2.101"
+    },
+    {
+      "source": "10.5.2.62",
+      "target": "10.5.2.153"
+    },
+    {
+      "source": "10.5.2.62",
+      "target": "10.5.3.254"
+    }
+  ],
+  "isolated_devices": [],
+  "active_incidents": [
+    {
+      "incident_id": "2ec8838d",
+      "entity_id": "203.0.113.66",
+      "severity": "P3",
+      "attack_type": "ssh_bruteforce",
+      "status": "closed"
+    },
+    {
+      "incident_id": "331eb1a6",
+      "entity_id": "10.0.0.40",
+      "severity": "P1",
+      "attack_type": "privilege_escalation",
+      "status": "closed"
+    },
+    {
+      "incident_id": "7a071250",
+      "entity_id": "haystack-test",
+      "severity": "P2",
+      "attack_type": "anomaly_unknown",
+      "status": "closed"
+    }
+  ]
+}
