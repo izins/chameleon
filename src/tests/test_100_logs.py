@@ -156,8 +156,8 @@ def main():
         enriched = enrichment_engine.enrich(alert)
         
         iso_tracker.complete_phase(iso_id, ISOPhase.DETECTION, {
-            "attack_type": enriched.attack_type,
-            "confidence": enriched.confidence
+            "attack_type": alert.attack_type,
+            "confidence": alert.confidence
         }, requirements_met=["Correlate events to identify potential incidents"])
 
         # ISO Phase 2: Assessment
